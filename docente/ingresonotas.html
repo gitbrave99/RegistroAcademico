@@ -49,10 +49,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-                <i class="material-icons">logout</i>
-                <p>Cerrar sesión</p>
+              <i class="material-icons">logout</i>
+              <p>Cerrar sesión</p>
             </a>
-        </li>
+          </li>
         </ul>
       </div>
     </div>
@@ -94,8 +94,18 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Grados reponsables</h4>
-                  <p class="card-category"></p>
+                  <div class="form-check form-check-inline">
+                    <h4 class="card-title ">Grados reponsables</h4>
+                    &nbsp;&nbsp;
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link" href="notas.html" data-toggle="tab" id="printBoletNotas">
+                          <i class="material-icons">print</i> Imprimir
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -138,7 +148,8 @@
                             Juan Enriquez
                           </td>
                           <td>
-                            <button class="btn btn-info btn-sm"><i class="material-icons">remove_red_eye</i></button>
+                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                class="material-icons">remove_red_eye</i></a>
                           </td>
                         </tr>
                         <tr>
@@ -158,7 +169,8 @@
                             Benjamín Esi
                           </td>
                           <td>
-                            <button class="btn btn-info btn-sm"><i class="material-icons">remove_red_eye</i></button>
+                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                class="material-icons">remove_red_eye</i></a>
                           </td>
                         </tr>
                       </tbody>
@@ -167,9 +179,22 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" id="materiasNotasEstu">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
+                  <div class="form-check form-check-inline">
+                    <h4 class="card-title ">General A</h4>
+                    &nbsp;&nbsp;
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link" href="notas.html" data-toggle="modal" data-target="#mdPrintNotasMatInAll"
+                          id="printBoletNotas">
+                          <i class="material-icons">print</i> Imprimir
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                   <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
                       <span class="nav-tabs-title">Materias:</span>
@@ -331,7 +356,7 @@
           <form action="">
             <div class="form-group">
               <style>
-                #exampleFormControlSelect1{
+                #exampleFormControlSelect1 {
                   background-color: #1a2035;
                 }
               </style>
@@ -350,16 +375,96 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- modal imprimir notas individual o todas -->
+  <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content dark-edition">
+        <div class="modal-header">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de notas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="text-white">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body ">
+          <form action="">
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Sociales
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">Lenguaje
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Matemáticas                  
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Ciencias                  
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Inglés                  
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Todas                  
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="inNotaMateriaPeriod" class="bmd-label-floating">Nota</label>
+              <input type="number" class="form-control" id="inNotaMateriaPeriod">
+            </div> -->
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="material-icons">print</i> Imprimir</button>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+        
+        </div> -->
+      </div>
+    </div>
+  </div>
 
 
-
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
