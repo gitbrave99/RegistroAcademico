@@ -98,7 +98,7 @@
                                     <p class="card-category">
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="notas.html" data-toggle="tab"
+                                            <a class="nav-link" href="javascript:void(0)" data-toggle="tab"
                                                 id="printBoletNotas">
                                                 <i class="material-icons">print</i> Imprimir
                                                 <div class="ripple-container"></div>
@@ -109,12 +109,12 @@
                                 </div>
                                 <script>
                                     document.getElementById("printBoletNotas").addEventListener("click", () => {
-                                        alert("Imprimiendo");
+                                        printNotas();   
                                     });
                                 </script>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="notasAlumnno">
                                             <thead class=" text-primary">
                                                 <th>
                                                     #
@@ -207,13 +207,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+       function printNotas() {
+        var pegardata= document.getElementById('notasAlumnno').innerHTML;
+        let janela= window.open('','','width=800, height=600');
+        janela.document.write('<htm><head>');
+            janela.document.write('<title>PDF </title></head>');
+            janela.document.write('<body>');
+                janela.document.write(pegardata);
+                janela.document.write('</body></html>');
+                janela.document.close();
+                janela.print();
+       }
+
+    </script>
     
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
     <script src="https://unpkg.com/default-passive-events"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../as)sets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Chartist JS -->
