@@ -18,13 +18,36 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-      #tblistGrados tbody tr {
-          background-color: transparent;
-      }
-      #tblistGrados tbody tr:hover {
-        color: #212529;
-    background-color: rgba(0,0,0,.075)
-      }
+    #tblistGrados tbody tr {
+      background-color: transparent;
+    }
+
+    #tblistGrados tbody tr:hover {
+      color: #212529;
+      background-color: rgba(0, 0, 0, .075)
+    }
+    #tblistGrados_info {
+      color: thistle;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+      color: thistle;
+    }
+
+    /* eestilo tabla studenst */
+
+    #tblistStudents tbody tr {
+      background-color: transparent;
+    }
+
+    #tblistStudents tbody tr:hover {
+      color: #212529;
+      background-color: rgba(0, 0, 0, .075)
+    }
+    #tblistStudents_info {
+      color: thistle;
+    }
+
   </style>
 </head>
 
@@ -68,7 +91,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Calificaciones</a>
+            <a class="navbar-brand" href="javascript:void(0)">Gestión de grados</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
@@ -116,13 +139,13 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-hover table-bordered" id="tblistGrados">
+                    <table class="table table-hover" id="tblistGrados">
                       <thead class=" text-primary">
                         <th>
                           #
                         </th>
                         <th>
-                          Nombre
+                          Grado
                         </th>
                         <th>
                           Sección
@@ -134,7 +157,7 @@
                           Encargado
                         </th>
                         <th>
-                          Acción
+                          
                         </th>
                       </thead>
                       <tbody>
@@ -186,167 +209,92 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12" id="materiasNotasEstu">
+
+            <div class="col-md-12">
               <div class="card">
-                <div class="card-header card-header-tabs card-header-primary">
-                  <div class="form-check form-check-inline">
-                    <h4 class="card-title ">General A</h4>
+                <div class="card-header card-header-primary">
+                  <div class="form-check form-check-inline" id="materiasNotasEstu">
+                    <h4 class="card-title">Estudiantes</h4>
                     &nbsp;&nbsp;
                     <ul class="nav nav-tabs" data-tabs="tabs">
                       <li class="nav-item">
-                        <a class="nav-link" href="notas.html" data-toggle="modal" data-target="#mdPrintNotasMatInAll"
-                          id="printBoletNotas">
+                        <a class="nav-link" href="notas.html" data-toggle="tab" id="printBoletNotas">
                           <i class="material-icons">print</i> Imprimir
                           <div class="ripple-container"></div>
                         </a>
                       </li>
                     </ul>
                   </div>
-                  <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Materias:</span>
-                      <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#msociales" data-toggle="tab">
-                            Sociales
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#mlenguaje" data-toggle="tab">
-                            Lenguaje
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#mmatematic" data-toggle="tab">
-                            Matemáticas
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#mciencias" data-toggle="tab">
-                            Ciencias
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#mingles" data-toggle="tab">
-                            Inglés
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
                 <div class="card-body">
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="msociales">
-                      <div class="table-responsive">
-                        <table class="table table-hover">
-                          <thead class="">
-                            <th>
-                              #
-                            </th>
-                            <th>
-                              Nombre
-                            </th>
-                            <th>
-                              1° Periodo
-                            </th>
-                            <th>
-                              2° Periodo
-                            </th>
-                            <th>
-                              3° Periodo
-                            </th>
-                            <th>
-                              Nota Final
-                            </th>
-                            <th>
-                              Acción
-                            </th>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                Doris Greene
-                              </td>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td class="text-primary">
-                                6
-                              </td>
-                              <td>
-                                <button class="btn btn-info green accent-4" data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <i class="material-icons" data-toggle="tooltip" data-placement="left"
-                                    title="Enviar notas">library_add</i>
-                                </button>
-                                <button type="button" class="btn btn-success" data-toggle="tooltip"
-                                  data-placement="left" title="Enviar notas">
-                                  <i class="material-icons">send</i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                Doris Greene
-                              </td>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td class="text-primary">
-                                6
-                              </td>
-                              <td>
-                                <button class="btn btn-info green accent-4" data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <i class="material-icons" data-toggle="tooltip" data-placement="left"
-                                    title="Enviar notas">library_add</i>
-                                </button>
-                                <button type="button" class="btn btn-success" data-toggle="tooltip"
-                                  data-placement="left" title="Enviar notas">
-                                  <i class="material-icons">send</i>
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="tab-pane" id="mlenguaje">
-                      <h2>Lenguaje</h2>
-                    </div>
-                    <div class="tab-pane" id="mmatematic">
-                      <h2>matemáticas</h2>
-                    </div>
-                    <div class="tab-pane" id="mciencias">
-                      <h2>Ciencias</h2>
-                    </div>
-                    <div class="tab-pane" id="mingles">
-                      <h2>Inglés</h2>
-                    </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="tblistStudents">
+                      <thead class=" text-primary">
+                        <th>
+                          #
+                        </th>
+                        <th>
+                          Nombre
+                        </th>
+                        <th>
+                          Edad
+                        </th>
+                        <th>
+                          Encargado
+                        </th>
+                        <th>
+                          Teléfono
+                        </th>
+                        <th>
+                          Acción
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Jhon Rambo
+                          </td>
+                          <td>
+                            12
+                          </td>
+                          <td>
+                           Justin B
+                          </td>
+                          <td>
+                          1245-7845
+                          </td>
+                          <td>
+                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                class="material-icons">remove_red_eye</i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                          Arnold Swag
+                          </td>
+                          <td>
+                            12
+                          </td>
+                          <td>
+                             Cardi G
+                          </td>
+                          <td>
+                            4578-9865
+                          </td>
+                          <td>
+                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                class="material-icons">remove_red_eye</i>
+                              </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -478,9 +426,6 @@
     </div>
   </div>
 
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -665,17 +610,36 @@
 
   </script>
 
-<!-- filtrado de tablas  -->
+  <!-- filtrado de tablas  -->
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
   <script>
-      $(document).ready( function () {
-    $('#tblistGrados').DataTable({
-        select: true
+    $(document).ready(function () {
+      $('#tblistGrados').DataTable({
+        "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por página",
+          "zeroRecords": "No se encontraron registros",
+          "info": "Página _PAGE_ of _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+      });
+
+      // table list studes 
+      $('#tblistStudents').DataTable({
+        "language": {
+          "lengthMenu": "Mostrar _MENU_ registros por página",
+          "zeroRecords": "No se encontraron registros",
+          "info": "Página _PAGE_ of _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+      });
+
     });
-} );
   </script>
 </body>
 
