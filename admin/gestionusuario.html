@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Inscripción
+        Gestión de usuarios
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -96,148 +96,470 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12" id="materiasNotasEstu">
                             <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Inscripción de Estudiante</h4>
-                                    <p class="card-category">Complete your profile</p>
+                                <div class="card-header card-header-tabs card-header-primary">
+                                    <div class="form-check form-check-inline">
+                                        <h4 class="card-title ">Usuarios</h4>
+                                        &nbsp;&nbsp;
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="notas.html" data-toggle="modal"
+                                                    data-target="#mdPrintNotasMatInAll" id="printBoletNotas">
+                                                    <i class="material-icons">print</i> Imprimir
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-tabs-navigation">
+                                        <div class="nav-tabs-wrapper">
+                                            <span class="nav-tabs-title">Tipo:</span>
+                                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="#mAdminreg" data-toggle="tab">
+                                                        Administrador
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#mdDocentReg" data-toggle="tab">
+                                                        Docente
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#mdEstudentReg" data-toggle="tab">
+                                                        Estudiante
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
-                                    <form id="frmPerfilDocente">
-                                        <!-- <div class="row"> -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="mAdminreg">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form id="frmPerfilDocente">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Nombre</label>
+                                                                    <input type="text" class="form-control"
+                                                                        value="administrador">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Apellidos</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">E-mail</label>
+                                                                    <input type="email" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Fecha de
+                                                                        nacimiento</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="bmd-label-floating">Nacionalidad</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <style>
+                                                                        #exampleFormControlSelect1 {
+                                                                            background-color: #1a2035;
+                                                                        }
+                                                                    </style>
+                                                                    <label class="bmd-label-floating">Sexo</label>
+                                                                    <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
+                                                                    <select class="form-control"
+                                                                        id="exampleFormControlSelect1">
+                                                                        <option selected disabled value="Elegir">Elegir
+                                                                        </option>
+                                                                        <option value="Femenino">Femenino</option>
+                                                                        <option value="Masculino">Masculino</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">DUI</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Teléfono</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Dirección</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Condición
+                                                                        Médica</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-primary pull-right">Registrar</button>
+                                                        <div class="clearfix"></div>
+                                                    </form>
+                                                </div>
+                                                <!-- col perfil para fonot  -->
+                                                <div class="col-md-4">
+                                                    <div class="card card-profile">
+                                                        <div class="card-avatar">
+                                                            <a href="#pablo">
+                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h6 class="card-category">Ingeniero en Sistemas</h6>
+                                                            <h4 class="card-title">Jhon Wick</h4>
+                                                            <p class="card-description">
+                                                                descipcion de Experiencia algo asi digo yo
+                                                            </p>
+                                                            <!-- <a href="#pablo" class="btn btn-primary btn-round">Subir</a> -->
+                                                            <div class="input-group has-validation">
 
-                                        <!-- <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div> -->
-                                        <!-- <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div> -->
-                                        <!-- </div> -->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Apellidos</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">E-mail</label>
-                                                    <input type="email" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Fecha de nacimiento</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Nacionalidad</label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="bmd-label-floating">Sexo</label>
-                                                <div class="form-group">
-                                                    <div class="form-check form-check-radio">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="exampleRadios" id="exampleRadios1" value="option1"
-                                                            checked>
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            Hombre
-                                                            <span class="circle">
-                                                                <span class="check"></span>
-                                                            </span>
-                                                        </label>
+                                                                <input type="file" class="btn btn-primary btn-round"
+                                                                    required>
+                                                                <div class="invalid-feedback">
+                                                                    Please choose a username.
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-check form-check-radio">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="exampleRadios" id="exampleRadios2" value="option2">
-                                                        <label class="form-check-label" for="exampleRadios2">
-                                                            Second default radio
-                                                        </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="mdDocentReg">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form id="frmPerfilDocente">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Nombre</label>
+                                                                    <input type="text" class="form-control"
+                                                                        value="docente">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Apellidos</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">E-mail</label>
+                                                                    <input type="email" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Fecha de
+                                                                        nacimiento</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="bmd-label-floating">Nacionalidad</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <style>
+                                                                        #exampleFormControlSelect1 {
+                                                                            background-color: #1a2035;
+                                                                        }
+                                                                    </style>
+                                                                    <label class="bmd-label-floating">Sexo</label>
+                                                                    <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
+                                                                    <select class="form-control"
+                                                                        id="exampleFormControlSelect1">
+                                                                        <option selected disabled value="Elegir">Elegir
+                                                                        </option>
+                                                                        <option value="Femenino">Femenino</option>
+                                                                        <option value="Masculino">Masculino</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">DUI</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Teléfono</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Dirección</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Condición
+                                                                        Médica</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Grados</label>
+                                                                    <style>
+                                                                        #selecGrados {
+                                                                            background-color: #1a2035;
+                                                                        }
+                                                                    </style>
+                                                                    <!-- <label class="bmd-label-floating">Sexo</label> -->
+                                                                    <!-- <label for="selecGrados">  </label> -->
+                                                                    <select class="form-control" id="selecGrados">
+                                                                        <option selected disabled value="Elegir">Elegir
+                                                                        </option>
+                                                                        <option value="Femenino">1° Grado</option>
+                                                                        <option value="Masculino">2° Grado</option>
+                                                                        <option value="Masculino">3° Grado</option>
+                                                                        <option value="Masculino">4° Grado</option>
+                                                                        <option value="Masculino">5° Grado</option>
+                                                                        <option value="Masculino">6° Grado</option>
+                                                                        <option value="Masculino">7° Grado</option>
+                                                                        <option value="Masculino">8° Grado</option>
+                                                                        <option value="Masculino">9° Grado</option>
+                                                                        <option value="Masculino">Bachillerato General
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-primary pull-right">Registrar</button>
+                                                        <div class="clearfix"></div>
+                                                    </form>
+                                                </div>
+                                                <!-- col perfil para fonot  -->
+                                                <div class="col-md-4">
+                                                    <div class="card card-profile">
+                                                        <div class="card-avatar">
+                                                            <a href="#pablo">
+                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h6 class="card-category">Bachillerato General</h6>
+                                                            <h4 class="card-title">Jhon Rambo</h4>
+                                                            <p class="card-description">
+                                                                descipcion de Experiencia algo asi digo yo
+                                                            </p>
+                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Dirección</label>
-                                                    <textarea class="form-control" rows="3"></textarea>
+                                        <div class="tab-pane" id="mdEstudentReg">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form id="frmPerfilDocente">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Nombre</label>
+                                                                    <input type="text" class="form-control"
+                                                                        value="estudiante">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Apellidos</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">E-mail</label>
+                                                                    <input type="email" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Fecha de
+                                                                        nacimiento</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="bmd-label-floating">Nacionalidad</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <style>
+                                                                        #exampleFormControlSelect1 {
+                                                                            background-color: #1a2035;
+                                                                        }
+                                                                    </style>
+                                                                    <label class="bmd-label-floating">Sexo</label>
+                                                                    <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
+                                                                    <select class="form-control"
+                                                                        id="exampleFormControlSelect1">
+                                                                        <option selected disabled value="Elegir">Elegir
+                                                                        </option>
+                                                                        <option value="Femenino">Femenino</option>
+                                                                        <option value="Masculino">Masculino</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        class="bmd-label-floating">Responsable</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Teléfono</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Dirección</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Condición
+                                                                        Médica</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Grados </label>
+                                                                    <style>
+                                                                        #selecGrados {
+                                                                            background-color: #1a2035;
+                                                                        }
+                                                                    </style>
+                                                                    <!-- <label class="bmd-label-floating">Sexo</label> -->
+                                                                    <!-- <label for="selecGrados">  </label> -->
+                                                                    <select class="form-control" id="selecGrados">
+                                                                        <option selected disabled value="Elegir">Elegir
+                                                                        </option>
+                                                                        <option value="Femenino">1° Grado</option>
+                                                                        <option value="Masculino">2° Grado</option>
+                                                                        <option value="Masculino">3° Grado</option>
+                                                                        <option value="Masculino">4° Grado</option>
+                                                                        <option value="Masculino">5° Grado</option>
+                                                                        <option value="Masculino">6° Grado</option>
+                                                                        <option value="Masculino">7° Grado</option>
+                                                                        <option value="Masculino">8° Grado</option>
+                                                                        <option value="Masculino">9° Grado</option>
+                                                                        <option value="Masculino">Bachillerato General
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="btn btn-primary pull-right">Registrar</button>
+                                                        <div class="clearfix"></div>
+                                                    </form>
+                                                </div>
+                                                <!-- col perfil para fonot  -->
+                                                <div class="col-md-4">
+                                                    <div class="card card-profile">
+                                                        <div class="card-avatar">
+                                                            <a href="#pablo">
+                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h6 class="card-category">Bachillerato General</h6>
+                                                            <h4 class="card-title">Jhon Rambo</h4>
+                                                            <p class="card-description">
+                                                                descipcion de Experiencia algo asi digo yo
+                                                            </p>
+                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Condición Médica</label>
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary pull-right">Inscribir
-                                            Alumno</button>
-                                        <div class="clearfix"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <script>
 
-                            document.getElementById("frmPerfilDocente").addEventListener("click", (e) => {
-                                e.preventDefault();
-
-                            })
-                            function showNotification(from, align) {
-
-                                $.notify({
-                                    icon: "add_alert",
-                                    message: "Perfil actualizado<b>Correctamente</b> - a beautiful freebie for every web developer."
-
-                                }, {
-                                    type: 'success',
-                                    timer: 3000,
-                                    placement: {
-                                        from: from,
-                                        align: align
-                                    }
-                                });
-                            }
-                        </script>
-
-                        <div class="col-md-4">
-                            <div class="card card-profile">
-                                <div class="card-avatar">
-                                    <a href="#pablo">
-                                        <img class="img" src="../assets/img/faces/marc.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-category">Bachillerato General</h6>
-                                    <h4 class="card-title">Jhon Rambo</h4>
-                                    <p class="card-description">
-                                        descipcion de Experiencia algo asi digo yo
-                                    </p>
-                                    <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -357,6 +679,82 @@
             </ul>
         </div>
     </div>
+
+
+
+
+
+    <!-- modal imprimir usuarios admin, docent, student individual o todas -->
+    <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content dark-edition">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de usuarios</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <form action="">
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                        value="option1">Administrador
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                        value="option2">Docentes
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                        value="option3">Estudiantes
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+          <label for="inNotaMateriaPeriod" class="bmd-label-floating">Nota</label>
+          <input type="number" class="form-control" id="inNotaMateriaPeriod">
+        </div> -->
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i
+                                    class="material-icons">print</i>
+                                Imprimir</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+    
+    </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
