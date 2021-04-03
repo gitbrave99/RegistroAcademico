@@ -23,7 +23,7 @@
 
 <body class="dark-edition">
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+        <div class="sidebar" id="sidbrColor" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
             <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
                     Creative Tim
                 </a></div>
@@ -95,14 +95,14 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-md-12" id="materiasNotasEstu">
                             <div class="card">
                                 <div class="card-header card-header-tabs card-header-primary">
                                     <div class="form-check form-check-inline">
                                         <h4 class="card-title ">Usuarios</h4>
                                         &nbsp;&nbsp;
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                        <!-- <ul class="nav nav-tabs" data-tabs="tabs">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="notas.html" data-toggle="modal"
                                                     data-target="#mdPrintNotasMatInAll" id="printBoletNotas">
@@ -110,7 +110,7 @@
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                     <div class="nav-tabs-navigation">
                                         <div class="nav-tabs-wrapper">
@@ -160,7 +160,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">E-mail</label>
                                                                     <input type="email" class="form-control">
@@ -168,21 +168,15 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Fecha de
                                                                         nacimiento</label>
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label
-                                                                        class="bmd-label-floating">Nacionalidad</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
+
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <style>
                                                                         #exampleFormControlSelect1 {
@@ -216,19 +210,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Dirección</label>
-                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                    <label class="bmd-label-floating">Usuario</label>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Condición
-                                                                        Médica</label>
-                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                    <label class="bmd-label-floating">Usuario</label>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,21 +284,15 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Fecha de
                                                                         nacimiento</label>
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label
-                                                                        class="bmd-label-floating">Nacionalidad</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
+
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <style>
                                                                         #exampleFormControlSelect1 {
@@ -341,18 +326,15 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Dirección</label>
+                                                                    <label class="bmd-label-floating">Usuario</label>
                                                                     <textarea class="form-control" rows="3"></textarea>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Condición
-                                                                        Médica</label>
+                                                                    <label class="bmd-label-floating">Contraseña</label>
                                                                     <textarea class="form-control" rows="3"></textarea>
                                                                 </div>
                                                             </div>
@@ -432,29 +414,15 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Fecha de
                                                                         nacimiento</label>
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label
-                                                                        class="bmd-label-floating">Nacionalidad</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
+
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <style>
                                                                         #exampleFormControlSelect1 {
@@ -474,10 +442,17 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="text-center">
+                                                                    <h6>Datos de responsable</h6>
+                                                                </div>
+                                                                <div class="dropdown-divider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label
-                                                                        class="bmd-label-floating">Responsable</label>
+                                                                    <label class="bmd-label-floating">Nombre</label>
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
@@ -489,18 +464,29 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Dirección</label>
-                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                    <label class="bmd-label-floating">E-mail</label>
+                                                                    <input type="email" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">DUI</label>
+                                                                    <input type="email" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Condición
-                                                                        Médica</label>
+                                                                    <label class="bmd-label-floating">Usuario</label>
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Contraseña</label>
                                                                     <textarea class="form-control" rows="3"></textarea>
                                                                 </div>
                                                             </div>
@@ -565,117 +551,426 @@
                             </div>
                         </div>
                     </div>
+<div class="row">
+    <div class="col" id="containerTbUsers"></div>
+</div>
+                    <!-- TABLE FOR USER -->
+                    <div class="row">
+                        <div class="col-md-12" id="tblistAdmisRegistered">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
+                                        <h4 class="card-title">Administradores</h4>
+                                        &nbsp;&nbsp;
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="notas.html" data-toggle="tab"
+                                                    id="printBoletNotas">
+                                                    <i class="material-icons">print</i> Imprimir
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <!-- TABLE FOR ADMINS REGISTRADOS -->
+                                        <table class="table table-hover">
+                                            <thead class=" text-primary">
+                                                <th>
+                                                    #
+                                                </th>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Correo
+                                                </th>
+                                                <th>
+                                                    Nacimiento
+                                                </th>
+                                                <th>
+                                                    Sexo
+                                                </th>
+                                                <th>
+                                                    DUI
+                                                </th>
+                                                <th>
+                                                    Teléfono
+                                                </th>
+                                                <th>
+                                                    Usuario
+                                                </th>
+                                                <th>
+                                                    Contraseña
+                                                </th>
+                                                <th>Acción</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Jhon Rambo
+                                                    </td>
+                                                    <td>
+                                                        Rambo88@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/02/1999
+                                                    </td>
+                                                    <td>
+                                                        Femenino
+                                                    </td>
+                                                    <td>
+                                                        04578936-8
+                                                    </td>
+                                                    <td>
+                                                        4578-8445
+                                                    </td>
+                                                    <td>
+                                                        rambitoj
+                                                    </td>
+                                                    <td>
+                                                        123
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">mode_edit</i>
+                                                            </a>
+                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">delete_forever</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Arnold Swag
+                                                    </td>
+                                                    <td>
+                                                        arnolito@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/04/1999
+                                                    <td>
+                                                        Masculino
+                                                    </td>
+                                                    <td>
+                                                        01478789-6
+                                                    </td>
+                                                    <td>
+                                                        4578-98651
+                                                    </td>
+                                                    <td>
+                                                        coparnold
+                                                    </td>
+                                                    <td>
+                                                        xoxoxo
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">mode_edit</i>
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">delete_forever</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="tblisTeacherRegistered" style="display: none;">
+                            <!-- TABLE DOCENTES REGISTRADOS -->
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
+                                        <h4 class="card-title">Docentes</h4>
+                                        &nbsp;&nbsp;
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="notas.html" data-toggle="tab"
+                                                    id="printBoletNotas">
+                                                    <i class="material-icons">print</i> Imprimir
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-hover">
+                                            <thead class=" text-primary">
+                                                <th>
+                                                    #
+                                                </th>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Correo
+                                                </th>
+                                                <th>
+                                                    Nacimiento
+                                                </th>
+                                                <th>
+                                                    Sexo
+                                                </th>
+                                                <th>
+                                                    DUI
+                                                </th>
+                                                <th>
+                                                    Teléfono
+                                                </th>
+                                                <th>
+                                                    Usuario
+                                                </th>
+                                                <th>
+                                                    Contraseña
+                                                </th>
+                                                <th>Acción</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Jhon Rambo
+                                                    </td>
+                                                    <td>
+                                                        Rambo88@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/02/1999
+                                                    </td>
+                                                    <td>
+                                                        Femenino
+                                                    </td>
+                                                    <td>
+                                                        04578936-8
+                                                    </td>
+                                                    <td>
+                                                        4578-8445
+                                                    </td>
+                                                    <td>
+                                                        rambitoj
+                                                    </td>
+                                                    <td>
+                                                        123
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">mode_edit</i>
+                                                            </a>
+                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">delete_forever</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Arnold Swag
+                                                    </td>
+                                                    <td>
+                                                        arnolito@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/04/1999
+
+                                                    <td>
+                                                        Masculino
+                                                    </td>
+                                                    <td>
+                                                        01478789-6
+                                                    </td>
+                                                    <td>
+                                                        4578-98651
+                                                    </td>
+                                                    <td>
+                                                        coparnold
+                                                    </td>
+                                                    <td>
+                                                        xoxoxo
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">mode_edit</i>
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">delete_forever</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="tblistStudentsRegistered"  style="display: none;">
+                            <!-- TABLE ESTUDIANTES REGISTRADO  -->
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
+                                        <h4 class="card-title">Estudiantes</h4>
+                                        &nbsp;&nbsp;
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="notas.html" data-toggle="tab"
+                                                    id="printBoletNotas">
+                                                    <i class="material-icons">print</i> Imprimir
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <!-- TABLE FOR estudnates REGISTRADOS -->
+                                        <table class="table table-hover" >
+                                            <thead class=" text-primary">
+                                                <th>
+                                                    #
+                                                </th>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Nacimiento
+                                                </th>
+                                                <th>
+                                                    Sexo
+                                                </th>
+                                                <th>
+                                                    Responsable
+                                                </th>
+                                                <th>
+                                                    Teléfono
+                                                </th>
+                                                <th>
+                                                    Correo
+                                                </th>
+                                                <th>
+                                                    DUI
+                                                </th>
+                                                <th>
+                                                    Usuario
+                                                </th>
+                                                <th>
+                                                    Contraseña
+                                                </th>
+                                                <th>Acción</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        Jhon Rambo
+                                                    </td>
+                                                    <td>
+                                                        12/02/1999
+                                                    </td>
+                                                    <td>
+                                                        Masculino
+                                                    </td>
+                                                    <td>
+                                                        Juan Padn
+                                                    </td>
+                                                    <td>
+                                                        4578-8445
+                                                    </td>
+                                                    <td>
+                                                        Rambo88@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        04578936-8
+                                                    </td>
+                                                    <td>
+                                                        rambitoj
+                                                    </td>
+                                                    <td>
+                                                        123
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">mode_edit</i>
+                                                            </a>
+                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                                class="material-icons">delete_forever</i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- FIN ROW TABLA REGISTROS ADMIN, TEACHER Y ESTUDIANTES -->
+                    </div>
+
+
+
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="float-left">
-                        <ul>
-                            <li>
-                                <a href="https://www.creative-tim.com">
-                                    Creative Tim
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://creative-tim.com/presentation">
-                                    About Us
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://blog.creative-tim.com">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.creative-tim.com/license">
-                                    Licenses
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright float-right" id="date">
-                        , made with <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-                    </div>
-                </div>
-            </footer>
-            <script>
-                const x = new Date().getFullYear();
-                let date = document.getElementById('date');
-                date.innerHTML = '&copy; ' + x + date.innerHTML;
-            </script>
+
         </div>
     </div>
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
+    <div class="fixed-plugin" id="fixenElementMenu">
+        <div class="dropdown show-dropdown" id="menushowdrpdwn">
             <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
+                <i class="material-icons" style="font-size: 40px;">
+                    list
+                </i>
             </a>
-            <ul class="dropdown-menu">
-                <li class="header-title"> Sidebar Filters</li>
+            <ul class="dropdown-menu" id="dpmenuUsuariosats">
+                <li class="header-title">Menu de usuarios</li>
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger active-color">
                         <div class="badge-colors ml-auto mr-auto">
-                            <span class="badge filter badge-purple active" data-color="purple"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-warning" data-color="orange"></span>
-                            <span class="badge filter badge-danger" data-color="danger"></span>
+                            <span class="badge filter badge-purple bgAdmini bdgitemcolr active" data-color="purple"></span>
+                            <span class="badge filter badge-azure bgTeacheri bdgitemcolr" data-color="azure"></span>
+                            <span class="badge filter badge-green bgStudenti bdgitemcolr" data-color="green"></span>
                         </div>
                         <div class="clearfix"></div>
                     </a>
                 </li>
-                <li class="header-title">Images</li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-1.jpg" alt="">
+
+                <li class="button-container ">
+                    <a href="#tblistAdmisRegistered"
+                        class="btn btn-primary btn-block tuserc linkadmin">Administradores</a>
+                </li>
+                <li class="button-container ">
+                    <a href="#tblisTeacherRegistered" class="btn btn-block tuserc linkteacher"
+                        style="background-color: #029eb1;">
+                        Docentes
                     </a>
                 </li>
-                <li class="active">
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-2.jpg" alt="">
+                <li class="button-container ">
+                    <a href="#tblistStudentsRegistered" class="btn btn-block tuserc linkstudent"
+                        style="background-color: #288c6c;">
+                        Estudiantes
                     </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-3.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-4.jpg" alt="">
-                    </a>
-                </li>
-                <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/material-dashboard-dark" target="_blank"
-                        class="btn btn-primary btn-block">Free Download</a>
-                </li>
-                <!-- <li class="header-title">Want more components?</li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                  Get the pro version
-                </a>
-            </li> -->
-                <li class="button-container">
-                    <a href="https://demos.creative-tim.com/material-dashboard-dark/docs/2.0/getting-started/introduction.html"
-                        target="_blank" class="btn btn-default btn-block">
-                        View Documentation
-                    </a>
-                </li>
-                <li class="button-container github-star">
-                    <a class="github-button"
-                        href="https://github.com/creativetimofficial/material-dashboard/tree/dark-edition"
-                        data-icon="octicon-star" data-size="large" data-show-count="true"
-                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot;
-                        45</button>
-                    <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot;
-                        50</button>
-                    <br>
-                    <br>
                 </li>
             </ul>
         </div>
@@ -934,6 +1229,76 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        //array list manu badges
+        let libadgesm= document.getElementsByClassName('bdgitemcolr');
+        // badges menu 
+        document.querySelectorAll('.bdgitemcolr').forEach((el)=>{
+            el.addEventListener("click",(ev)=>{
+                document.getElementById('menushowdrpdwn').setAttribute('aria-expanded', 'false');
+                document.getElementById('menushowdrpdwn').classList.remove('show');
+                document.getElementById('dpmenuUsuariosats').classList.remove('show');
+                // containerTbUsers
+                
+                if (el.classList.contains('bgAdmini')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "block";
+                    document.getElementById('tblisTeacherRegistered').style.display = "none";
+                    document.getElementById('tblistStudentsRegistered').style.display = "none";
+                    document.getElementById('containerTbUsers').scrollIntoView();
+                }
+                if (el.classList.contains('bgTeacheri')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "none";
+                    document.getElementById('tblisTeacherRegistered').style.display = "block";
+                    document.getElementById('tblistStudentsRegistered').style.display = "none";
+                    document.getElementById('containerTbUsers').scrollIntoView();
+                }
+                if (el.classList.contains('bgStudenti')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "none";
+                    document.getElementById('tblisTeacherRegistered').style.display = "none";
+                    document.getElementById('tblistStudentsRegistered').style.display = "block";
+                    document.getElementById('containerTbUsers').scrollIntoView();
+                }
+            });
+        });
+
+        document.querySelectorAll('.tuserc').forEach((el) => {
+            el.addEventListener("click", (event) => {
+                if (event.target.classList.contains('linkadmin')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "block";
+                    document.getElementById('tblisTeacherRegistered').style.display = "none";
+                    document.getElementById('tblistStudentsRegistered').style.display = "none";
+                    libadgesm[0].classList.add('active');
+                    libadgesm[1].classList.remove('active');
+                    libadgesm[2].classList.remove('active');
+                    document.getElementById('sidbrColor').setAttribute('data-color','purple');
+                }
+                if (event.target.classList.contains('linkteacher')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "none";
+                    document.getElementById('tblisTeacherRegistered').style.display = "block";
+                    document.getElementById('tblistStudentsRegistered').style.display = "none";
+                    libadgesm[1].classList.add('active');
+                    libadgesm[0].classList.remove('active');
+                    libadgesm[2].classList.remove('active');
+                    document.getElementById('sidbrColor').setAttribute('data-color','azure');
+                }
+                if (event.target.classList.contains('linkstudent')) {
+                    document.getElementById('tblistAdmisRegistered').style.display = "none";
+                    document.getElementById('tblisTeacherRegistered').style.display = "none";
+                    document.getElementById('tblistStudentsRegistered').style.display = "block";
+                    libadgesm[2].classList.add('active')
+                    libadgesm[1].classList.remove('active');
+                    libadgesm[0].classList.remove('active');
+                    document.getElementById('sidbrColor').setAttribute('data-color','green');
+                }
+            });
+        });
+
+//  let optionsmenuuser= document.getElementsByClassName("tuserc");
+//  Array.prototype.forEach.call(optionsmenuuser, function (el) {
+
+//  });   
     </script>
 </body>
 
