@@ -23,7 +23,8 @@
 
 <body class="dark-edition">
     <div class="wrapper ">
-        <div class="sidebar" id="sidbrColor" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+        <div class="sidebar" id="sidbrColor" data-color="purple" data-background-color="black"
+            data-image="../assets/img/sidebar-2.jpg">
             <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
                     Creative Tim
                 </a></div>
@@ -95,7 +96,7 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-12" id="materiasNotasEstu">
                             <div class="card">
                                 <div class="card-header card-header-tabs card-header-primary">
@@ -551,9 +552,9 @@
                             </div>
                         </div>
                     </div>
-<div class="row">
-    <div class="col" id="containerTbUsers"></div>
-</div>
+                    <div class="row">
+                        <div class="col" id="containerTbUsers"></div>
+                    </div>
                     <!-- TABLE FOR USER -->
                     <div class="row">
                         <div class="col-md-12" id="tblistAdmisRegistered">
@@ -639,8 +640,9 @@
                                                     <td>
                                                         <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">mode_edit</i>
-                                                            </a>
-                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"
+                                                            data-toggle="modal" data-target="#mdDeleteRegistro"><i
                                                                 class="material-icons">delete_forever</i>
                                                         </a>
                                                     </td>
@@ -772,8 +774,8 @@
                                                     <td>
                                                         <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">mode_edit</i>
-                                                            </a>
-                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">delete_forever</i>
                                                         </a>
                                                     </td>
@@ -822,7 +824,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12" id="tblistStudentsRegistered"  style="display: none;">
+                        <div class="col-md-12" id="tblistStudentsRegistered" style="display: none;">
                             <!-- TABLE ESTUDIANTES REGISTRADO  -->
                             <div class="card">
                                 <div class="card-header card-header-primary">
@@ -843,7 +845,7 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <!-- TABLE FOR estudnates REGISTRADOS -->
-                                        <table class="table table-hover" >
+                                        <table class="table table-hover">
                                             <thead class=" text-primary">
                                                 <th>
                                                     #
@@ -912,8 +914,8 @@
                                                     <td>
                                                         <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">mode_edit</i>
-                                                            </a>
-                                                            <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">delete_forever</i>
                                                         </a>
                                                     </td>
@@ -948,7 +950,8 @@
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger active-color">
                         <div class="badge-colors ml-auto mr-auto">
-                            <span class="badge filter badge-purple bgAdmini bdgitemcolr active" data-color="purple"></span>
+                            <span class="badge filter badge-purple bgAdmini bdgitemcolr active"
+                                data-color="purple"></span>
                             <span class="badge filter badge-azure bgTeacheri bdgitemcolr" data-color="azure"></span>
                             <span class="badge filter badge-green bgStudenti bdgitemcolr" data-color="green"></span>
                         </div>
@@ -1035,14 +1038,68 @@
                     </form>
                 </div>
                 <!-- <div class="modal-footer">
-    
     </div> -->
             </div>
         </div>
     </div>
 
+    <!-- MODAL ELIMINAR REGISGRO  -->
+    <div class="modal fade" id="mdDeleteRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content dark-edition">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Eliminar Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-light">
+                        ¿Desea Eliminar Registro?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnToastDelete">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <!-- TOASST MESSAGES -->
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+        <div class="toast fade hide p-3 bg-success rounded-lg"  id="toastMesAfteDelRegis" role="alert" aria-live="assertive" aria-atomic="true"
+            data-delay="2000">
+            <div class="toast-header ">
+                <strong class="mr-auto text-white">Mensaje</strong>
+                <div class="dropdown-divider"></div>
+                <!-- <i class="material-icons">
+                    check
+                </i> -->
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <p class="text-white text-center">
+                    Registro eliminado correctamente
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let toastMesa = document.getElementById("toastMesAfteDelRegis");
+
+        document.getElementById('btnToastDelete').addEventListener('click', () => {
+            toastMesa.classList.add('show');
+            toastMesa.classList.remove('hide');
+
+        });
+
+    </script>
 
 
 
@@ -1055,6 +1112,7 @@
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/default-passive-events"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
@@ -1233,15 +1291,15 @@
 
     <script>
         //array list manu badges
-        let libadgesm= document.getElementsByClassName('bdgitemcolr');
+        let libadgesm = document.getElementsByClassName('bdgitemcolr');
         // badges menu 
-        document.querySelectorAll('.bdgitemcolr').forEach((el)=>{
-            el.addEventListener("click",(ev)=>{
+        document.querySelectorAll('.bdgitemcolr').forEach((el) => {
+            el.addEventListener("click", (ev) => {
                 document.getElementById('menushowdrpdwn').setAttribute('aria-expanded', 'false');
                 document.getElementById('menushowdrpdwn').classList.remove('show');
                 document.getElementById('dpmenuUsuariosats').classList.remove('show');
                 // containerTbUsers
-                
+
                 if (el.classList.contains('bgAdmini')) {
                     document.getElementById('tblistAdmisRegistered').style.display = "block";
                     document.getElementById('tblisTeacherRegistered').style.display = "none";
@@ -1272,7 +1330,7 @@
                     libadgesm[0].classList.add('active');
                     libadgesm[1].classList.remove('active');
                     libadgesm[2].classList.remove('active');
-                    document.getElementById('sidbrColor').setAttribute('data-color','purple');
+                    document.getElementById('sidbrColor').setAttribute('data-color', 'purple');
                 }
                 if (event.target.classList.contains('linkteacher')) {
                     document.getElementById('tblistAdmisRegistered').style.display = "none";
@@ -1281,7 +1339,7 @@
                     libadgesm[1].classList.add('active');
                     libadgesm[0].classList.remove('active');
                     libadgesm[2].classList.remove('active');
-                    document.getElementById('sidbrColor').setAttribute('data-color','azure');
+                    document.getElementById('sidbrColor').setAttribute('data-color', 'azure');
                 }
                 if (event.target.classList.contains('linkstudent')) {
                     document.getElementById('tblistAdmisRegistered').style.display = "none";
@@ -1290,7 +1348,7 @@
                     libadgesm[2].classList.add('active')
                     libadgesm[1].classList.remove('active');
                     libadgesm[0].classList.remove('active');
-                    document.getElementById('sidbrColor').setAttribute('data-color','green');
+                    document.getElementById('sidbrColor').setAttribute('data-color', 'green');
                 }
             });
         });
