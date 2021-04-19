@@ -1,34 +1,34 @@
 // const db = firebase.firestore();
 let editStatusTeacher = false;
 let idTeacher = '';
-const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui , telefono, user, password) =>
-    db.collection('administrador').doc().set({
-        nombre, email, sexo, fechNacimiento, dui , telefono, user, password
+const ingresarTeacher = (nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado) =>
+    db.collection('profesor').doc().set({
+        nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado
     });
 
 
 //TABLA PARA MOSTRAR LOS DATOS DE LOS ESTUDIANTES REGISTRADOS
-const tableshowAdmins = document.querySelector('#tableAdminRegs tbody');
+const tableshowTeacher = document.querySelector('#tableTeachersReg tbody');
 // FORMULARIO DE INGRESO DE ESTUDIANTES
 const frmNewTeacher = document.getElementById('frmIngresoDocente');
 //DATOS FIREBASE
-const getAllAmin = () => db.collection('administrador').get();
-const onGetAdmins = (callback) => db.collection("administrador").onSnapshot(callback);
+const getAllTeachers = () => db.collection('profesor').get();
+const onGetTeacher = (callback) => db.collection("profesor").onSnapshot(callback);
 //elininar estudiate
-const delAdmin = (id) => db.collection('administrador').doc(id).delete();
-const getAdmin = (id) => db.collection('administrador').doc(id).get();
-const updateAdmin = (id, updateAdmin) => db.collection('administrador').doc(id).update(updateAdmin)
+const detTeacher = (id) => db.collection('profesor').doc(id).delete();
+const getTeacher = (id) => db.collection('profesor').doc(id).get();
+const updateTeacher = (id, updateTeacher) => db.collection('profesor').doc(id).update(updateTeacher)
 
 window.addEventListener('DOMContentLoaded', async (e) => {
-    onGetAdmins((querySnapshot) => {
-        tableshowAdmins.innerHTML = '';
+    onGetTeacher((querySnapshot) => {
+        tableshowTeacher.innerHTML = '';
 
         querySnapshot.forEach(doc => {
 
-            const admindoc = doc.data();
-            admindoc.id = doc.id;
+            const teacherdoc = doc.data();
+            teacherdoc.id = doc.id;
 
-            tableshowAdmins.innerHTML += `<tr>
+            tableshowTeacher.innerHTML += `<tr>
                 <td>1</td>
                 <td>${doc.data().nombre}</td>
                 <td>${doc.data().email}</td>
@@ -38,27 +38,27 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().telefono}</td>
                 <td>${doc.data().user}</td>
                 <td>${doc.data().password}</td>
+                <td>${doc.data().gradoEncargado}</td>
                 <td>
-                     <button class="btn btn-info btn-sm btnEditAdmin" data-id="${admindoc.id}">
+                     <button class="btn btn-info btn-sm btnEditAdmin" data-id="${teacherdoc.id}">
                         <i class="material-icons">mode_edit</i>
                     </button>
-                    <button class="btn btn-danger btn-sm btnDelAdmin" data-id="${admindoc.id}">
+                    <button class="btn btn-danger btn-sm btndelTeacher" data-id="${teacherdoc.id}">
                         <i class="material-icons">delete_forever</i>
                     </button>
                 </td>
             </tr>
             `;
         });
-        const btnsDelAdmin = document.querySelectorAll('.btnDelAdmin');
-        btnsDelAdmin.forEach(btn => {
+        const btnsdetTeacher = document.querySelectorAll('.btndelTeacher');
+        btnsdetTeacher.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
                 try {
-                    await delAdmin(e.target.dataset.id);
+                    await detTeacher(e.target.dataset.id);
                 } catch (error) {
                     console.log(error);
                 }
-
             })
         });
 
@@ -67,69 +67,63 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btnsEditAdmin.forEach((btn) => {
             btn.addEventListener("click", async (e) => {
                 try {
-                    const doc = await getAdmin(e.target.dataset.id);
-                    const admin = doc.data();
-
-                    frmNewTeacher['inNombreAdmin'].value = admin.nombre;
-                    frmNewTeacher['inEmailAdmin'].value = admin.email;
-                    frmNewTeacher['inNaciAdmin'].value = admin.fechNacimiento;
-                    frmNewTeacher['selSexAdmin'].value = admin.sexo;
-                    frmNewTeacher['inDuiAdmin'].value = admin.dui;
-                    frmNewTeacher['inTelAdmin'].value = admin.telefono;
-                    frmNewTeacher['inUserAdmin'].value = admin.user;
-                    frmNewTeacher['inContraAdmin'].value = admin.password;
-
+                    const doc = await getTeacher(e.target.dataset.id);
+                    const teach = doc.data();
+                    frmNewTeacher['inNombreTeacher'].value = teach.nombre;
+                    frmNewTeacher['inEmailTeacher'].value = teach.email;
+                    rmNewTeacher['inNaciTeacher'].value = teach.fechNacimiento;
+                    frmNewTeacher['selsexTeacher'].value = teach.sexo;
+                    frmNewTeacher['inDuiTeacher'].value = teach.dui;
+                    frmNewTeacher['inTelTeacher'].value = teach.telefono;
+                    frmNewTeacher['inUserTeacher'].value = teach.user;
+                    frmNewTeacher['inPassTeacher'].value = teach.password;
+                    frmNewTeacher['selgradoforesTeacher'].value = teach.gradoEncargado;
                     editStatusTeacher = true;
                     idTeacher = doc.id;
-                    frmNewTeacher['btnRegisAdmin'].innerHTML = "Actualizar";
+                    frmNewTeacher['btnRegisTeacher'].innerHTML = "Actualizar";
 
                 } catch (error) {
                     console.log(error);
                 }
             });
         });
-
-
-
-
     });
 
 });
 
 
-
-
 frmNewTeacher.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const nombre = frmNewTeacher['inNombreAdmin'].value;
-    const email = frmNewTeacher['inEmailAdmin'].value;
-    const fechNacimiento = frmNewTeacher['inNaciAdmin'].value;
-    const sexo = frmNewTeacher['selSexAdmin'].value;
-    const dui = frmNewTeacher['inDuiAdmin'].value;
-    const telefono = frmNewTeacher['inTelAdmin'].value;
-    const user = frmNewTeacher['inUserAdmin'].value;
-    const password = frmNewTeacher['inContraAdmin'].value;
-
+    const nombre = frmNewTeacher['inNombreTeacher'].value;
+    const email = frmNewTeacher['inEmailTeacher'].value;
+    const fechNacimiento = frmNewTeacher['inNaciTeacher'].value;
+    const sexo = frmNewTeacher['selsexTeacher'].value;
+    const dui = frmNewTeacher['inDuiTeacher'].value;
+    const telefono = frmNewTeacher['inTelTeacher'].value;
+    const user = frmNewTeacher['inUserTeacher'].value;
+    const password = frmNewTeacher['inPassTeacher'].value;
+    const gradoEncargado = frmNewTeacher['selgradoforesTeacher'].value;
 
     try {
         if (!editStatusTeacher) {
-            await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui , telefono, user, password);
+            await ingresarTeacher(nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado);
         } else {
-            await updateAdmin(id, {
+            await updateTeacher(id, {
                 nombre: nombre,
-                email:email,
+                email: email,
                 fechNacimiento: fechNacimiento,
-                sexo:sexo,
-                dui:dui,
-                telefono:telefono,
-                user:user,
-                password:password
+                sexo: sexo,
+                dui: dui,
+                telefono: telefono,
+                user: user,
+                password: password,
+                gradoEncargado: gradoEncargado
             });
             editStatusTeacher = false;
             id = '';
-            frmNewEstudiante['btnStudenForm'].innerHTML = 'save';
+            frmNewTeacher['btnRegisTeacher'].innerHTML = 'save';
         }
-        frmNewEstudiante.reset();
+        frmNewTeacher.reset();
     } catch (error) {
         console.log(error);
     }

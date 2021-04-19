@@ -311,7 +311,7 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nombre</label>
                                                                     <input type="text" class="form-control"
-                                                                        value="docente">
+                                                                        value="docente" id="inNombreTeacher">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -319,7 +319,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control">
+                                                                    <input type="email" class="form-control" id="inEmailTeacher">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -328,21 +328,21 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Fecha de
                                                                         nacimiento</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" id="inNaciTeacher">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <style>
-                                                                        #exampleFormControlSelect1 {
+                                                                        #selsexTeacher {
                                                                             background-color: #1a2035;
                                                                         }
                                                                     </style>
                                                                     <label class="bmd-label-floating">Sexo</label>
-                                                                    <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
+                                                                    <!-- <label for="selsexTeachers">Periodo</label> -->
                                                                     <select class="form-control"
-                                                                        id="exampleFormControlSelect1">
+                                                                        id="selsexTeacher">
                                                                         <option selected disabled value="Elegir">Elegir
                                                                         </option>
                                                                         <option value="Femenino">Femenino</option>
@@ -355,13 +355,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">DUI</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" id="inDuiTeacher">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Teléfono</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" id="inTelTeacher">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -369,13 +369,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Usuario</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" id="inUserTeacher">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Contraseña</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" id="inPassTeacher">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -384,13 +384,13 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Grados</label>
                                                                     <style>
-                                                                        #selecGrados {
+                                                                        #selgradoforesTeacher {
                                                                             background-color: #1a2035;
                                                                         }
                                                                     </style>
                                                                     <!-- <label class="bmd-label-floating">Sexo</label> -->
-                                                                    <!-- <label for="selecGrados">  </label> -->
-                                                                    <select class="form-control" id="selecGrados">
+                                                                    <!-- <label for="selgradoforesTeacher">  </label> -->
+                                                                    <select class="form-control" id="selgradoforesTeacher">
                                                                         <option selected disabled value="Elegir">Elegir
                                                                         </option>
                                                                         <option value="Femenino">1° Grado</option>
@@ -406,8 +406,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary pull-right">Registrar</button>
+                                                        <button type="submit" class="btn btn-primary pull-right" id="btnRegisTeacher">
+                                                            Registrar
+                                                        </button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -694,118 +695,7 @@
                                                             <i class="material-icons">delete_forever</i>
                                                         </button>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        2
-                                                    </th>
-                                                    <td>
-                                                        Benavide rojas
-                                                    </td>
-                                                    <td>
-                                                        beambo88@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        12/02/1999
-                                                    </td>
-                                                    <td>
-                                                        Femenino
-                                                    </td>
-                                                    <td>
-                                                        04578936-8
-                                                    </td>
-                                                    <td>
-                                                        4578-8445
-                                                    </td>
-                                                    <td>
-                                                        rambitoj
-                                                    </td>
-                                                    <td>
-                                                        123
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-info btn-sm btnEditAdmin">
-                                                            <i class="material-icons">mode_edit</i>
-                                                        </button>
-                                                        <button class="btn btn-danger btn-sm btnDelAdmin">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        3
-                                                    </th>
-                                                    <td>
-                                                        Arnold Swag
-                                                    </td>
-                                                    <td>
-                                                        arnolito@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        12/04/1999
-                                                    <td>
-                                                        Masculino
-                                                    </td>
-                                                    <td>
-                                                        01478789-6
-                                                    </td>
-                                                    <td>
-                                                        4578-98651
-                                                    </td>
-                                                    <td>
-                                                        coparnold
-                                                    </td>
-                                                    <td>
-                                                        xoxoxo
-                                                    </td>
-                                                    <td>
-                                                        <a class="btn btn-info btn-sm btnEditAdmin"
-                                                            href="#materiasNotasEstu"><i
-                                                                class="material-icons">mode_edit</i>
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
-                                                                class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        4
-                                                    </th>
-                                                    <td>
-                                                        Celeste Petronila
-                                                    </td>
-                                                    <td>
-                                                        Rambo88@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        12/02/1999
-                                                    </td>
-                                                    <td>
-                                                        Femenino
-                                                    </td>
-                                                    <td>
-                                                        04578936-8
-                                                    </td>
-                                                    <td>
-                                                        4578-8445
-                                                    </td>
-                                                    <td>
-                                                        rambitoj
-                                                    </td>
-                                                    <td>
-                                                        123
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-info btn-sm btnEditAdmin">
-                                                            <i class="material-icons">mode_edit</i>
-                                                        </button>
-                                                        <button class="btn btn-danger btn-sm btnDelAdmin">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                </tr>                                      
                                             </tbody>
                                         </table>
                                     </div>
@@ -862,47 +752,12 @@
                                                 <th>
                                                     Contraseña
                                                 </th>
+                                                <th>
+                                                    Grado
+                                                </th>
                                                 <th>Acción</th>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Jhon Rambo
-                                                    </td>
-                                                    <td>
-                                                        Rambo88@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        12/02/1999
-                                                    </td>
-                                                    <td>
-                                                        Femenino
-                                                    </td>
-                                                    <td>
-                                                        04578936-8
-                                                    </td>
-                                                    <td>
-                                                        4578-8445
-                                                    </td>
-                                                    <td>
-                                                        rambitoj
-                                                    </td>
-                                                    <td>
-                                                        123
-                                                    </td>
-                                                    <td>
-                                                        <a class="btn btn-info btn-sm btnEditTeacher"
-                                                            href="#materiasNotasEstu"><i
-                                                                class="material-icons">mode_edit</i>
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
-                                                                class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                            <tbody>                                               
                                                 <tr>
                                                     <td>
                                                         1
@@ -927,6 +782,9 @@
                                                     </td>
                                                     <td>
                                                         coparnold
+                                                    </td>
+                                                    <td>
+                                                        xoxoxo
                                                     </td>
                                                     <td>
                                                         xoxoxo
@@ -1443,6 +1301,7 @@
     </script>
     <script src="../assets/js/admin/crudEstudiante.js"></script>
     <script src="../assets/js/admin/crudAdmin.js"></script>
+    <script src="../assets/js/admin/crudTeacher.js  "></script>
 
 </body>
 
