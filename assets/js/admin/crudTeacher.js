@@ -22,9 +22,7 @@ const updateTeacher = (id, updateTeacher) => db.collection('profesor').doc(id).u
 window.addEventListener('DOMContentLoaded', async (e) => {
     onGetTeacher((querySnapshot) => {
         tableshowTeacher.innerHTML = '';
-
         querySnapshot.forEach(doc => {
-
             const teacherdoc = doc.data();
             teacherdoc.id = doc.id;
 
@@ -71,7 +69,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                     const teach = doc.data();
                     frmNewTeacher['inNombreTeacher'].value = teach.nombre;
                     frmNewTeacher['inEmailTeacher'].value = teach.email;
-                    rmNewTeacher['inNaciTeacher'].value = teach.fechNacimiento;
+                    frmNewTeacher['inNaciTeacher'].value = teach.fechNacimiento;
                     frmNewTeacher['selsexTeacher'].value = teach.sexo;
                     frmNewTeacher['inDuiTeacher'].value = teach.dui;
                     frmNewTeacher['inTelTeacher'].value = teach.telefono;
@@ -120,7 +118,7 @@ frmNewTeacher.addEventListener('submit', async (e) => {
                 gradoEncargado: gradoEncargado
             });
             editStatusTeacher = false;
-            id = '';
+            idTeacher = '';
             frmNewTeacher['btnRegisTeacher'].innerHTML = 'save';
         }
         frmNewTeacher.reset();
