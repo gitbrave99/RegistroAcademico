@@ -99,22 +99,25 @@
                                     <!-- <p class="card-category">Complete your profile</p> -->
                                 </div>
                                 <div class="card-body">
-                                    <form id="frmPerfilDocente">
+                                    <form id="frmPerfilEstudiante">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="bmd-label-floating">Jhon wick</label>
+                                                    <label class="bmd-label-floating">Nombre</label>
                                                     <input type="text" class="form-control" value="Jhon Bernard">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group">
+                                                <div class="form-group bmd-form-group is-filled" id="fecha_llenadoestu">
                                                     <label class="bmd-label-floating">Fecha</label>
-                                                    <input type="text" class="form-control" value="Fill Box">
+                                                    <input type="text" class="form-control"  value="12/02/2020">
                                                 </div>
                                             </div>
+                                            <script>
+                                                document.getElementById('fecha_llenadoestu').classList.add('is-filled');
+                                            </script>
                                             <div class="col-md-6">
                                                 <div class="form-group grlbin">
                                                     <style>
@@ -124,8 +127,7 @@
                                                     </style>
                                                     <label class="bmd-label-floating">Sexo</label>
                                                     <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
-                                                    <select class="form-control" id="selSexStudent"
-                                                        required>
+                                                    <select class="form-control" id="selSexStudent" required>
                                                         <option selected disabled value="Elegir">Elegir
                                                         </option>
                                                         <option value="Femenino">Femenino</option>
@@ -203,14 +205,15 @@
                                                 document.getElementById('txtCondicioMediStu').value=document.getElementById('txtCondicioMediStu').value.replace(/^\s+|\s+$/gm,'');
                                             </script>
                                         </div> -->
-                                      <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Dirección</label>
-                                                <input type="text" class="form-control" value="Santa Ana, Col. Santa Leonor">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Dirección</label>
+                                                    <input type="text" class="form-control"
+                                                        value="Santa Ana, Col. Santa Leonor">
+                                                </div>
                                             </div>
                                         </div>
-                                      </div>
                                     </form>
                                 </div>
                             </div>
@@ -418,6 +421,7 @@
             });
         });
     </script>
+    <script src="../assets/js/estudiante/crudEstudiante.js"></script>
 </body>
 
 </html>
