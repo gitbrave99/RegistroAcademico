@@ -36,7 +36,7 @@
             color: thistle;
         }
 
-        /* tabla teachers  */   
+        /* tabla teachers  */
         #tableTeachersReg tbody tr {
             background-color: transparent;
         }
@@ -49,6 +49,7 @@
         #tableTeachersReg_info {
             color: thistle;
         }
+
         /* tableStudentsReg*/
         #tableStudentsReg tbody tr {
             background-color: transparent;
@@ -188,13 +189,13 @@
                                         <div class="tab-pane active" id="mAdminreg">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <form id="formAdmin">
+                                                    <form id="formIngresoAdmin">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group grlbin dvnmad">
                                                                     <label class="bmd-label-floating">Nombre</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="inNombreAdmin" value="--" required>
+                                                                        id="inNombreAdmin" value="" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -304,7 +305,7 @@
                                         <div class="tab-pane" id="mdDocentReg">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <form id="frmPerfilDocente">
+                                                    <form id="frmIngresoDocente">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
@@ -368,13 +369,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Usuario</label>
-                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Contraseña</label>
-                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -384,7 +385,7 @@
                                                                     <label class="bmd-label-floating">Grados</label>
                                                                     <style>
                                                                         #selecGrados {
-                                                                            background-color: #8b92a9;
+                                                                            background-color: #1a2035;
                                                                         }
                                                                     </style>
                                                                     <!-- <label class="bmd-label-floating">Sexo</label> -->
@@ -401,8 +402,6 @@
                                                                         <option value="Masculino">7° Grado</option>
                                                                         <option value="Masculino">8° Grado</option>
                                                                         <option value="Masculino">9° Grado</option>
-                                                                        <option value="Masculino">Bachillerato General
-                                                                        </option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -440,8 +439,9 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control" id="inNombreEstudiante"
-                                                                        value="estudiante">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inNombreEstudiante" value="estudiante"
+                                                                        required>
                                                                 </div>
                                                             </div>
 
@@ -451,21 +451,21 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Fecha de
                                                                         nacimiento</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inFechNacEstudiante">
                                                                 </div>
                                                             </div>
-
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <style>
-                                                                        #exampleFormControlSelect1 {
+                                                                        #tipesexEstudianteingreso {
                                                                             background-color: #1a2035;
                                                                         }
                                                                     </style>
                                                                     <label class="bmd-label-floating">Sexo</label>
-                                                                    <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
+                                                                    <!-- <label for="tipesexEstudianteingreso">Periodo</label> -->
                                                                     <select class="form-control"
-                                                                        id="exampleFormControlSelect1">
+                                                                        id="tipesexEstudianteingreso">
                                                                         <option selected disabled value="Elegir">Elegir
                                                                         </option>
                                                                         <option value="Femenino">Femenino</option>
@@ -478,13 +478,15 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Usuario</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inUserEstudiante">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Contraseña</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inPassEstudiante">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -493,13 +495,14 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Grados </label>
                                                                     <style>
-                                                                        #selecGrados {
+                                                                        #selectGradoEstudiante {
                                                                             background-color: #1a2035;
                                                                         }
                                                                     </style>
                                                                     <!-- <label class="bmd-label-floating">Sexo</label> -->
-                                                                    <!-- <label for="selecGrados">  </label> -->
-                                                                    <select class="form-control" id="selecGrados">
+                                                                    <!-- <label for="selectGradoEstudiante">  </label> -->
+                                                                    <select class="form-control"
+                                                                        id="selectGradoEstudiante">
                                                                         <option selected disabled value="Elegir">Elegir
                                                                         </option>
                                                                         <option value="1° Grado">1° Grado</option>
@@ -510,7 +513,7 @@
                                                                         <option value="6° Grado">6° Grado</option>
                                                                         <option value="7° Grado">7° Grado</option>
                                                                         <option value="8° Grado">8° Grado</option>
-                                                                        <option value="9° Grado">9° Grado</option>                                                                        
+                                                                        <option value="9° Grado">9° Grado</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -527,13 +530,15 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inNombreEstuRespon">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Teléfono</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inTelEstuRespon">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -541,13 +546,15 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control">
+                                                                    <input type="email" class="form-control"
+                                                                        id="inEmailEstuRespon">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">DUI</label>
-                                                                    <input type="email" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        id="inDUIEstuRspon">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -556,12 +563,13 @@
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Dirección</label>
                                                                     <input type="text" class="form-control"
-                                                                        value="Santa Ana, Col. Santa Leonor">
+                                                                        value="Santa Ana, Col. Santa Leonor"
+                                                                        id="inDireccEstuRespon">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary pull-right">Registrar</button>
+                                                        <button type="submit" class="btn btn-primary pull-right"
+                                                            id="btnStudenForm">Registrar</button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -679,19 +687,54 @@
                                                         123
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-info btn-sm btnEditAdmin"
-                                                            href="#materiasNotasEstu"><i
-                                                                class="material-icons">mode_edit</i>
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"
-                                                            data-toggle="modal" data-target="#mdDeleteRegistro"><i
-                                                                class="material-icons">delete_forever</i>
-                                                        </a>
+                                                        <button class="btn btn-info btn-sm btnEditAdmin">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </button>
+                                                        <button class="btn btn-danger btn-sm btnDelAdmin">
+                                                            <i class="material-icons">delete_forever</i>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">
                                                         2
+                                                    </th>
+                                                    <td>
+                                                        Benavide rojas
+                                                    </td>
+                                                    <td>
+                                                        beambo88@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/02/1999
+                                                    </td>
+                                                    <td>
+                                                        Femenino
+                                                    </td>
+                                                    <td>
+                                                        04578936-8
+                                                    </td>
+                                                    <td>
+                                                        4578-8445
+                                                    </td>
+                                                    <td>
+                                                        rambitoj
+                                                    </td>
+                                                    <td>
+                                                        123
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm btnEditAdmin">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </button>
+                                                        <button class="btn btn-danger btn-sm btnDelAdmin">
+                                                            <i class="material-icons">delete_forever</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        3
                                                     </th>
                                                     <td>
                                                         Arnold Swag
@@ -724,6 +767,43 @@
                                                         <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
                                                                 class="material-icons">delete_forever</i>
                                                         </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        4
+                                                    </th>
+                                                    <td>
+                                                        Celeste Petronila
+                                                    </td>
+                                                    <td>
+                                                        Rambo88@gmail.com
+                                                    </td>
+                                                    <td>
+                                                        12/02/1999
+                                                    </td>
+                                                    <td>
+                                                        Femenino
+                                                    </td>
+                                                    <td>
+                                                        04578936-8
+                                                    </td>
+                                                    <td>
+                                                        4578-8445
+                                                    </td>
+                                                    <td>
+                                                        rambitoj
+                                                    </td>
+                                                    <td>
+                                                        123
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm btnEditAdmin">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </button>
+                                                        <button class="btn btn-danger btn-sm btnDelAdmin">
+                                                            <i class="material-icons">delete_forever</i>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -956,13 +1036,12 @@
                                                         123
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-info btn-sm btnEditStudent"
-                                                            href="#materiasNotasEstu"><i
-                                                                class="material-icons">mode_edit</i>
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#materiasNotasEstu"><i
-                                                                class="material-icons">delete_forever</i>
-                                                        </a>
+                                                        <button class="btn btn-info btn-sm btnEditStudent">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </button>
+                                                        <button class="btn btn-danger btn-sm btnDelStudent">
+                                                            <i class="material-icons">delete_forever</i>
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -1338,6 +1417,33 @@
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="../assets/js/dommain.js"></script>
+
+
+    <!-- FIREBASE -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+            authDomain: "escuelascrum.firebaseapp.com",
+            databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+            projectId: "escuelascrum",
+            storageBucket: "escuelascrum.appspot.com",
+            messagingSenderId: "855708798969",
+            appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="../assets/js/admin/crudEstudiante.js"></script>
+    <script src="../assets/js/admin/crudAdmin.js"></script>
+
 </body>
 
 </html>

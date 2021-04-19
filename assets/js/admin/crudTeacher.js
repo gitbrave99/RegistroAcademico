@@ -1,6 +1,6 @@
 // const db = firebase.firestore();
-let editStatusAdmin = false;
-let idadmin = '';
+let editStatusTeacher = false;
+let idTeacher = '';
 const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui , telefono, user, password) =>
     db.collection('administrador').doc().set({
         nombre, email, sexo, fechNacimiento, dui , telefono, user, password
@@ -10,7 +10,7 @@ const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui , telefo
 //TABLA PARA MOSTRAR LOS DATOS DE LOS ESTUDIANTES REGISTRADOS
 const tableshowAdmins = document.querySelector('#tableAdminRegs tbody');
 // FORMULARIO DE INGRESO DE ESTUDIANTES
-const frmNewAdmin = document.getElementById('formIngresoAdmin');
+const frmNewTeacher = document.getElementById('frmIngresoDocente');
 //DATOS FIREBASE
 const getAllAmin = () => db.collection('administrador').get();
 const onGetAdmins = (callback) => db.collection("administrador").onSnapshot(callback);
@@ -70,18 +70,18 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                     const doc = await getAdmin(e.target.dataset.id);
                     const admin = doc.data();
 
-                    frmNewAdmin['inNombreAdmin'].value = admin.nombre;
-                    frmNewAdmin['inEmailAdmin'].value = admin.email;
-                    frmNewAdmin['inNaciAdmin'].value = admin.fechNacimiento;
-                    frmNewAdmin['selSexAdmin'].value = admin.sexo;
-                    frmNewAdmin['inDuiAdmin'].value = admin.dui;
-                    frmNewAdmin['inTelAdmin'].value = admin.telefono;
-                    frmNewAdmin['inUserAdmin'].value = admin.user;
-                    frmNewAdmin['inContraAdmin'].value = admin.password;
+                    frmNewTeacher['inNombreAdmin'].value = admin.nombre;
+                    frmNewTeacher['inEmailAdmin'].value = admin.email;
+                    frmNewTeacher['inNaciAdmin'].value = admin.fechNacimiento;
+                    frmNewTeacher['selSexAdmin'].value = admin.sexo;
+                    frmNewTeacher['inDuiAdmin'].value = admin.dui;
+                    frmNewTeacher['inTelAdmin'].value = admin.telefono;
+                    frmNewTeacher['inUserAdmin'].value = admin.user;
+                    frmNewTeacher['inContraAdmin'].value = admin.password;
 
-                    editStatusAdmin = true;
-                    idadmin = doc.id;
-                    frmNewAdmin['btnRegisAdmin'].innerHTML = "Actualizar";
+                    editStatusTeacher = true;
+                    idTeacher = doc.id;
+                    frmNewTeacher['btnRegisAdmin'].innerHTML = "Actualizar";
 
                 } catch (error) {
                     console.log(error);
@@ -99,20 +99,20 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
 
-frmNewAdmin.addEventListener('submit', async (e) => {
+frmNewTeacher.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const nombre = frmNewAdmin['inNombreAdmin'].value;
-    const email = frmNewAdmin['inEmailAdmin'].value;
-    const fechNacimiento = frmNewAdmin['inNaciAdmin'].value;
-    const sexo = frmNewAdmin['selSexAdmin'].value;
-    const dui = frmNewAdmin['inDuiAdmin'].value;
-    const telefono = frmNewAdmin['inTelAdmin'].value;
-    const user = frmNewAdmin['inUserAdmin'].value;
-    const password = frmNewAdmin['inContraAdmin'].value;
+    const nombre = frmNewTeacher['inNombreAdmin'].value;
+    const email = frmNewTeacher['inEmailAdmin'].value;
+    const fechNacimiento = frmNewTeacher['inNaciAdmin'].value;
+    const sexo = frmNewTeacher['selSexAdmin'].value;
+    const dui = frmNewTeacher['inDuiAdmin'].value;
+    const telefono = frmNewTeacher['inTelAdmin'].value;
+    const user = frmNewTeacher['inUserAdmin'].value;
+    const password = frmNewTeacher['inContraAdmin'].value;
 
 
     try {
-        if (!editStatusAdmin) {
+        if (!editStatusTeacher) {
             await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui , telefono, user, password);
         } else {
             await updateAdmin(id, {
@@ -125,7 +125,7 @@ frmNewAdmin.addEventListener('submit', async (e) => {
                 user:user,
                 password:password
             });
-            editStatusAdmin = false;
+            editStatusTeacher = false;
             id = '';
             frmNewEstudiante['btnStudenForm'].innerHTML = 'save';
         }
