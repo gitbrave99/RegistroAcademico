@@ -38,11 +38,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().password}</td>
                 <td>${doc.data().gradoEncargado}</td>
                 <td>
-                     <button class="btn btn-info btn-sm btnEditAdmin" data-id="${teacherdoc.id}">
-                        <i class="material-icons">mode_edit</i>
-                    </button>
-                    <button class="btn btn-danger btn-sm btndelTeacher" data-id="${teacherdoc.id}">
-                        <i class="material-icons">delete_forever</i>
+                     <a class="btn btn-info btn-sm btnEditAdmin" href="#panelsUsers" data-id="${teacherdoc.id}">
+                        Editar
+                    </a>
+                    <button type="button" class="btn btn-danger btn-sm btndelTeacher" data-id="${teacherdoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
+                        Borrar
                     </button>
                 </td>
             </tr>
@@ -52,11 +52,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btnsdetTeacher.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
-                try {
-                    await detTeacher(e.target.dataset.id);
-                } catch (error) {
-                    console.log(error);
-                }
+                document.getElementById('btnModalDeleteUsuario').dataset.id=e.target.dataset.id;
+                // try {
+                //     await detTeacher(e.target.dataset.id);
+                // } catch (error) {
+                //     console.log(error);
+                // }
             })
         });
 
@@ -64,6 +65,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
         btnsEditAdmin.forEach((btn) => {
             btn.addEventListener("click", async (e) => {
+                selctforEditTeacher();
                 try {
                     const doc = await getTeacher(e.target.dataset.id);
                     const teach = doc.data();
@@ -89,6 +91,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 });
 
+document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
+    try {
+        await detTeacher(e.target.dataset.id);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 frmNewTeacher.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -106,7 +115,7 @@ frmNewTeacher.addEventListener('submit', async (e) => {
         if (!editStatusTeacher) {
             await ingresarTeacher(nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado);
         } else {
-            await updateTeacher(id, {
+            await updateTeacher(idTeacher, {
                 nombre: nombre,
                 email: email,
                 fechNacimiento: fechNacimiento,
@@ -119,7 +128,7 @@ frmNewTeacher.addEventListener('submit', async (e) => {
             });
             editStatusTeacher = false;
             idTeacher = '';
-            frmNewTeacher['btnRegisTeacher'].innerHTML = 'save';
+            frmNewTeacher['btnRegisTeacher'].innerHTML = 'Registrar';
         }
         frmNewTeacher.reset();
     } catch (error) {
@@ -128,3 +137,11 @@ frmNewTeacher.addEventListener('submit', async (e) => {
 });
 
 
+function selctforEditTeacher() {
+    document.getElementById('tabbTeache').className="nav-link active show";
+    document.getElementById('tabbStudent').className="nav-link";
+    document.getElementById('tabbAdmin').className="nav-link";
+    document.getElementById('mAdminreg').className="tab-pane";
+    document.getElementById('mdDocentReg').classList="tab-pane active show";
+    document.getElementById('mdEstudentReg').classList="tab-pane";
+}

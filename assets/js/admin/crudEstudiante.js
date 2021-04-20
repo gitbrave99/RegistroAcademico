@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().nombre}</td>
                 <td>${doc.data().fechNacimiento}</td>
                 <td>${doc.data().sexo}</td>
+                <td>${doc.data().grado}</td>
                 <td>${doc.data().responsable}</td>
                 <td>${doc.data().telefono}</td>
                 <td>${doc.data().email}</td>
@@ -41,11 +42,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().user}</td>
                 <td>${doc.data().password}</td>
                 <td>
-                     <button class="btn btn-info btn-sm btnEditStudent" data-id="${estudoc.id}">
-                        <i class="material-icons">mode_edit</i>
-                    </button>
-                    <button class="btn btn-danger btn-sm btnDelStudent" data-id="${estudoc.id}">
-                        <i class="material-icons">delete_forever</i>
+                     <a class="btn btn-info btn-sm btnEditStudent" href="#panelsUsers" data-id="${estudoc.id}">
+                        Editar
+                    </a>
+                    <button type="button" class="btn btn-danger btn-sm btnDelStudent" data-id="${estudoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
+                        Borrar
                     </button>
                 </td>
             </tr>
@@ -55,12 +56,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btnsDelEstu.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
-                try {
-                    await delEstudiante(e.target.dataset.id);
-                } catch (error) {
-                    console.log(error);
-                }
-
+                document.getElementById('btnModalDeleteUsuario').dataset.id=e.target.dataset.id;
             })
         });
 
@@ -68,6 +64,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         const btsEditEstu = document.querySelectorAll('.btnEditStudent');
         btsEditEstu.forEach((btn) => {
             btn.addEventListener("click", async (e) => {
+                selectForEditStudent();
                 try {
                     const doc = await getEstudiante(e.target.dataset.id);
                     const student = doc.data();
@@ -94,14 +91,17 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 }
             });
         });
-
-
-
-
     });
-
 });
 
+
+document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
+    try {
+        await delEstudiante(e.target.dataset.id);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 
 
@@ -127,19 +127,19 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
             await updateEstudiante(id, {
                 nombre: nombre,
                 fechNacimiento: fechNacimiento,
-                sexo:sexo,
-                user:user,
-                password:password,
-                grado:grado, 
-                responsable:responsable,
-                telefono:telefono,
-                email:email,
-                dui:dui,
-                direccion:direccion
+                sexo: sexo,
+                user: user,
+                password: password,
+                grado: grado,
+                responsable: responsable,
+                telefono: telefono,
+                email: email,
+                dui: dui,
+                direccion: direccion
             });
             editStatus = false;
             id = '';
-            frmNewEstudiante['btnStudenForm'].innerHTML = 'save';
+            frmNewEstudiante['btnStudenForm'].innerHTML = 'Registrar';
         }
         frmNewEstudiante.reset();
     } catch (error) {
@@ -147,4 +147,13 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
     }
 });
 
+
+function selectForEditStudent() {
+    document.getElementById('tabbStudent').className="nav-link active show";
+    document.getElementById('tabbAdmin').className="nav-link";
+    document.getElementById('tabbTeache').className="nav-link";
+    document.getElementById('mAdminreg').className="tab-pane";
+    document.getElementById('mdDocentReg').classList="tab-pane";
+    document.getElementById('mdEstudentReg').classList="tab-pane active show";
+}
 

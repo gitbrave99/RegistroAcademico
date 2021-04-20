@@ -39,26 +39,24 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().user}</td>
                 <td>${doc.data().password}</td>
                 <td>
-                     <button class="btn btn-info btn-sm btnEditAdmin" data-id="${admindoc.id}">
-                        <i class="material-icons">mode_edit</i>
-                    </button>
-                    <button class="btn btn-danger btn-sm btnDelAdmin" data-id="${admindoc.id}">
-                        <i class="material-icons">delete_forever</i>
+                     <a class="btn btn-info btn-sm btnEditAdmin" href="#panelsUsers" data-id="${admindoc.id}">
+                        Editar
+                    </a>
+                    <button type="button" class="btn btn-danger btn-sm btnDelAdmin" data-id="${admindoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
+                        Borrar
                     </button>
                 </td>
             </tr>
             `;
         });
+
+       
+
         const btnsDelAdmin = document.querySelectorAll('.btnDelAdmin');
         btnsDelAdmin.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
-                try {
-                    await delAdmin(e.target.dataset.id);
-                } catch (error) {
-                    console.log(error);
-                }
-
+                document.getElementById('btnModalDeleteUsuario').dataset.id=e.target.dataset.id;
             })
         });
 
@@ -66,6 +64,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
         btnsEditAdmin.forEach((btn) => {
             btn.addEventListener("click", async (e) => {
+                selectForEditAdmin();
                 try {
                     const doc = await getAdmin(e.target.dataset.id);
                     const admin = doc.data();
@@ -96,6 +95,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 });
 
+document.getElementById('btnModalDeleteUsuario').addEventListener('click',async (e) =>{
+    try {
+           await delAdmin(e.target.dataset.id);
+       } catch (error) {
+           console.log(error);
+       }
+});
 
 
 
@@ -127,7 +133,7 @@ frmNewAdmin.addEventListener('submit', async (e) => {
             });
             editStatusAdmin = false;
             id = '';
-            frmNewEstudiante['btnStudenForm'].innerHTML = 'save';
+            frmNewEstudiante['btnStudenForm'].innerHTML = 'Registrar';
         }
         frmNewEstudiante.reset();
     } catch (error) {
@@ -136,3 +142,11 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 });
 
 
+function selectForEditAdmin() {
+    document.getElementById('tabbAdmin').className="nav-link active show";
+    document.getElementById('tabbTeache').className="nav-link";
+    document.getElementById('tabbStudent').className="nav-link";
+    document.getElementById('mAdminreg').className="tab-pane active show";
+    document.getElementById('mdDocentReg').classList="tab-pane";
+    document.getElementById('mdEstudentReg').classList="tab-pane";
+}

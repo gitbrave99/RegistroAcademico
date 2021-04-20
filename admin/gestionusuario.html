@@ -145,7 +145,7 @@
                         <div class="col-md-12" id="materiasNotasEstu">
                             <div class="card">
                                 <div class="card-header card-header-tabs card-header-primary">
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check form-check-inline" id="panelsUsers">
                                         <h4 class="card-title ">Usuarios</h4>
                                         &nbsp;&nbsp;
                                         <!-- <ul class="nav nav-tabs" data-tabs="tabs">
@@ -163,19 +163,19 @@
                                             <span class="nav-tabs-title">Tipo:</span>
                                             <ul class="nav nav-tabs" data-tabs="tabs">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" href="#mAdminreg" data-toggle="tab">
+                                                    <a class="nav-link active" href="#mAdminreg" data-toggle="tab" id="tabbAdmin">
                                                         Administrador
                                                         <div class="ripple-container"></div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="#mdDocentReg" data-toggle="tab">
+                                                    <a class="nav-link" href="#mdDocentReg" data-toggle="tab" id="tabbTeache">
                                                         Docente
                                                         <div class="ripple-container"></div>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="#mdEstudentReg" data-toggle="tab">
+                                                    <a class="nav-link" href="#mdEstudentReg" data-toggle="tab" id="tabbStudent">
                                                         Estudiante
                                                         <div class="ripple-container"></div>
                                                     </a>
@@ -185,7 +185,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="tab-content">
+                                    <div class="tab-content" >
                                         <div class="tab-pane active" id="mAdminreg">
                                             <div class="row">
                                                 <div class="col-md-8">
@@ -1020,7 +1020,7 @@
     </div>
 
     <!-- MODAL ELIMINAR REGISGRO  -->
-    <div class="modal fade" id="mdDeleteRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    <div class="modal fade" id="mdDeleteUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         style="display: none;">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content dark-edition">
@@ -1035,10 +1035,10 @@
                         ¿Desea Eliminar Registro?
                     </p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" id="mdfterDeluser">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                        id="btnToastDelete">Eliminar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" 
+                        id="btnModalDeleteUsuario">Eliminar</button>
                 </div>
             </div>
         </div>
