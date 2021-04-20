@@ -143,7 +143,7 @@ function selctforEditTeacher() {
 $(document).ready(function () {
     $("#buscarTeacherRg").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#tableTeachersReg tr").filter(function () {
+        $("#tableTeachersReg tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

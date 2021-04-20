@@ -153,7 +153,7 @@ function selectForEditAdmin() {
 $(document).ready(function () {
     $("#buscarAdminRg").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#tableAdminRegs tr").filter(function () {
+        $("#tableAdminRegs tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

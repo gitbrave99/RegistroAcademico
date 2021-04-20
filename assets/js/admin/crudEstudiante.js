@@ -159,7 +159,7 @@ function selectForEditStudent() {
 $(document).ready(function () {
     $("#buscarEstudentRg").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#tableStudentsReg tr").filter(function () {
+        $("#tableStudentsReg tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
