@@ -84,12 +84,12 @@ function GetSetAdminDatainFormEdit(index) {
 
     //nombre
     let nombrea = tblistAdmins.rows[index].cells.item(1).innerHTML;
-    formAdminReg.elements[0].value =DelSpaceInputs(nombrea);
+    formAdminReg.elements[0].value = DelSpaceInputs(nombrea);
 
     // correo
     let coreoa = tblistAdmins.rows[index].cells.item(2).innerHTML;
-    formAdminReg.elements[1].value=DelSpaceInputs(coreoa);
-    
+    formAdminReg.elements[1].value = DelSpaceInputs(coreoa);
+
     // fecha nacimiento 
     let feNac = tblistAdmins.rows[index].cells.item(3).innerHTML;
     formAdminReg.elements[2].value = DelSpaceInputs(feNac);
@@ -100,7 +100,7 @@ function GetSetAdminDatainFormEdit(index) {
 
     //DUI
     let duia = tblistAdmins.rows[index].cells.item(5).innerHTML;
-    formAdminReg.elements[4].value=DelSpaceInputs(duia);
+    formAdminReg.elements[4].value = DelSpaceInputs(duia);
 
     //telefono
     let tela = tblistAdmins.rows[index].cells.item(6).innerHTML;
@@ -118,46 +118,46 @@ function GetSetAdminDatainFormEdit(index) {
 }
 
 function DelSpaceInputs(text) {
-    return text.replace(/^\s+|\s+$/gm,'');
+    return text.replace(/^\s+|\s+$/gm, '');
 }
 
 
 
 
 //agregado de table filters 
-$(document).ready(function () {
-    $('#tableAdminRegs').DataTable({
-      "language": {
-        "lengthMenu": "Mostrar _MENU_ registros por página",
-        "zeroRecords": "No se encontraron registros",
-        "info": "Página _PAGE_ of _PAGES_",
-        "infoEmpty": "No records available",
-        "infoFiltered": "(filtered from _MAX_ total records)"
-      }
-    });
+// $(document).ready(function () {
+    // $('#tableAdminRegs').DataTable({
+    //     "language": {
+    //         "lengthMenu": "Mostrar _MENU_ registros por página",
+    //         "zeroRecords": "No se encontraron registros",
+    //         "info": "Página _PAGE_ of _PAGES_",
+    //         "infoEmpty": "No records available",
+    //         "infoFiltered": "(filtered from _MAX_ total records)"
+    //     }
+    // });
 
 
     // table teachaer 
-    $('#tableTeachersReg').DataTable({
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se encontraron registros",
-          "info": "Página _PAGE_ of _PAGES_",
-          "infoEmpty": "No records available",
-          "infoFiltered": "(filtered from _MAX_ total records)"
-        }
-      });
-      $('#tableStudentsReg').DataTable({
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se encontraron registros",
-          "info": "Página _PAGE_ of _PAGES_",
-          "infoEmpty": "No records available",
-          "infoFiltered": "(filtered from _MAX_ total records)"
-        }
-      });
-  
+    // $('#tableTeachersReg').DataTable({
+    //     "language": {
+    //         "lengthMenu": "Mostrar _MENU_ registros por página",
+    //         "zeroRecords": "No se encontraron registros",
+    //         "info": "Página _PAGE_ of _PAGES_",
+    //         "infoEmpty": "No records available",
+    //         "infoFiltered": "(filtered from _MAX_ total records)"
+    //     }
+    // });
+    // $('#tableStudentsReg').DataTable({
+    //     "language": {
+    //         "lengthMenu": "Mostrar _MENU_ registros por página",
+    //         "zeroRecords": "No se encontraron registros",
+    //         "info": "Página _PAGE_ of _PAGES_",
+    //         "infoEmpty": "No records available",
+    //         "infoFiltered": "(filtered from _MAX_ total records)"
+    //     }
+    // });
+
     //   table estudents
 
-  });
+// });
 

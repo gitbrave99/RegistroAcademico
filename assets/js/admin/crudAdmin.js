@@ -1,9 +1,9 @@
 // const db = firebase.firestore();
 let editStatusAdmin = false;
 let idadmin = '';
-const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui , telefono, user, password) =>
+const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui, telefono, user, password) =>
     db.collection('administrador').doc().set({
-        nombre, email, sexo, fechNacimiento, dui , telefono, user, password
+        nombre, email, sexo, fechNacimiento, dui, telefono, user, password
     });
 
 
@@ -22,41 +22,36 @@ const updateAdmin = (id, updateAdmin) => db.collection('administrador').doc(id).
 window.addEventListener('DOMContentLoaded', async (e) => {
     onGetAdmins((querySnapshot) => {
         tableshowAdmins.innerHTML = '';
-
-        querySnapshot.forEach(doc => {
-
+        querySnapshot.forEach(doc=> {
             const admindoc = doc.data();
             admindoc.id = doc.id;
-
-            tableshowAdmins.innerHTML += `<tr>
-                <td>1</td>
-                <td>${doc.data().nombre}</td>
-                <td>${doc.data().email}</td>
-                <td>${doc.data().fechNacimiento}</td>
-                <td>${doc.data().sexo}</td>
-                <td>${doc.data().dui}</td>
-                <td>${doc.data().telefono}</td>
-                <td>${doc.data().user}</td>
-                <td>${doc.data().password}</td>
-                <td>
-                     <a class="btn btn-info btn-sm btnEditAdmin" href="#panelsUsers" data-id="${admindoc.id}">
-                        Editar
-                    </a>
-                    <button type="button" class="btn btn-danger btn-sm btnDelAdmin" data-id="${admindoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
-                        Borrar
-                    </button>
-                </td>
-            </tr>
-            `;
+                tableshowAdmins.innerHTML += `<tr>
+                    <td>${doc.data().nombre}</td>
+                    <td>${doc.data().email}</td>
+                    <td>${doc.data().fechNacimiento}</td>
+                    <td>${doc.data().sexo}</td>
+                    <td>${doc.data().dui}</td>
+                    <td>${doc.data().telefono}</td>
+                    <td>${doc.data().user}</td>
+                    <td>${doc.data().password}</td>
+                    <td>
+                         <a class="btn btn-info btn-sm btnEditAdmin" href="#panelsUsers" data-id="${admindoc.id}">
+                            Editar
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm btnDelAdmin" data-id="${admindoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
+                            Borrar
+                        </button>
+                    </td>
+                </tr>`;
         });
 
-       
+
 
         const btnsDelAdmin = document.querySelectorAll('.btnDelAdmin');
         btnsDelAdmin.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
-                document.getElementById('btnModalDeleteUsuario').dataset.id=e.target.dataset.id;
+                document.getElementById('btnModalDeleteUsuario').dataset.id = e.target.dataset.id;
             })
         });
 
@@ -95,12 +90,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 });
 
-document.getElementById('btnModalDeleteUsuario').addEventListener('click',async (e) =>{
+document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
     try {
-           await delAdmin(e.target.dataset.id);
-       } catch (error) {
-           console.log(error);
-       }
+        await delAdmin(e.target.dataset.id);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 
@@ -119,23 +114,23 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatusAdmin) {
-            await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui , telefono, user, password);
+            await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui, telefono, user, password);
         } else {
             await updateAdmin(id, {
                 nombre: nombre,
-                email:email,
+                email: email,
                 fechNacimiento: fechNacimiento,
-                sexo:sexo,
-                dui:dui,
-                telefono:telefono,
-                user:user,
-                password:password
+                sexo: sexo,
+                dui: dui,
+                telefono: telefono,
+                user: user,
+                password: password
             });
             editStatusAdmin = false;
             id = '';
-            frmNewEstudiante['btnStudenForm'].innerHTML = 'Registrar';
+            frmNewAdmin['btnRegisAdmin'].innerHTML = 'Registrar';
         }
-        frmNewEstudiante.reset();
+        frmNewAdmin.reset();
     } catch (error) {
         console.log(error);
     }
@@ -143,10 +138,22 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 
 
 function selectForEditAdmin() {
-    document.getElementById('tabbAdmin').className="nav-link active show";
-    document.getElementById('tabbTeache').className="nav-link";
-    document.getElementById('tabbStudent').className="nav-link";
-    document.getElementById('mAdminreg').className="tab-pane active show";
-    document.getElementById('mdDocentReg').classList="tab-pane";
-    document.getElementById('mdEstudentReg').classList="tab-pane";
+    document.getElementById('tabbAdmin').className = "nav-link active show";
+    document.getElementById('mAdminreg').className = "tab-pane active show";
+    
+    document.getElementById('tabbTeache').className = "nav-link";
+    document.getElementById('tabbStudent').className = "nav-link";
+    
+    document.getElementById('mdDocentReg').classList = "tab-pane";
+    document.getElementById('mdEstudentReg').classList = "tab-pane";
 }
+
+
+$(document).ready(function(){
+    $("#buscarAdminRg").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tableAdminRegs tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });

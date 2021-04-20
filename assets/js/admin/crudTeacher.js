@@ -27,7 +27,6 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             teacherdoc.id = doc.id;
 
             tableshowTeacher.innerHTML += `<tr>
-                <td>1</td>
                 <td>${doc.data().nombre}</td>
                 <td>${doc.data().email}</td>
                 <td>${doc.data().fechNacimiento}</td>
@@ -38,7 +37,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().password}</td>
                 <td>${doc.data().gradoEncargado}</td>
                 <td>
-                     <a class="btn btn-info btn-sm btnEditAdmin" href="#panelsUsers" data-id="${teacherdoc.id}">
+                     <a class="btn btn-info btn-sm btnEditTeacher" href="#panelsUsers" data-id="${teacherdoc.id}">
                         Editar
                     </a>
                     <button type="button" class="btn btn-danger btn-sm btndelTeacher" data-id="${teacherdoc.id}" data-toggle="modal" data-target="#mdDeleteUsuario">
@@ -62,8 +61,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         });
 
 
-        const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
-        btnsEditAdmin.forEach((btn) => {
+        const btnsEditTeacher = document.querySelectorAll('.btnEditTeacher');
+        btnsEditTeacher.forEach((btn) => {
             btn.addEventListener("click", async (e) => {
                 selctforEditTeacher();
                 try {
@@ -139,9 +138,18 @@ frmNewTeacher.addEventListener('submit', async (e) => {
 
 function selctforEditTeacher() {
     document.getElementById('tabbTeache').className="nav-link active show";
+    document.getElementById('mdDocentReg').classList="tab-pane active show";
     document.getElementById('tabbStudent').className="nav-link";
     document.getElementById('tabbAdmin').className="nav-link";
     document.getElementById('mAdminreg').className="tab-pane";
-    document.getElementById('mdDocentReg').classList="tab-pane active show";
     document.getElementById('mdEstudentReg').classList="tab-pane";
 }
+
+$(document).ready(function(){
+    $("#buscarTeacherRg").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tableTeachersReg tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });

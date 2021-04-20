@@ -30,7 +30,6 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             estudoc.id = doc.id;
 
             tableEstudiantes.innerHTML += `<tr>
-                <td>1</td>
                 <td>${doc.data().nombre}</td>
                 <td>${doc.data().fechNacimiento}</td>
                 <td>${doc.data().sexo}</td>
@@ -157,3 +156,11 @@ function selectForEditStudent() {
     document.getElementById('mdEstudentReg').classList="tab-pane active show";
 }
 
+$(document).ready(function(){
+    $("#buscarEstudentRg").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tableStudentsReg tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
