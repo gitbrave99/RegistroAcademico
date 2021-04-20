@@ -22,46 +22,19 @@
     <!-- sstiles table  -->
     <link rel="stylesheet" href="../assets/css/stylestb.css">
     <style>
-        /* table admins  */
-        #tableAdminRegs tbody tr {
-            background-color: transparent;
+        #tableTeachersReg thead th {
+            cursor: pointer;
+            color: white;
         }
 
-        #tableAdminRegs tbody tr:hover {
-            color: #212529;
-            background-color: rgba(0, 0, 0, .075)
+        #tableAdminRegs thead th {
+            cursor: pointer;
+            color: white;
         }
 
-        #tableAdminRegs_info {
-            color: thistle;
-        }
-
-        /* tabla teachers  */
-        #tableTeachersReg tbody tr {
-            background-color: transparent;
-        }
-
-        #tableTeachersReg tbody tr:hover {
-            color: #212529;
-            background-color: rgba(0, 0, 0, .075)
-        }
-
-        #tableTeachersReg_info {
-            color: thistle;
-        }
-
-        /* tableStudentsReg*/
-        #tableStudentsReg tbody tr {
-            background-color: transparent;
-        }
-
-        #tableStudentsReg tbody tr:hover {
-            color: #212529;
-            background-color: rgba(0, 0, 0, .075)
-        }
-
-        #tableStudentsReg_info {
-            color: thistle;
+        #tableStudentsReg thead th {
+            cursor: pointer;
+            color: white;
         }
     </style>
 </head>
@@ -641,11 +614,12 @@
                                                     placeholder="Buscar administrador">
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="table-responsive">
                                         <!-- TABLE FOR ADMINS REGISTRADOS -->
                                         <table class="table table-hover" id="tableAdminRegs">
-                                            <thead class=" text-primary">
+                                            <thead>
                                                 <tr>
                                                     <th>
                                                         Nombre
@@ -675,6 +649,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -706,14 +681,14 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Buscar</label>
                                                 <input type="text" class="form-control" id="buscarTeacherRg"
-                                                    placeholder="Buscar administrador">
+                                                    placeholder="Buscar profesor">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover" id="tableTeachersReg">
-                                            <thead class=" text-primary">
-                                                <th>
+                                            <thead id="theadTechtbRegi">
+                                                <th class="text-white">
                                                     Nombre
                                                 </th>
                                                 <th>
@@ -775,7 +750,7 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Buscar</label>
                                                 <input type="text" class="form-control" id="buscarEstudentRg"
-                                                    placeholder="Buscar administrador">
+                                                    placeholder="Buscar estudiante">
                                             </div>
                                         </div>
                                     </div>
@@ -791,6 +766,9 @@
                                                 </th>
                                                 <th>
                                                     Sexo
+                                                </th>
+                                                <th>
+                                                    Grado
                                                 </th>
                                                 <th>
                                                     Responsable

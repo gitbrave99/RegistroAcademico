@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         btnsDelEstu.forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 console.log(e.target.dataset.id);
-                document.getElementById('btnModalDeleteUsuario').dataset.id=e.target.dataset.id;
+                document.getElementById('btnModalDeleteUsuario').dataset.id = e.target.dataset.id;
             })
         });
 
@@ -148,19 +148,36 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
 
 
 function selectForEditStudent() {
-    document.getElementById('tabbStudent').className="nav-link active show";
-    document.getElementById('tabbAdmin').className="nav-link";
-    document.getElementById('tabbTeache').className="nav-link";
-    document.getElementById('mAdminreg').className="tab-pane";
-    document.getElementById('mdDocentReg').classList="tab-pane";
-    document.getElementById('mdEstudentReg').classList="tab-pane active show";
+    document.getElementById('tabbStudent').className = "nav-link active show";
+    document.getElementById('tabbAdmin').className = "nav-link";
+    document.getElementById('tabbTeache').className = "nav-link";
+    document.getElementById('mAdminreg').className = "tab-pane";
+    document.getElementById('mdDocentReg').classList = "tab-pane";
+    document.getElementById('mdEstudentReg').classList = "tab-pane active show";
 }
 
-$(document).ready(function(){
-    $("#buscarEstudentRg").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#tableStudentsReg tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
+$(document).ready(function () {
+    $("#buscarEstudentRg").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tableStudentsReg tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
+
+    $('#tableStudentsReg th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    })
+    function comparer(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+        }
+    }
+    function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
+
+
+});

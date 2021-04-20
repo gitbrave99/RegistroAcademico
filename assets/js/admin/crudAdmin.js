@@ -22,10 +22,10 @@ const updateAdmin = (id, updateAdmin) => db.collection('administrador').doc(id).
 window.addEventListener('DOMContentLoaded', async (e) => {
     onGetAdmins((querySnapshot) => {
         tableshowAdmins.innerHTML = '';
-        querySnapshot.forEach(doc=> {
+        querySnapshot.forEach(doc => {
             const admindoc = doc.data();
             admindoc.id = doc.id;
-                tableshowAdmins.innerHTML += `<tr>
+            tableshowAdmins.innerHTML += `<tr>
                     <td>${doc.data().nombre}</td>
                     <td>${doc.data().email}</td>
                     <td>${doc.data().fechNacimiento}</td>
@@ -58,12 +58,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
         const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
         btnsEditAdmin.forEach((btn) => {
+            console.log("revorrido clic order");
             btn.addEventListener("click", async (e) => {
                 selectForEditAdmin();
+                console.log("si actiba");
                 try {
                     const doc = await getAdmin(e.target.dataset.id);
                     const admin = doc.data();
-
                     frmNewAdmin['inNombreAdmin'].value = admin.nombre;
                     frmNewAdmin['inEmailAdmin'].value = admin.email;
                     frmNewAdmin['inNaciAdmin'].value = admin.fechNacimiento;
@@ -75,6 +76,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
                     editStatusAdmin = true;
                     idadmin = doc.id;
+                    console.log("id en idadmin modificar=", idadmin);
                     frmNewAdmin['btnRegisAdmin'].innerHTML = "Actualizar";
 
                 } catch (error) {
@@ -83,20 +85,19 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             });
         });
 
-
-
+        document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
+            try {
+                await delAdmin(e.target.dataset.id);
+            } catch (error) {
+                console.log(error);
+            }
+        });
 
     });
 
 });
 
-document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
-    try {
-        await delAdmin(e.target.dataset.id);
-    } catch (error) {
-        console.log(error);
-    }
-});
+
 
 
 
@@ -116,7 +117,7 @@ frmNewAdmin.addEventListener('submit', async (e) => {
         if (!editStatusAdmin) {
             await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui, telefono, user, password);
         } else {
-            await updateAdmin(id, {
+            await updateAdmin(idadmin, {
                 nombre: nombre,
                 email: email,
                 fechNacimiento: fechNacimiento,
@@ -127,7 +128,7 @@ frmNewAdmin.addEventListener('submit', async (e) => {
                 password: password
             });
             editStatusAdmin = false;
-            id = '';
+            idadmin = '';
             frmNewAdmin['btnRegisAdmin'].innerHTML = 'Registrar';
         }
         frmNewAdmin.reset();
@@ -140,20 +141,36 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 function selectForEditAdmin() {
     document.getElementById('tabbAdmin').className = "nav-link active show";
     document.getElementById('mAdminreg').className = "tab-pane active show";
-    
+
     document.getElementById('tabbTeache').className = "nav-link";
     document.getElementById('tabbStudent').className = "nav-link";
-    
+
     document.getElementById('mdDocentReg').classList = "tab-pane";
     document.getElementById('mdEstudentReg').classList = "tab-pane";
 }
 
 
-$(document).ready(function(){
-    $("#buscarAdminRg").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#tableAdminRegs tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
+$(document).ready(function () {
+    $("#buscarAdminRg").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tableAdminRegs tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
-  });
+
+
+    $('#tableAdminRegs th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    })
+    function comparer(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+        }
+    }
+    function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
+});
