@@ -2,6 +2,14 @@ const db = firebase.firestore();
 const formPerfilEstudiante= document.getElementById('frmPerfilEstudiante');
 window.addEventListener("DOMContentLoaded", (e)=>{
     
+    //mostrar perfil
+    MostrarDatosUsuario();
+
+
+});
+
+
+function MostrarDatosUsuario() {
     db.collection("estudiante").where("user","==",GetLSSesionUser()).get()
     .then((querySnapshot)=>{
         
@@ -22,12 +30,8 @@ window.addEventListener("DOMContentLoaded", (e)=>{
                 el.classList.add("is-filled");
                 el.classList.add("bmd-form-group");
             });
-            console.log(doc.data().nombre);
+            
         });
 
     });
-
-
-});
-
-
+}
