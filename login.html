@@ -31,21 +31,28 @@
                                 <form id="frmLoginUsers">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Nombre</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" class="form-control" id="nmUser" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Contraseña</label>
-                                        <input type="password" class="form-control" required>
+                                        <input type="password" class="form-control" id="password" required>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-3 offset-md-4">
-                                            <button type="submit" class="btn btn-lg btn-primary">Log In</button>
+                                            <span id="mensajeLogin"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-3 offset-md-4">
+                                            <button type="submit" class="btn btn-lg btn-primary" id="btnLogIn">Log
+                                                In</button>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="form-group">
                                             <label class="form-check-label" for="gridCheck">
-                                                <a href="#signupmodal" class="text-primary">¿Olvidó su nombre de usuario o contraseña?</a>
+                                                <a href="#signupmodal" class="text-primary">¿Olvidó su nombre de usuario
+                                                    o contraseña?</a>
                                             </label>
                                         </div>
                                     </div>
@@ -75,6 +82,56 @@
     <script src="assets/js/material-dashboard.js?v=2.1.0"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="assets/demo/demo.js"></script>
+
+
+    <!-- FIREBASE -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+            authDomain: "escuelascrum.firebaseapp.com",
+            databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+            projectId: "escuelascrum",
+            storageBucket: "escuelascrum.appspot.com",
+            messagingSenderId: "855708798969",
+            appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./assets/js/login/globalsesion.js"></script>
+    <script src="./assets/js/login/login.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", (e) => {
+            if (GetLSSesionUser()==null) {
+                console.log("puede iniciar sesin");
+            }else{
+                console.log("redirigienao a  perfiles tipo=",GetLSSesionTipoU());
+                // if (GetLSSesionTipoU()=="estudiante") {
+                //     RutaDeAccesoPerfilUser("estudiante/perfil");
+                // }
+                // else if(GetLSSesionTipoU()=="admninistrador"){
+                //     RutaDeAccesoPerfilUser("administrado/gestionusuario");
+                // }
+                // else if(GetLSSesionTipoU()=="docente"){
+                //     RutaDeAccesoPerfilUser("docente/perfil");
+                // }
+                // location.reload();
+                // window.location="estudiante/perfil.html";
+            }
+            
+        });
+        
+        </script>
+
+
 </body>
 
 </html>

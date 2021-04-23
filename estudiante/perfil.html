@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" id="cerrarSesionOk">
                             <i class="material-icons">logout</i>
                             <p>Cerrar sesión</p>
                         </a>
@@ -104,7 +104,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control" value="Jhon Bernard">
+                                                    <input type="text" class="form-control" value="Jhon Bernard"
+                                                        id="nombreStudent">
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +113,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group bmd-form-group is-filled" id="fecha_llenadoestu">
                                                     <label class="bmd-label-floating">Fecha</label>
-                                                    <input type="text" class="form-control"  value="12/02/2020">
+                                                    <input type="text" class="form-control" value="12/02/2020"
+                                                        id="fechanacStudent">
                                                 </div>
                                             </div>
                                             <script>
@@ -120,19 +122,9 @@
                                             </script>
                                             <div class="col-md-6">
                                                 <div class="form-group grlbin">
-                                                    <style>
-                                                        #selSexAdmin {
-                                                            background-color: #1a2035;
-                                                        }
-                                                    </style>
                                                     <label class="bmd-label-floating">Sexo</label>
                                                     <!-- <label for="exampleFormControlSelect1">Periodo</label> -->
-                                                    <select class="form-control" id="selSexStudent" required>
-                                                        <option selected disabled value="Elegir">Elegir
-                                                        </option>
-                                                        <option value="Femenino">Femenino</option>
-                                                        <option value="Masculino">Masculino</option>
-                                                    </select>
+                                                    <input type="text" class="form-control" id="sexoStudent">
                                                 </div>
                                             </div>
                                         </div>
@@ -148,13 +140,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" id="nombreResonsble">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Teléfono</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" id="telResponsable">
                                                 </div>
                                             </div>
                                         </div>
@@ -162,13 +154,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">E-mail</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" id="emailResponsable">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">DUI</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" id="duiResponsable">
                                                 </div>
                                             </div>
                                         </div>
@@ -176,41 +168,22 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Usuario</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" id="userStudent">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Contraseña</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="email" class="form-control" id="passStudent">
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Condición médica</label>
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">
-
-                                                        </label>
-                                                        <textarea class="form-control" rows="2" id="txtCondicioMediStu">
-                                                            Quebradura de brazo hace 2 años cuando estaba jugando futbol.
-                                                            Alergico al maní
-                                                        </textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <script>
-                                                document.getElementById('txtCondicioMediStu').value=document.getElementById('txtCondicioMediStu').value.replace(/^\s+|\s+$/gm,'');
-                                            </script>
-                                        </div> -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Dirección</label>
                                                     <input type="text" class="form-control"
-                                                        value="Santa Ana, Col. Santa Leonor">
+                                                        value="Santa Ana, Col. Santa Leonor" id="direccion">
                                                 </div>
                                             </div>
                                         </div>
@@ -420,6 +393,46 @@
                 });
             });
         });
+    </script>
+    
+    <script src="../assets/js/login/globalsesion.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", (e) => {
+            if (GetLSSesionUser() == null) {
+                console.log("no logeado");
+                RutaDeAccesoPerfilUser("../login");
+            } else {
+                console.log("ok logeado");
+                console.log("funcionos iduse= ", GetLSSesionTipoU());
+            }
+        });
+
+        document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
+            LogOut();
+
+        });
+    </script>
+    <!-- FIREBASE -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+            authDomain: "escuelascrum.firebaseapp.com",
+            databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+            projectId: "escuelascrum",
+            storageBucket: "escuelascrum.appspot.com",
+            messagingSenderId: "855708798969",
+            appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
     <script src="../assets/js/estudiante/crudEstudiante.js"></script>
 </body>

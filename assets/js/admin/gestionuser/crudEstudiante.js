@@ -23,12 +23,9 @@ const updateEstudiante = (id, updatedEstudiante) => db.collection('estudiante').
 window.addEventListener('DOMContentLoaded', async (e) => {
     onGetEstudiantes((querySnapshot) => {
         tableEstudiantes.innerHTML = '';
-
         querySnapshot.forEach(doc => {
-
             const estudoc = doc.data();
             estudoc.id = doc.id;
-
             tableEstudiantes.innerHTML += `<tr>
                 <td>${doc.data().nombre}</td>
                 <td>${doc.data().fechNacimiento}</td>
@@ -121,6 +118,7 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatus) {
+            // db.collection("estudiante").where("user")
             await fingresarEstudiante(nombre, fechNacimiento, sexo, user, password, grado, responsable, telefono, email, dui, direccion);
         } else {
             await updateEstudiante(id, {
