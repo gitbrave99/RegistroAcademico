@@ -17,6 +17,8 @@
     <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+    
+    
 </head>
 
 <body class="dark-edition">
@@ -100,7 +102,7 @@
                                     <p class="card-category">
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="javascript:void(0)" data-toggle="tab"
+                                            <a class="nav-link" href="javascript:genPDF()" data-toggle="tab"
                                                 id="printBoletNotas">
                                                 <i class="material-icons">print</i> Imprimir
                                                 <div class="ripple-container"></div>
@@ -402,6 +404,14 @@
                 });
             });
         });
+    </script>
+
+    <!--Reportes-->
+    <script src="jsPDF-1.3.2/dist/jspdf.min.js">
+        function genPDF() {
+            var doc = new jsPDF();
+            doc.fromHTML($('#notasAlumno').get(0), 20, 20, {'width':500});
+        }
     </script>
 </body>
 
