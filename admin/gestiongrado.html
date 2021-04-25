@@ -16,39 +16,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <link href="../assets/demo/demo.css" rel="stylesheet" />
-
   <style>
-    #tblistGrados tbody tr {
-      background-color: transparent;
+    #tblistGrados thead th {
+      cursor: pointer;
+      color: white;
     }
 
-    #tblistGrados tbody tr:hover {
-      color: #212529;
-      background-color: rgba(0, 0, 0, .075)
+    #tblistStudents thead th {
+      cursor: pointer;
+      color: white;
     }
 
-    #tblistGrados_info {
-      color: thistle;
-    }
+   
+  </style>
 
-    .dataTables_wrapper .dataTables_filter input {
-      color: thistle;
-    }
-
-    /* eestilo tabla studenst */
-
-    #tblistStudents tbody tr {
-      background-color: transparent;
-    }
-
-    #tblistStudents tbody tr:hover {
-      color: #212529;
-      background-color: rgba(0, 0, 0, .075)
-    }
-
-    #tblistStudents_info {
-      color: thistle;
-    }
   </style>
 </head>
 
@@ -139,62 +120,31 @@
                   </div>
                 </div>
                 <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Buscar</label>
+                        <input type="text" class="form-control" id="buscarTeacher" placeholder="Buscar Profesor">
+                      </div>
+                    </div>
+
+                  </div>
                   <div class="table-responsive">
                     <table class="table table-hover" id="tblistGrados">
                       <thead class=" text-primary">
-                        <th>
-                          #
-                        </th>
-                        <th>
-                          Grado
-                        </th>
-                        <!-- <th>
-                          Sección
-                        </th> -->
-                        <th>
-                          Encargado
-                        </th>
-                        <th>
-
-                        </th>
+                        <tr>
+                          <th scope="col" class="text-center">
+                            Grado
+                          </th>
+                          <th scope="col" class="text-center">
+                            Encargado
+                          </th>
+                          <th scope="col" class="text-center">
+                            Acción
+                          </th>
+                        </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Bachillerato General
-                          </td>
-                          <!-- <td>
-                            A
-                          </td> -->
-                          <td>
-                            Juan Enriquez
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            8°
-                          </td>
-                          <!-- <td>
-                            A
-                          </td> -->
-                          <td>
-                            Benjamín Esi
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i></a>
-                          </td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -206,11 +156,11 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <div class="form-check form-check-inline" id="materiasNotasEstu">
-                    <h4 class="card-title">Estudiantes</h4>
+                    <h4 class="card-title">Estudiantes <span id="titleGradeSel"></span></h4>
                     &nbsp;&nbsp;
                     <ul class="nav nav-tabs" data-tabs="tabs">
                       <li class="nav-item">
-                        <a class="nav-link" href="notas.html" data-toggle="tab" id="printBoletNotas">
+                        <a class="nav-link text-center" href="notas.html" data-toggle="tab" id="printBoletNotas">
                           <i class="material-icons">print</i> Imprimir
                           <div class="ripple-container"></div>
                         </a>
@@ -218,75 +168,54 @@
                     </ul>
                   </div>
                 </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover" id="tblistStudents">
-                      <thead class=" text-primary">
-                        <th>
-                          #
-                        </th>
-                        <th>
-                          Nombre
-                        </th>
-                        <th>
-                          Edad
-                        </th>
-                        <th>
-                          Encargado
-                        </th>
-                        <th>
-                          Teléfono
-                        </th>
-                        <th>
-                          Acción
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Jhon Rambo
-                          </td>
-                          <td>
-                            12
-                          </td>
-                          <td>
-                            Justin B
-                          </td>
-                          <td>
-                            1245-7845
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Arnold Swag
-                          </td>
-                          <td>
-                            12
-                          </td>
-                          <td>
-                            Cardi G
-                          </td>
-                          <td>
-                            4578-9865
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i>
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div class="card-body" id="pnllisStudents">
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Buscar</label>
+                        <input type="text" class="form-control" id="buscarStudent" placeholder="Buscar estudiante">
+                      </div>
+                    </div>
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="tblistStudents">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th scope="col" class="text-center">
+                              Nombre
+                            </th>
+                            <th scope="col" class="text-center">
+                              Fecha de nacimiento
+                            </th>
+                            <th scope="col" class="text-center">
+                              Sexo
+                            </th>
+                            <th scope="col" class="text-center">
+                              Usuario
+                            </th>
+                            <th scope="col" class="text-center">
+                              Contraseña
+                            </th>
+                            <th scope="col" class="text-center">
+                              Responsable
+                            </th>
+                            <th scope="col" class="text-center">
+                              Teléfono
+                            </th>
+                            <th scope="col" class="text-center">
+                              Correo
+                            </th>
+                            <th scope="col" class="text-center">
+                              DUI
+                            </th>
+                            <th scope="col" class="text-center">
+                              Dirección
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -295,360 +224,346 @@
         </div>
       </div>
     </div>
-  </div>
 
 
 
 
-  <!-- MODAL AGREGAR NOTA PERIODOS  -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content dark-edition">
-        <div class="modal-header">
-          <h5 class="modal-title text-white" id="exampleModalLabel">Agregar/Modificar nota</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" class="text-white">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body ">
-          <form action="">
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+    <!-- MODAL AGREGAR NOTA PERIODOS  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content dark-edition">
+          <div class="modal-header">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Agregar/Modificar nota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body ">
+            <form action="">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- modal imprimir notas individual o todas -->
-  <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content dark-edition">
-        <div class="modal-header">
-          <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de notas</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" class="text-white">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body ">
-          <form action="">
-            <div class="form-group">
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Sociales
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
+    <!-- modal imprimir notas individual o todas -->
+    <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content dark-edition">
+          <div class="modal-header">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de notas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body ">
+            <form action="">
+              <div class="form-group">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Sociales
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">Lenguaje
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Matemáticas
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Ciencias
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Inglés
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Todas
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
               </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">Lenguaje
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Matemáticas
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Ciencias
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Inglés
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Todas
-                  <span class="form-check-sign">
-                    <span class="check"></span>
-                  </span>
-                </label>
-              </div>
-            </div>
-            <!-- <div class="form-group">
+              <!-- <div class="form-group">
               <label for="inNotaMateriaPeriod" class="bmd-label-floating">Nota</label>
               <input type="number" class="form-control" id="inNotaMateriaPeriod">
             </div> -->
-            <div class="form-group">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="material-icons">print</i>
-                Imprimir</button>
-            </div>
-          </form>
-        </div>
-        <!-- <div class="modal-footer">
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="material-icons">print</i>
+                  Imprimir</button>
+              </div>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
         
         </div> -->
+        </div>
       </div>
     </div>
-  </div>
 
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Chartist JS -->
-  <script src="../assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
-  <script>
-    $(document).ready(function () {
-      $().ready(function () {
-        $sidebar = $('.sidebar');
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="https://unpkg.com/default-passive-events"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Chartist JS -->
+    <script src="../assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../assets/demo/demo.js"></script>
+    <script>
+      $(document).ready(function () {
+        $().ready(function () {
+          $sidebar = $('.sidebar');
 
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
+          $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-        $full_page = $('.full-page');
+          $full_page = $('.full-page');
 
-        $sidebar_responsive = $('body > .navbar-collapse');
+          $sidebar_responsive = $('body > .navbar-collapse');
 
-        window_width = $(window).width();
+          window_width = $(window).width();
 
-        $('.fixed-plugin a').click(function (event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
+          $('.fixed-plugin a').click(function (event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if ($(this).hasClass('switch-trigger')) {
+              if (event.stopPropagation) {
+                event.stopPropagation();
+              } else if (window.event) {
+                window.event.cancelBubble = true;
+              }
             }
-          }
-        });
+          });
 
-        $('.fixed-plugin .active-color span').click(function () {
-          $full_page_background = $('.full-page-background');
+          $('.fixed-plugin .active-color span').click(function () {
+            $full_page_background = $('.full-page-background');
 
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-          var new_color = $(this).data('color');
+            var new_color = $(this).data('color');
 
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-color', new_color);
+            }
 
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
+            if ($full_page.length != 0) {
+              $full_page.attr('filter-color', new_color);
+            }
 
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.attr('data-color', new_color);
+            }
+          });
 
-        $('.fixed-plugin .background-color .badge').click(function () {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+          $('.fixed-plugin .background-color .badge').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-          var new_color = $(this).data('background-color');
+            var new_color = $(this).data('background-color');
 
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-background-color', new_color);
+            }
+          });
 
-        $('.fixed-plugin .img-holder').click(function () {
-          $full_page_background = $('.full-page-background');
+          $('.fixed-plugin .img-holder').click(function () {
+            $full_page_background = $('.full-page-background');
 
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
 
 
-          var new_image = $(this).find("img").attr('src');
+            var new_image = $(this).find("img").attr('src');
 
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function () {
+            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              $sidebar_img_container.fadeOut('fast', function () {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+              });
+            }
+
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+              $full_page_background.fadeOut('fast', function () {
+                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                $full_page_background.fadeIn('fast');
+              });
+            }
+
+            if ($('.switch-sidebar-image input:checked').length == 0) {
+              var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
               $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function () {
               $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function () {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
             }
 
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+            }
+          });
+
+          $('.switch-sidebar-image input').change(function () {
+            $full_page_background = $('.full-page-background');
+
+            $input = $(this);
+
+            if ($input.is(':checked')) {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+              }
+
+              background_image = true;
+            } else {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+              }
+
+              background_image = false;
+            }
+          });
+
+          $('.switch-sidebar-mini input').change(function () {
+            $body = $('body');
+
+            $input = $(this);
+
+            if (md.misc.sidebar_mini_active == true) {
+              $('body').removeClass('sidebar-mini');
+              md.misc.sidebar_mini_active = false;
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+            } else {
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+              setTimeout(function () {
+                $('body').addClass('sidebar-mini');
+
+                md.misc.sidebar_mini_active = true;
+              }, 300);
             }
 
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function () {
+              window.dispatchEvent(new Event('resize'));
+            }, 180);
 
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function () {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
+            // we stop the simulation of Window Resize after the animations are completed
             setTimeout(function () {
-              $('body').addClass('sidebar-mini');
+              clearInterval(simulateWindowResize);
+            }, 1000);
 
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function () {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function () {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
+          });
         });
       });
-    });
+    </script>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
 
-
-
-  </script>
-
-  <!-- filtrado de tablas  -->
-
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#tblistGrados').DataTable({
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se encontraron registros",
-          "info": "Página _PAGE_ of _PAGES_",
-          "infoEmpty": "No records available",
-          "infoFiltered": "(filtered from _MAX_ total records)"
-        }
-      });
-
-      // table list studes 
-      $('#tblistStudents').DataTable({
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se encontraron registros",
-          "info": "Página _PAGE_ of _PAGES_",
-          "infoEmpty": "No records available",
-          "infoFiltered": "(filtered from _MAX_ total records)"
-        }
-      });
-
-    });
-  </script>
-  <script src="../assets/js/login/globalsesion.js"></script>
-  <script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+        authDomain: "escuelascrum.firebaseapp.com",
+        databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+        projectId: "escuelascrum",
+        storageBucket: "escuelascrum.appspot.com",
+        messagingSenderId: "855708798969",
+        appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="../assets/js/admin/gestiongrados/gestiongrado.js"></script>
+    <script src="../assets/js/login/globalsesion.js"></script>
+    <script>
       window.addEventListener("DOMContentLoaded", (e) => {
-          if (GetLSSesionUser() == null) {
-              console.log("no logeado");
-              RutaDeAccesoPerfilUser("../login");
-          } else {
-              console.log("ok logeado");
-              console.log("funcionos iduse= ", GetLSSesionTipoU());
-          }
+        if (GetLSSesionUser() == null) {
+          console.log("no logeado");
+          RutaDeAccesoPerfilUser("../login");
+        } else {
+          console.log("ok logeado");
+          console.log("funcionos iduse= ", GetLSSesionTipoU());
+        }
       });
 
       document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
-          LogOut();
+        LogOut();
 
       });
-  </script>
+    </script>
 </body>
 
 </html>
