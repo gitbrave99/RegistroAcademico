@@ -331,10 +331,14 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="inNotaMateriaPeriod2" class="bmd-label-floating">Nota 2(35%)</label>
-              <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
+                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
               </div>
             </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
         </div>
       </div>
     </div>
@@ -421,6 +425,31 @@
     </div>
   </div>
 
+  <!-- * * * * * * * START / Firebase and Firestore * * * * * * * -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+      authDomain: "escuelascrum.firebaseapp.com",
+      databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+      projectId: "escuelascrum",
+      storageBucket: "escuelascrum.appspot.com",
+      messagingSenderId: "855708798969",
+      appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- * * * * * * *  END / Firebase and Firestore * * * * * * * -->
 
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
