@@ -114,15 +114,15 @@
                 console.log("puede iniciar sesin");
             }else{
                 console.log("redirigienao a  perfiles tipo=",GetLSSesionTipoU());
-                // if (GetLSSesionTipoU()=="estudiante") {
-                //     RutaDeAccesoPerfilUser("estudiante/perfil");
-                // }
-                // else if(GetLSSesionTipoU()=="admninistrador"){
-                //     RutaDeAccesoPerfilUser("administrado/gestionusuario");
-                // }
-                // else if(GetLSSesionTipoU()=="docente"){
-                //     RutaDeAccesoPerfilUser("docente/perfil");
-                // }
+                if (GetLSSesionTipoU()=="estudiante") {
+                    RutaDeAccesoPerfilUser("estudiante/perfil");
+                }
+                else if(GetLSSesionTipoU()=="admninistrador"){
+                    RutaDeAccesoPerfilUser("administrado/gestionusuario");
+                }
+                else if(GetLSSesionTipoU()=="docente"){
+                    RutaDeAccesoPerfilUser("docente/perfil");
+                }
                 // location.reload();
                 // window.location="estudiante/perfil.html";
             }

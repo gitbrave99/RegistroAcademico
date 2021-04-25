@@ -67,7 +67,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" id="cerrarSesionOk">
                             <i class="material-icons">logout</i>
                             <p>Cerrar sesión</p>
                         </a>
@@ -1231,6 +1231,23 @@
     <script src="../assets/js/admin/gestionuser/crudEstudiante.js"></script>
     <script src="../assets/js/admin/gestionuser/crudAdmin.js"></script>
     <script src="../assets/js/admin/gestionuser/crudTeacher.js"></script>
+    <script src="../assets/js/login/globalsesion.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", (e) => {
+            if (GetLSSesionUser() == null) {
+                console.log("no logeado");
+                RutaDeAccesoPerfilUser("../login");
+            } else {
+                console.log("ok logeado");
+                console.log("funcionos iduse= ", GetLSSesionTipoU());
+            }
+        });
+
+        document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
+            LogOut();
+
+        });
+    </script>
 
 </body>
 

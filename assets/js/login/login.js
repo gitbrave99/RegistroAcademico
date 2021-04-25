@@ -5,11 +5,10 @@ const mensajesToForm = document.getElementById("mensajeLogin");
 
 formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
-    //OBTENCIO DE EMAIL CON USER, PASS DEL ESTUDIANTE   
-    const user = document.getElementById('nmUser').value;
-    const password = document.getElementById('password').value;
 
+    //OBTENCIO DE EMAIL CON USER, PASS DEL ESTUDIANTE   
+    const user = formLogin["nmUser"].value;
+    const password = formLogin["password"].value;
     dbGetUserForLogin.collection("estudiante").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
             let userResponseStu, passResponseStu;
@@ -18,18 +17,22 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseStu = doc.data().password;
             });
             if (userResponseStu == undefined) {
-                mensajesToForm.innerHTML = "estudiante usuairo no existe";
+                mensajesToForm.classList.add("text-warning");
+                mensajesToForm.innerHTML = "Usuario no existe";
+                console.log("no existe estudiante");
             } else {
+                mensajesToForm.classList.add("text-success");
+                mensajesToForm.innerHTML = "";
                 console.log("estudiante user loging");
-                mensajesToForm.innerHTML = "Loging";
+                // mensajesToForm.innerHTML = "Loging";
                 RutaDeAccesoPerfilUser("estudiante/perfil");
-                SetLSSesion(userResponseStu,"estudiante");
+                SetLSSesion(userResponseStu, "estudiante");
             }
         }).catch((error) => {
             console.log("sino exite student error=", error);
         });
     // OBTENCION DE DATOS ADMINISTRADOR
-    dbGetUserForLogin.collection("admninistrador").where("user", "==", user).where("password", "==", password)
+    dbGetUserForLogin.collection("administrador").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
             let userResponseAdmin, passResponseAdmmin;
             querySnapshot.forEach((doc) => {
@@ -37,12 +40,15 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseAdmmin = doc.data().password;
             });
             if (userResponseAdmin == undefined) {
-                mensajesToForm.innerHTML = "administrador usuairo no existe";
+                mensajesToForm.classList.add("text-warning");
+                mensajesToForm.innerHTML = "Usuario no existe";
+                console.log("no existe admin");
             } else {
                 console.log("administrador user loging");
-                mensajesToForm.innerHTML = "Loging";
-                RutaDeAccesoPerfilUser("administrado/gestionusuario");
-                SetLSSesion(userResponseAdmin,"administrador");
+                mensajesToForm.classList.add("text-success");
+                mensajesToForm.innerHTML = "";
+                RutaDeAccesoPerfilUser("admin/gestionusuario");
+                SetLSSesion(userResponseAdmin, "administrador");
             }
         }).catch((error) => {
             console.log("sino exite admin error=", error);
@@ -57,12 +63,15 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseTeacher = doc.data().password;
             });
             if (userResponseAdminTeacher == undefined) {
-                mensajesToForm.innerHTML = "teacher usuairo no existe";
+                mensajesToForm.classList.add("text-warning");
+                mensajesToForm.innerHTML = "Usuario no existe";
+                console.log("no existe profesor");
             } else {
                 console.log("teacher user loging");
-                mensajesToForm.innerHTML = "Loging";
+                mensajesToForm.classList.add("text-success");
+                mensajesToForm.innerHTML = "";
                 RutaDeAccesoPerfilUser("docente/perfil");
-                SetLSSesion(userResponseAdminTeacher,"docente");
+                SetLSSesion(userResponseAdminTeacher, "docente");
             }
         }).catch((error) => {
             console.log("sino exite techer error=", error);
