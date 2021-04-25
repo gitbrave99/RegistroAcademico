@@ -6,6 +6,8 @@ const ingresarTeacher = (nombre, email, sexo, fechNacimiento, dui, telefono, use
         nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado
     });
 
+//SELECT FOR CARGAR GRADES DISPONIBLE PARA REGISTRAR TEACHER
+const sltLisTeacherGradesDisp = document.getElementById("selgradoforesTeacher");
 
 //TABLA PARA MOSTRAR LOS DATOS DE LOS ESTUDIANTES REGISTRADOS
 const tableshowTeacher = document.querySelector('#tableTeachersReg tbody');
@@ -81,9 +83,48 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 }
             });
         });
+        //fin querrysnap
+        CargarGradesDispForRegTeachers();
     });
 
 });
+
+let arrAllGradeslc = ["1° Grado", "2° Grado", "3° Grado", "4° Grado", "5° Grado", "6° Grado", "7° Grado", "8° Grado", "9° Grado"];
+let arrreservedGrades=[];
+let arrGrdFinal=[];
+function CargarGradesDispForRegTeachers() {
+    db.collection("profesor")
+        .get()
+        .then((querySnapshot) => {
+            sltLisTeacherGradesDisp.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+                for (let index = 0; index < arrAllGradeslc.length; index++) {
+                    if (doc.data().gradoEncargado == arrAllGradeslc[index]) {
+                        arrreservedGrades.push(arrAllGradeslc[index]);
+                    } else {
+                    }
+                }
+            });
+            for (let index = 0; index < arrreservedGrades.length; index++) {
+                let indgr=arrAllGradeslc.indexOf(arrreservedGrades[index]);
+                if (indgr!=-1) {
+                    arrAllGradeslc.splice(indgr,1);
+                }
+                
+            }
+            arrAllGradeslc.forEach((item)=>{
+              sltLisTeacherGradesDisp.innerHTML += `
+                        <option value="${item}">${item}</option>`;
+            });
+
+            console.log(arrAllGradeslc);
+            
+        }).catch((error) => {
+            console.log("eroro fordiponible grdteacher", error);
+        });
+       
+}
+
 
 document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
     try {
@@ -148,7 +189,7 @@ $(document).ready(function () {
         });
     });
 
-    
+
     $('#tableTeachersReg th').click(function () {
         var table = $(this).parents('table').eq(0)
         var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))

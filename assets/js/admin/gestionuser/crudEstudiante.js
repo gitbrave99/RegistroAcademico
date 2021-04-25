@@ -7,6 +7,18 @@ const fingresarEstudiante = (nombre, fechNacimiento, sexo, user, password, grado
         nombre, fechNacimiento, sexo, user, password, grado, responsable, telefono, email, dui, direccion
     });
 
+const ingresarMateriasEstudent=(estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
+    p2nota1, p2nota2, p2nota3,p3nota1, p3nota2, p3nota3,profesor)=>{
+        db.collection("materia").doc.set({
+            estudiante, grado, materia, p1nota1, p1nota2, p1nota3, p2nota1, p2nota2, p2nota3,p3nota1, p3nota2, p3nota3,profesor
+        });
+    };
+
+    //al momento de regisra studen que tome el nombre completo del teacher del grade para crear las 5 materias 
+//del studiante
+    //SELECT FOR CARGAR GRADES REGISTRADOS PARA INGRESAR STUDIANTE
+const sltListGradeRegForStudents = document.getElementById("selectGradoEstudiante");
+
 
 //TABLA PARA MOSTRAR LOS DATOS DE LOS ESTUDIANTES REGISTRADOS
 const tableEstudiantes = document.querySelector('#tableStudentsReg tbody');
@@ -87,8 +99,34 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 }
             });
         });
+        //finsnap
+        ShowGradesREgisterForStudent();
     });
 });
+
+function ShowGradesREgisterForStudent() {
+    db.collection("profesor")
+        .get()
+        .then((querySnapshot) => {
+            sltLisTeacherGradesDisp.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+                for (let index = 0; index < arrAllGradeslc.length; index++) {
+                    if (doc.data().gradoEncargado == arrAllGradeslc[index]) {
+                        sltListGradeRegForStudents.innerHTML += `                        
+                                    <option value="${doc.data().gradoEncargado}">${doc.data().gradoEncargado}</option>`;
+                    } else {
+                    }
+                }
+            });
+            
+        }).catch((error) => {
+            console.log("eroro fordiponible grdteacher", error);
+        });
+}
+
+function RegistrarMateriasAlumno() {
+    
+}
 
 
 document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
