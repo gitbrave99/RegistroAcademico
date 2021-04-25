@@ -135,7 +135,7 @@ document.getElementById('btnModalDeleteUsuario').addEventListener('click', async
 });
 
 // Recuperar Nombre de Profesor encargado de grado.
-async function getProfesor(grado) {
+async function GetProfesor(grado) {
     return db.collection('profesor').where('gradoEncargado', '==', grado).get().then(snapshot => {
         return snapshot.docs.map(doc => doc.data().nombre);
     })
@@ -168,7 +168,7 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
                 password, grado, responsable, telefono, email, dui, direccion);
             
             // 2. Creando registro default de notas por materia.
-            const profesor = await getProfesor(grado);
+            const profesor = await GetProfesor(grado);
             registrarMaterias(nombre, grado, 'Sociales', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
             registrarMaterias(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
             registrarMaterias(nombre, grado, 'Matemáticas', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
