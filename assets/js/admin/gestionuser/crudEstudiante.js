@@ -2,15 +2,17 @@ const db = firebase.firestore();
 
 let editStatus = false;
 let id = '';
+
 const fingresarEstudiante = (nombre, fechNacimiento, sexo, user, password, grado, responsable, telefono, email, dui, direccion) =>
     db.collection('estudiante').doc().set({
         nombre, fechNacimiento, sexo, user, password, grado, responsable, telefono, email, dui, direccion
     });
 
-const ingresarMateriasEstudent=(estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
-    p2nota1, p2nota2, p2nota3,p3nota1, p3nota2, p3nota3,profesor)=>{
-        db.collection("materia").doc.set({
-            estudiante, grado, materia, p1nota1, p1nota2, p1nota3, p2nota1, p2nota2, p2nota3,p3nota1, p3nota2, p3nota3,profesor
+const registrarMaterias = (estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
+    p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, profesor) => {
+        db.collection('materia').doc().set({
+           estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
+           p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, profesor
         });
     };
 
@@ -124,11 +126,6 @@ function ShowGradesREgisterForStudent() {
         });
 }
 
-function RegistrarMateriasAlumno() {
-    
-}
-
-
 document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
     try {
         await delEstudiante(e.target.dataset.id);
@@ -137,17 +134,25 @@ document.getElementById('btnModalDeleteUsuario').addEventListener('click', async
     }
 });
 
-
+// Recuperar Nombre de Profesor encargado de grado.
+async function getProfesor(grado) {
+    return db.collection('profesor').where('gradoEncargado', '==', grado).get().then(snapshot => {
+        return snapshot.docs.map(doc => doc.data().nombre);
+    })
+}
 
 frmNewEstudiante.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Estudiante
     const nombre = frmNewEstudiante['inNombreEstudiante'].value;
     const fechNacimiento = frmNewEstudiante['inFechNacEstudiante'].value;
     const sexo = frmNewEstudiante['tipesexEstudianteingreso'].value;
     const user = frmNewEstudiante['inUserEstudiante'].value;
     const password = frmNewEstudiante['inPassEstudiante'].value;
     const grado = frmNewEstudiante['selectGradoEstudiante'].value;
-    //responsable
+    
+    // Responsable
     const responsable = frmNewEstudiante['inNombreEstuRespon'].value;
     const telefono = frmNewEstudiante['inTelEstuRespon'].value;
     const email = frmNewEstudiante['inEmailEstuRespon'].value;
@@ -156,8 +161,20 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatus) {
+            
+            // 1. Creando registro de estudiante.
             // db.collection("estudiante").where("user")
-            await fingresarEstudiante(nombre, fechNacimiento, sexo, user, password, grado, responsable, telefono, email, dui, direccion);
+            await fingresarEstudiante(nombre, fechNacimiento, sexo, user, 
+                password, grado, responsable, telefono, email, dui, direccion);
+            
+            // 2. Creando registro default de notas por materia.
+            const profesor = await getProfesor(grado);
+            registrarMaterias(nombre, grado, 'Sociales', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
+            registrarMaterias(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
+            registrarMaterias(nombre, grado, 'Matemáticas', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
+            registrarMaterias(nombre, grado, 'Ciencias', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
+            registrarMaterias(nombre, grado, 'Inglés', 0, 0, 0, 0, 0, 0, 0, 0, 0, profesor[0]);
+
         } else {
             await updateEstudiante(id, {
                 nombre: nombre,
@@ -181,7 +198,6 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
         console.log(error);
     }
 });
-
 
 function selectForEditStudent() {
     document.getElementById('tabbStudent').className = "nav-link active show";
@@ -214,6 +230,4 @@ $(document).ready(function () {
         }
     }
     function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
-
-
 });
