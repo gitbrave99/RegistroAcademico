@@ -45,8 +45,6 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 </tr>`;
         });
 
-
-
         const btnsDelAdmin = document.querySelectorAll('.btnDelAdmin');
         btnsDelAdmin.forEach(btn => {
             btn.addEventListener('click', async (e) => {
@@ -58,10 +56,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
         const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
         btnsEditAdmin.forEach((btn) => {
-            console.log("revorrido clic order");
             btn.addEventListener("click", async (e) => {
                 selectForEditAdmin();
-                console.log("si actiba");
                 try {
                     const doc = await getAdmin(e.target.dataset.id);
                     const admin = doc.data();

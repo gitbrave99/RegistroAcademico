@@ -109,13 +109,10 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="tbListGradosDocentes">
                       <thead class=" text-primary">
                         <th>
-                          #
-                        </th>
-                        <th>
-                          Nombre
+                          Grado
                         </th>
                         <th>
                           Docente
@@ -125,36 +122,6 @@
                         </th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Bachillerato General
-                          </td>
-                          <td class="text-primary">
-                            Juan Enriquez
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            8°
-                          </td>                         
-                          <td class="text-primary">
-                            Benjamín Esi
-                          </td>
-                          <td>
-                            <a class="btn btn-info btn-sm" href="#materiasNotasEstu"><i
-                                class="material-icons">remove_red_eye</i></a>
-                          </td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -165,7 +132,7 @@
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                   <div class="form-check form-check-inline">
-                    <h4 class="card-title ">General A</h4>
+                    <h4 class="card-title" id="titleGradeSelected">General A</h4>
                     &nbsp;&nbsp;
                     <ul class="nav nav-tabs" data-tabs="tabs">
                       <li class="nav-item">
@@ -182,7 +149,7 @@
                       <span class="nav-tabs-title">Materias:</span>
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#msociales" data-toggle="tab">
+                          <a class="nav-link active" href="#tbMatSociales" data-toggle="tab">
                             Sociales
                             <div class="ripple-container"></div>
                           </a>
@@ -217,95 +184,71 @@
                 </div>
                 <div class="card-body">
                   <div class="tab-content">
-                    <div class="tab-pane active" id="msociales">
+                    <div class="tab-pane active" id="tbMatSociales">
                       <div class="table-responsive">
                         <table class="table table-hover">
                           <thead class="">
-                            <th>
-                              #
-                            </th>
-                            <th>
-                              Nombre
-                            </th>
-                            <th>
-                              1° Periodo
-                            </th>
-                            <th>
-                              2° Periodo
-                            </th>
-                            <th>
-                              3° Periodo
-                            </th>
-                            <th>
-                              Nota Final
-                            </th>
-                            <th>
-                              Acción
-                            </th>
+                            <tr>
+                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="3" class="text-center">
+                                1° Periodo
+                              </th>
+                              <th scope="col" colspan="5" class="text-center">
+                                2° Periodo
+                              </th>
+                              <th scope="col" colspan="3" class="text-center">
+                                3° Periodo
+                              </th>
+                            </tr>
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Estudiante
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota Final
+                              </th>
+                              <th scope="col" class="text-center">
+                                Acción
+                              </th>
+                            </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                Doris Greene
-                              </td>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td class="text-primary">
-                                6
-                              </td>
-                              <td>
-                                <button class="btn btn-info green accent-4" data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <i class="material-icons" data-toggle="tooltip" data-placement="left"
-                                    title="Enviar notas">library_add</i>
-                                </button>
-                                <button type="button" class="btn btn-success" data-toggle="tooltip"
-                                  data-placement="left" title="Enviar notas">
-                                  <i class="material-icons">send</i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                Doris Greene
-                              </td>
-                              <td>
-                                5
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td>
-                                7
-                              </td>
-                              <td class="text-primary">
-                                6
-                              </td>
-                              <td>
-                                <button class="btn btn-info green accent-4" data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <i class="material-icons" data-toggle="tooltip" data-placement="left"
-                                    title="Enviar notas">library_add</i>
-                                </button>
-                                <button type="button" class="btn btn-success" data-toggle="tooltip"
-                                  data-placement="left" title="Enviar notas">
-                                  <i class="material-icons">send</i>
-                                </button>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -373,7 +316,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="inNotaMateriaPeriod2" class="bmd-label-floating">Nota 2(35%)</label>
-              <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
+                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
               </div>
             </div>
           </form>
@@ -468,8 +411,6 @@
   </div>
 
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -647,12 +588,29 @@
         });
       });
     });
-
-
-
-
-
   </script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+      authDomain: "escuelascrum.firebaseapp.com",
+      databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+      projectId: "escuelascrum",
+      storageBucket: "escuelascrum.appspot.com",
+      messagingSenderId: "855708798969",
+      appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="../assets/js/admin/calificacion/califiaciones.js"></script>
+
 </body>
 
 </html>
