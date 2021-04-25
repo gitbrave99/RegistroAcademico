@@ -11,9 +11,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             tbleListGrados.innerHTML = "";
             querySnapshot.forEach((doc) => {
                 tbleListGrados.innerHTML += `<tr>
-                    <td>${doc.data().gradoEncargado}</td>
-                    <td>${doc.data().nombre}</td>
-                    <td>
+                    <td  class="text-center">${doc.data().gradoEncargado}</td>
+                    <td  class="text-center">${doc.data().nombre}</td>
+                    <td  class="text-center">
                         <a href="#materiasNotasEstu" class="btn btn-info btn-sm btnShowStudensNotes" data-teacher="${doc.data().nombre}" data-grade="${doc.data().gradoEncargado}">
                             Mostrar
                         </a>
@@ -23,8 +23,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             const btnToShowGrades = document.querySelectorAll(".btnShowStudensNotes");
             btnToShowGrades.forEach(btn => {
                 btn.addEventListener('click', async (e) => {
-                    console.log("cilcked grad grade", e.target.dataset.grade);
-                    console.log("cilcked grad teacher", e.target.dataset.teacher);
                     let grade = e.target.dataset.grade;
                     let teacher = e.target.dataset.teacher;
                     MostrarAllNotasMaterias(grade, teacher);
@@ -39,11 +37,12 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
 function MostrarAllNotasMaterias(pGrade, pDocente) {
     console.log("clicked grade= ", pGrade, " techer ", pDocente);
-    db.collection("materia").where("profesor", "==", pDocente).where("grado", "==", pGrade).get()
+    db.collection("materia").where("profesor", "==", "Elena Nito").where("grado", "==", "9° Grado").get()
         .then((querySnapshot) => {
             tbMateriaSociales.innerHTML = "";
             console.log("en snap");
             querySnapshot.forEach((doc) => {
+                console.log("en foreach",doc.data());
                 let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
                 //PERIODO I
                 totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
@@ -89,3 +88,27 @@ function truncNota(x, posiciones = 0) {
 }
 
 
+$(document).ready(function () {
+    //FOR TECHER GRADE
+    $("#buscarTeacherRespondlGrade").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListGradosDocentes tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListGradosDocentes th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    })
+    function comparer(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+        }
+    }
+    function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
+});
