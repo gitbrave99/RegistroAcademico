@@ -17,8 +17,8 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseStu = doc.data().password;
             });
             if (userResponseStu == undefined) {
-                mensajesToForm.classList.add("text-warning");
-                mensajesToForm.innerHTML = "Usuario no existe";
+                // mensajesToForm.classList.add("text-warning");
+                // mensajesToForm.innerHTML = "Usuario no existe";
                 console.log("no existe estudiante");
             } else {
                 mensajesToForm.classList.add("text-success");
@@ -40,8 +40,8 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseAdmmin = doc.data().password;
             });
             if (userResponseAdmin == undefined) {
-                mensajesToForm.classList.add("text-warning");
-                mensajesToForm.innerHTML = "Usuario no existe";
+                // mensajesToForm.classList.add("text-warning");
+                // mensajesToForm.innerHTML = "Usuario no existe";
                 console.log("no existe admin");
             } else {
                 console.log("administrador user loging");
@@ -63,8 +63,8 @@ formLogin.addEventListener("submit", async (e) => {
                 passResponseTeacher = doc.data().password;
             });
             if (userResponseAdminTeacher == undefined) {
-                mensajesToForm.classList.add("text-warning");
-                mensajesToForm.innerHTML = "Usuario no existe";
+                // mensajesToForm.classList.add("text-warning");
+                // mensajesToForm.innerHTML = "Usuario no existe";
                 console.log("no existe profesor");
             } else {
                 console.log("teacher user loging");
