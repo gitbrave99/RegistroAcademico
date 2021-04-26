@@ -19,6 +19,31 @@
   <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    #tbLiEstuMatSociales thead th {
+        cursor: pointer;
+        color: white;
+    }
+
+    #tbLiEstuMatLenguaje thead th {
+        cursor: pointer;
+        color: white;
+    }
+
+    #tbLiEstuMatMatematica thead th {
+        cursor: pointer;
+        color: white;
+    }
+    #tbLiEstuMatCiencias thead th {
+        cursor: pointer;
+        color: white;
+    }
+
+    #tbLiEstuMatIngles thead th {
+        cursor: pointer;
+        color: white;
+    }
+</style>
 </head>
 
 <body class="dark-edition">
@@ -112,7 +137,8 @@
                     <div class="col-12 col-sm-12 col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Buscar</label>
-                        <input type="text" class="form-control" id="buscarTeacherRespondlGrade" placeholder="Buscar Profesor">
+                        <input type="text" class="form-control" id="buscarTeacherRespondlGrade"
+                          placeholder="Buscar Profesor">
                       </div>
                     </div>
                   </div>
@@ -123,10 +149,10 @@
                           <th scope="col" class="text-center">
                             Grado
                           </th>
-                          <th scope="col"  class="text-center">
+                          <th scope="col" class="text-center">
                             Docente
                           </th>
-                          <th scope="col"  class="text-center">
+                          <th scope="col" class="text-center">
                             Acción
                           </th>
                         </tr>
@@ -159,7 +185,7 @@
                       <span class="nav-tabs-title">Materias:</span>
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#tbMatSociales" data-toggle="tab">
+                          <a class="nav-link active" href="#msociales" data-toggle="tab">
                             Sociales
                             <div class="ripple-container"></div>
                           </a>
@@ -194,9 +220,18 @@
                 </div>
                 <div class="card-body">
                   <div class="tab-content">
-                    <div class="tab-pane active" id="tbMatSociales">
+                    <div class="tab-pane active" id="msociales">
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Buscar</label>
+                            <input type="text" class="form-control" id="buscarEstInSociales"
+                              placeholder="Buscar en Sociales">
+                          </div>
+                        </div>
+                      </div>
                       <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="tbLiEstuMatSociales">
                           <thead class="">
                             <tr>
                               <th scope="col" colspan="1"></th>
@@ -264,16 +299,316 @@
                       </div>
                     </div>
                     <div class="tab-pane" id="mlenguaje">
-                      <h2>Lenguaje</h2>
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Buscar</label>
+                            <input type="text" class="form-control" id="buscarEstInLenguaje"
+                              placeholder="Buscar en Lenguaje">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="tbLiEstuMatLenguaje">
+                          <thead class="">
+                            <tr>
+                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="3" class="text-center">
+                                1° Periodo
+                              </th>
+                              <th scope="col" colspan="5" class="text-center">
+                                2° Periodo
+                              </th>
+                              <th scope="col" colspan="3" class="text-center">
+                                3° Periodo
+                              </th>
+                            </tr>
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Estudiante
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota Final
+                              </th>
+                              <th scope="col" class="text-center">
+                                Acción
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     <div class="tab-pane" id="mmatematic">
-                      <h2>matemáticas</h2>
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Buscar</label>
+                            <input type="text" class="form-control" id="buscarEstInMatematica"
+                              placeholder="Buscar en Matemáticas">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="tbLiEstuMatMatematica">
+                          <thead class="">
+                            <tr>
+                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="3" class="text-center">
+                                1° Periodo
+                              </th>
+                              <th scope="col" colspan="5" class="text-center">
+                                2° Periodo
+                              </th>
+                              <th scope="col" colspan="3" class="text-center">
+                                3° Periodo
+                              </th>
+                            </tr>
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Estudiante
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota Final
+                              </th>
+                              <th scope="col" class="text-center">
+                                Acción
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     <div class="tab-pane" id="mciencias">
-                      <h2>Ciencias</h2>
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Buscar</label>
+                            <input type="text" class="form-control" id="buscarEstInCiencias"
+                              placeholder="Buscar en ciencias">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="tbLiEstuMatCiencias">
+                          <thead class="">
+                            <tr>
+                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="3" class="text-center">
+                                1° Periodo
+                              </th>
+                              <th scope="col" colspan="5" class="text-center">
+                                2° Periodo
+                              </th>
+                              <th scope="col" colspan="3" class="text-center">
+                                3° Periodo
+                              </th>
+                            </tr>
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Estudiante
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota Final
+                              </th>
+                              <th scope="col" class="text-center">
+                                Acción
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                     <div class="tab-pane" id="mingles">
-                      <h2>Inglés</h2>
+                      <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Buscar</label>
+                            <input type="text" class="form-control" id="buscarEstInIngles"
+                              placeholder="Buscar en Inglés">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="tbLiEstuMatIngles">
+                          <thead class="">
+                            <tr>
+                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="3" class="text-center">
+                                1° Periodo
+                              </th>
+                              <th scope="col" colspan="5" class="text-center">
+                                2° Periodo
+                              </th>
+                              <th scope="col" colspan="3" class="text-center">
+                                3° Periodo
+                              </th>
+                            </tr>
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Estudiante
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 1
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 2
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota 3
+                              </th>
+                              <th scope="col" class="text-center">
+                                Total periodo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Nota Final
+                              </th>
+                              <th scope="col" class="text-center">
+                                Acción
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -289,7 +624,7 @@
 
 
   <!-- MODAL AGREGAR NOTA PERIODOS  -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="mdlAddNotaCrudAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content dark-edition">
@@ -300,7 +635,7 @@
           </button>
         </div>
         <div class="modal-body ">
-          <form action="">
+          <form id="frmCrudNotaStudenadm">
             <div class="form-group">
               <style>
                 #selectForPeriodos {
@@ -310,30 +645,30 @@
               <label for="selectForPeriodos">Periodo</label>
               <select class="form-control dark-edition" id="selectForPeriodos" required>
                 <option selected disabled value="Elegir">Elegir</option>
-                <option>I</option>
-                <option>II</option>
-                <option>III</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
               </select>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod1" class="bmd-label-floating">Nota 1(35%)</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod1" required>
+                <label for="inNota1" class="bmd-label-floating">Nota 1(35%)</label>
+                <input type="number" min="0" max="10" class="form-control" id="inNota1" value="1" required>
               </div>
               <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod2" class="bmd-label-floating">Nota 2(35%)</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
+                <label for="inNota2" class="bmd-label-floating">Nota 2(35%)</label>
+                <input type="number" min="0" max="10" class="form-control" id="inNota2" value="1" required>
               </div>
               <div class="form-group col-md-4">
-                <label for="inNotaMateriaPeriod2" class="bmd-label-floating">Nota 2(35%)</label>
-                <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod2" required>
+                <label for="inNota3" class="bmd-label-floating">Nota 2(30%)</label>
+                <input type="number" min="0" max="10" class="form-control" id="inNota3" value="1" required>
               </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" id="btnGuardarNotaSt">Guardar</button>
+            </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
         </div>
       </div>
     </div>
@@ -427,7 +762,7 @@
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
-      <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -624,25 +959,25 @@
       });
     });
   </script>
-  
+
   <script src="../assets/js/admin/calificacion/califiaciones.js"></script>
   <script src="../assets/js/login/globalsesion.js"></script>
-    <script>
-        window.addEventListener("DOMContentLoaded", (e) => {
-            if (GetLSSesionUser() == null) {
-                console.log("no logeado");
-                RutaDeAccesoPerfilUser("../login");
-            } else {
-                console.log("ok logeado");
-                console.log("funcionos iduse= ", GetLSSesionTipoU());
-            }
-        });
+  <script>
+    window.addEventListener("DOMContentLoaded", (e) => {
+      if (GetLSSesionUser() == null) {
+        console.log("no logeado");
+        RutaDeAccesoPerfilUser("../login");
+      } else {
+        console.log("ok logeado");
+        console.log("funcionos iduse= ", GetLSSesionTipoU());
+      }
+    });
 
-        document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
-            LogOut();
+    document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
+      LogOut();
 
-        });
-    </script>
+    });
+  </script>
 </body>
 
 </html>

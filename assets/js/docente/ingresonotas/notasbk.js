@@ -6,12 +6,10 @@ const tbListEstNotasSociales = document.querySelector("#tbListEstNotasSociales t
 const btnAddNotMatematicas = document.querySelectorAll(".btnAddNotMatematicas");
 const btnAddNotCiencias = document.querySelectorAll(".btnAddNotCiencias");
 const btnAddNotIngles = document.querySelectorAll(".btnAddNotIngles");
-const titleGradeResponsable=document.getElementById("gradoResponsable");
 const fillgrForTielgrR=document.getElementById("frmgrpGrRespon");
 
 window.addEventListener("DOMContentLoaded", async (e) => {
 const titleGradeResponsable=document.getElementById("gradoResponsable");
-fillgrForTielgrR.className='form-group bmd-form-group is-filled';
 
     let nmTechComP = "";
     db.collection("profesor").where("user", "==", nombreUserTeacher)
@@ -60,7 +58,7 @@ const frmGuardarNotas = document.getElementById('frmIngresoNotas');
 
 // Update notas de materia.
 const UpdateNotasMateria =
-    (id, UpdateNotasMateria) => db.collection('materia').doc(id).update(UpdateNotasMateria)
+    (id, UpdateNotasMateria) => db.collection('materia').doc(id).update(UpdateNotasMateria);
 
 // Id de documento con notas de materia.
 var idMateToguardar = '', materia = '', estudiante = '', nmprofesor = '';
