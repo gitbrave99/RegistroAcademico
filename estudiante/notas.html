@@ -17,7 +17,7 @@
     <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    
+
 </head>
 
 <body class="dark-edition">
@@ -110,7 +110,7 @@
                                     </ul>
                                     </p>
                                 </div>
-                               <!-- <script>
+                                <!-- <script>
                                     document.getElementById("printBoletNotas").addEventListener("click", () => {
                                         impNotas();
                                     });
@@ -120,71 +120,92 @@
                                         printNotas();
                                     });
                                 </script>
-                                <div class="card-body" id="notasAlumnno">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover" id="tbListEstNotasAlumnoUser">
-                                          <thead class="">
-                                            <tr>
-                                              <th scope="col" colspan="1"></th>
-                                              <th scope="col" colspan="3" class="text-center">
-                                                1° Periodo
-                                              </th>
-                                              <th scope="col" colspan="5" class="text-center">
-                                                2° Periodo
-                                              </th>
-                                              <th scope="col" colspan="3" class="text-center">
-                                                3° Periodo
-                                              </th>
-                                            </tr>
-                                            <tr>
-                                              <th scope="col" class="text-center">
-                                                Estudiante
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 1
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 2
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 3
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Total periodo
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 1
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 2
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 3
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Total periodo
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 1
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 2
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota 3
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Total periodo
-                                              </th>
-                                              <th scope="col" class="text-center">
-                                                Nota Final
-                                              </th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                          </tbody>
-                                        </table>
-                                      </div>
+                                <div class="card-body" >
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Buscar</label>
+                                                <input type="text" class="form-control" id="buscarInMaterisS"
+                                                    placeholder="Buscar Materia">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="notasAlumnno">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    
+                                                    <div style="color: #202940;">
+                                                       <p>Nombre: <span id="shwNmStudenToPrint"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="tbListEstNotasAlumnoUser">
+                                                <thead class="">
+                                                    <tr>
+                                                        <th scope="col" colspan="1"></th>
+                                                        <th scope="col" colspan="3" class="text-center">
+                                                            1° Periodo
+                                                        </th>
+                                                        <th scope="col" colspan="5" class="text-center">
+                                                            2° Periodo
+                                                        </th>
+                                                        <th scope="col" colspan="3" class="text-center">
+                                                            3° Periodo
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col" class="text-center">
+                                                            Estudiante
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 1
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 2
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 3
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Total periodo
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 1
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 2
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 3
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Total periodo
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 1
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 2
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota 3
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Total periodo
+                                                        </th>
+                                                        <th scope="col" class="text-center">
+                                                            Nota Final
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -201,18 +222,18 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
 
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-        apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
-        authDomain: "escuelascrum.firebaseapp.com",
-        databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
-        projectId: "escuelascrum",
-        storageBucket: "escuelascrum.appspot.com",
-        messagingSenderId: "855708798969",
-        appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+            apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+            authDomain: "escuelascrum.firebaseapp.com",
+            databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+            projectId: "escuelascrum",
+            storageBucket: "escuelascrum.appspot.com",
+            messagingSenderId: "855708798969",
+            appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -232,14 +253,14 @@
     <script src="https://buttons.github.io/buttons.js"></script>
     <!-- Chartist JS -->
     <script src="../assets/js/plugins/chartist.min.js"></script>
-    
+
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
     <script src="../assets/js/jspdf.js"></script>
     <script src="../estudiante/jsPDF-1.3.2/dist/jspdf.min.js"></script>
-    
+
     <script>
         $(document).ready(function () {
             $().ready(function () {
@@ -402,11 +423,11 @@
             });
         });
     </script>
-    
+
     <!--Reportes-->
 
 </body>
-    
+
 <!--<script src="../estudiante/jsPDF-1.3.2/libs/html2canvas/dist/html2canvas.js"></script>
 <script>
     function impNotas() {
@@ -456,4 +477,5 @@
     }
 
 </script>
+
 </html>

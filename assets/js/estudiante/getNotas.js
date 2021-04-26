@@ -4,11 +4,12 @@ const nombreUserStudent = GetLSSesionUser();
 const tableRegistroNotas = document.querySelector("#tbListEstNotasAlumnoUser tbody");
 
 window.addEventListener("DOMContentLoaded", async (e) => {
+    
     db.collection("estudiante").where("user", "==", nombreUserStudent)
         .get()
         .then((querySnapShot) => {
             querySnapShot.forEach((doc) => {
-
+                document.getElementById("shwNmStudenToPrint").innerHTML=doc.data().nombre;
                 db.collection("materia").where("estudiante", "==", doc.data().nombre)
                     .get()
                     .then((querySnapShotm) => {
@@ -65,3 +66,29 @@ function truncNota(x, posiciones = 0) {
     var numStr = s.substr(0, decimalLength + posiciones)
     return Number(numStr)
 }
+
+
+$(document).ready(function () {
+    function comparer(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+        }
+    }
+    function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
+    //SEARCH IN SOCIALES
+    $("#buscarInMaterisS").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasAlumnoUser tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasAlumnoUser th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+});
