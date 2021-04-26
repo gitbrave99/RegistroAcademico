@@ -116,12 +116,16 @@
                         </div>
                       </div> -->
                     <!-- </div> -->
+                    
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombre</label>
-                          <input type="text" class="form-control" value="juan" id="nombreDocente">
+                          <input type="text" class="form-control" id="nombreDocente" disabled>
                         </div>
+                        <script>
+                          document.getElementById('nombreDocente').classList.add('is-filled');
+                        </script>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
