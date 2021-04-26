@@ -47,7 +47,7 @@ formLogin.addEventListener("submit", async (e) => {
                 console.log("administrador user loging");
                 mensajesToForm.classList.add("text-success");
                 mensajesToForm.innerHTML = "";
-                RutaDeAccesoPerfilUser("admin/gestionusuario");
+                RutaDeAccesoPerfilUser("admin/perfil");
                 SetLSSesion(userResponseAdmin, "administrador");
             }
         }).catch((error) => {
