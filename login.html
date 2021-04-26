@@ -15,50 +15,50 @@
 </head>
 
 <body class="dark-edition">
-    <br>
-    <div class="wrapper ">
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <br><br><br><br>
-                        <div class="card ">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title">Inicio de Sesión</h4>
-                                <p class="card-category">C. E. NNNNNNNN</p>
-                            </div>
-                            <div class="card-body">
-                                <form id="frmLoginUsers">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Nombre</label>
-                                        <input type="text" class="form-control" id="nmUser" required>
+    <div class="content">
+        <div class="container">
+            <div class="row d-flex justify-content-center" style="margin-top: 20px;">
+                <div class="col-md-6">
+                    <div class="card ">
+                        <div class="card-header card-header-primary text-center" style="margin-bottom: 10px;">
+                            <h3 class="card-title mb-2">Registro Académico</h3>
+                            <h4 class="card-category">Instituto Educativo de Santa Ana</h4>
+                        </div>
+                        <div class="text-center" style="margin-bottom: -15px; margin-top: 5px;"> 
+                            <img src="assets/img/logo.png"> 
+                        </div>
+                        <hr style="border-top: 2px solid rgba(136, 57, 167, 0.274);"/>
+                        <div class="card-body">
+                            <form id="frmLoginUsers">
+                                <div class="form-group mb-2">
+                                    <label class="bmd-label-floating">Nombre</label>
+                                    <input type="text" class="form-control" id="nmUser" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label class="bmd-label-floating">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="form-row md-3">
+                                    <div class="col-3 offset-md-4">
+                                        <span id="mensajeLogin"></span>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Contraseña</label>
-                                        <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="form-row justify-content-center">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-block btn-primary" id="btnLogIn">
+                                            Ingresar
+                                        </button>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="col-3 offset-md-4">
-                                            <span id="mensajeLogin"></span>
-                                        </div>
+                                </div>
+                                <div class="card-footer justify-content-center">
+                                    <div class="form-group text-center">
+                                        <label class="form-check-label" for="gridCheck">
+                                            <a href="#signupmodal" class="text-primary">
+                                                ¿Olvidó su nombre de usuario o contraseña?</a>
+                                        </label>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="col-3 offset-md-4">
-                                            <button type="submit" class="btn btn-lg btn-primary" id="btnLogIn">Log
-                                                In</button>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="form-group">
-                                            <label class="form-check-label" for="gridCheck">
-                                                <a href="#signupmodal" class="text-primary">¿Olvidó su nombre de usuario
-                                                    o contraseña?</a>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
