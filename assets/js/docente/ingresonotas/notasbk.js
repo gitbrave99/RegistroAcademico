@@ -1,9 +1,17 @@
 const db = firebase.firestore();
+
+//BTN ADD NOTAS
 const btnAddNotSociales=document.querySelectorAll(".btnAddNotSociales");
 const btnAddNotLenguaje=document.querySelectorAll(".btnAddNotLenguaje");
 const btnAddNotMatematicas=document.querySelectorAll(".btnAddNotMatematicas");
 const btnAddNotCiencias=document.querySelectorAll(".btnAddNotCiencias");
 const btnAddNotIngles=document.querySelectorAll(".btnAddNotIngles");
+//TABLE FOR EACH SUBJECT
+const tbListEstNotasSociales=document.querySelector("#tbListEstNotasSociales tbody");
+const tbListEstNotasSociales=document.querySelector("#tbListEstNotasLenguaje tbody");
+const tbListEstNotasSociales=document.querySelector("#tbListEstNotasMatematica tbody");
+const tbListEstNotasSociales=document.querySelector("#tbListEstNotasCiencia tbody");
+const tbListEstNotasSociales=document.querySelector("#tbListEstNotasIngles tbody");
 
 btnAddNotSociales.forEach((btn)=>{
     btn.addEventListener("click",(ev)=>{
@@ -11,6 +19,9 @@ btnAddNotSociales.forEach((btn)=>{
     });
 
 });
+
+
+
 
 
 
