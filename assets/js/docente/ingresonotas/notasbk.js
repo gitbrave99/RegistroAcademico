@@ -225,3 +225,91 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
             console.log(error);
         });
 }
+
+
+$(document).ready(function () {
+    function comparer(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index), valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+        }
+    }
+    function getCellValue(row, index) { return $(row).children('td').eq(index).text() }
+    //SEARCH IN SOCIALES
+    $("#buscarEstInSociales").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasSociales tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasSociales th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+      //SEARCH IN LENGUAJE
+      $("#buscarEstInLenguaje").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasLenguaje tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasLenguaje th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+      //SEARCH IN MATEMÁTICAS
+      $("#buscarEstInMatematica").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasMatematica tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasMatematica th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+      //SEARCH IN CIENCIAS
+      $("#buscarEstInCiencias").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasCiencia tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasCiencia th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+      //SEARCH IN INGLÉS
+      $("#buscarEstInIngles").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tbListEstNotasIngles tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('#tbListEstNotasIngles th').click(function () {
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(1)').toArray().sort(comparer($(this).index()))
+        this.asc = !this.asc
+        if (!this.asc) { rows = rows.reverse() }
+        for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+    });
+
+   
+});
