@@ -16,9 +16,10 @@
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />ss
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
 </head>
 
 <body class="dark-edition">
@@ -119,13 +120,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombre</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" value="juan" id="nombreDocente">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Apellidos</label>
-                          <input type="text" class="form-control">
+                          <label class="bmd-label-floating">Usuario</label>
+                          <input type="text" class="form-control" id="userDocente">
                         </div>
                       </div>
                     </div>
@@ -133,7 +134,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
+                          <input type="email" class="form-control" id="emailDocente">
                         </div>
                       </div>
                     </div>
@@ -141,35 +142,23 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha de nacimiento</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" id="birthDocente">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Nacionalidad</label>
-                          <input type="text" class="form-control">
+                          <label class="bmd-label-floating">Telefono</label>
+                          <input type="text" class="form-control" id="telDocente">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Experiencia</label>
-                          <input type="text" class="form-control">
+                          <label class="bmd-label-floating">Grado</label>
+                          <input type="text" class="form-control" id="expDocente">
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>Acerca de Mí</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"></label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right"
-                      onclick="md.showNotification('top','right')">Actualizar Perfil</button>
+                    
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -185,7 +174,7 @@
 
                 $.notify({
                   icon: "add_alert",
-                  message: "Perfil actualizado<b>Correctamente</b> - a beautiful freebie for every web developer."
+                  message: "aki ya no hay nada gente, circule"
 
                 }, {
                   type: 'success',
@@ -207,7 +196,7 @@
                 </div>
                 <div class="card-body">
                   <h6 class="card-category">Ingeniero en Sistemas Informáticos</h6>
-                  <h4 class="card-title">Nombre</h4>
+                  <h4 class="card-title" id="name">Nombre</h4>
                   <p class="card-description">
                     Instituto Educativo de Santa Ana
                   </p>
@@ -443,6 +432,7 @@
   
           });
       </script>
+      <script href="../assets/js/docente/perfil/perfil.js"></script>
 </body>
 
 </html>
