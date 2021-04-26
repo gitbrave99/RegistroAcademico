@@ -6,8 +6,12 @@ const tbListEstNotasSociales = document.querySelector("#tbListEstNotasSociales t
 const btnAddNotMatematicas = document.querySelectorAll(".btnAddNotMatematicas");
 const btnAddNotCiencias = document.querySelectorAll(".btnAddNotCiencias");
 const btnAddNotIngles = document.querySelectorAll(".btnAddNotIngles");
-const onGetAllMaterias = (callback) => db.collection("materia").onSnapshot(callback);
+const titleGradeResponsable=document.getElementById("gradoResponsable");
+const fillgrForTielgrR=document.getElementById("frmgrpGrRespon");
+
 window.addEventListener("DOMContentLoaded", async (e) => {
+const titleGradeResponsable=document.getElementById("gradoResponsable");
+fillgrForTielgrR.className='form-group bmd-form-group is-filled';
 
     let nmTechComP = "";
     db.collection("profesor").where("user", "==", nombreUserTeacher)
@@ -15,7 +19,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 nmTechComP = doc.data().nombre;
-
+                titleGradeResponsable.value=doc.data().gradoEncargado;
                 ShowNotasStudentByMateriaAll(nmTechComP, "Sociales", "tbListEstNotasSociales", "btnAddNotSociales");
                 ShowNotasStudentByMateriaAll(nmTechComP, "Lenguaje", "tbListEstNotasLenguaje", "btnAddNotLenguaje");
                 ShowNotasStudentByMateriaAll(nmTechComP, "Matemáticas", "tbListEstNotasMatematica", "btnAddNotMatematicas");
