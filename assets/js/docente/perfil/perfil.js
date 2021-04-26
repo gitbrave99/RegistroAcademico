@@ -16,12 +16,13 @@ function MostrarDatosUsuario() {
         
         querySnapshot.forEach((doc)=>{
             frmPerfilDocente["nombreDocente"].value=doc.data().nombre;
+            document.getElementById("nombreDocenteResumen").innerText = doc.data().nombre;
             frmPerfilDocente["userDocente"].value=doc.data().user;
             frmPerfilDocente["birthDocente"].value=doc.data().fechNacimiento;
             frmPerfilDocente["emailDocente"].value=doc.data().emailDocente;
             frmPerfilDocente["expDocente"].value=doc.data().gradoEncargado;
             frmPerfilDocente["telDocente"].value=doc.data().telefono;
-            card["name"].value=doc.data().nombre;
+            card["name"].value=doc.data().nombre;       
             
             document.querySelectorAll("#frmPerfilDocente .form-group").forEach(el=>{
                 el.classList.add("is-filled");

@@ -3,6 +3,7 @@ const formPerfilAdministrador= document.getElementById('frmPerfilAdministrador')
 window.addEventListener("DOMContentLoaded", (e)=>{
     //mostrar perfil
     MostrarDatosUsuario();
+   
 });
 
 
@@ -19,6 +20,7 @@ function MostrarDatosUsuario() {
             formPerfilAdministrador["emailAdmin"].value=doc.data().email;
             formPerfilAdministrador["userAdmin"].value=doc.data().user;
             formPerfilAdministrador["passAdmin"].value=doc.data().password;
+            document.getElementById("nombreAdminResumen").innerText = doc.data().nombre;
             //responsable
             document.querySelectorAll("#frmPerfilAdministrador .form-group").forEach(el=>{
                 el.classList.add("is-filled");

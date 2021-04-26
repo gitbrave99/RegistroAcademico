@@ -12,6 +12,7 @@ function MostrarDatosUsuario() {
         
         querySnapshot.forEach((doc)=>{
             formPerfilEstudiante["nombreStudent"].value=doc.data().nombre;
+            document.getElementById("nombreEstResumen").innerText = doc.data().nombre;
             formPerfilEstudiante["fechanacStudent"].value=doc.data().fechNacimiento;
             formPerfilEstudiante["sexoStudent"].value=doc.data().sexo;
             //responsable
