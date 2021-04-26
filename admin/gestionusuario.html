@@ -2,1047 +2,380 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Gestión de usuarios
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <!-- sstiles table  -->
-    <link rel="stylesheet" href="../assets/css/stylestb.css">
-    <style>
-        #tableTeachersReg thead th {
-            cursor: pointer;
-            color: white;
-        }
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Perfil
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    #tblistGrados thead th {
+      cursor: pointer;
+      color: white;
+    }
 
-        #tableAdminRegs thead th {
-            cursor: pointer;
-            color: white;
-        }
+    #tblistStudents thead th {
+      cursor: pointer;
+      color: white;
+    }
+  </style>
 
-        #tableStudentsReg thead th {
-            cursor: pointer;
-            color: white;
-        }
-    </style>
+  </style>
 </head>
 
 <body class="dark-edition">
-    <div class="wrapper ">
-        <div class="sidebar" id="sidbrColor" data-color="purple" data-background-color="black"
-            data-image="../assets/img/sidebar-2.jpg">
-            <!-- <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Creative Tim
-                </a></div> -->
-            <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./perfil.html">
-                            <i class="material-icons">person</i>
-                            <p>Perfil</p>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./gestionusuario.html">
-                            <i class="material-icons">person_add</i>
-                            <p>Gestión de usuarios</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./gestiongrado.html">
-                            <i class="material-icons">class</i>
-                            <p>Gestión de grados</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./calificaciones.html">
-                            <i class="material-icons">content_paste</i>
-                            <p>Calificaciones</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="cerrarSesionOk">
-                            <i class="material-icons">logout</i>
-                            <p>Cerrar sesión</p>
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
-                </ul>
-            </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:void(0)">Gestión de usuarios</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-                        aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <!-- <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">person</i>                                  
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="javascript:void(0)">Mi perfil</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">Cerrar sesión</a>
-                                </div>
-                            </li>
-                        </ul> -->
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
-            <div class="content" style="margin-top: 30px;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12" id="materiasNotasEstu">
-                            <div class="card">
-                                <div class="card-header card-header-tabs card-header-primary">
-                                    <div class="form-check form-check-inline" id="panelsUsers">
-                                        <h4 class="card-title ">Usuarios</h4>
-                                        &nbsp;&nbsp;
-                                        <!-- <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="notas.html" data-toggle="modal"
-                                                    data-target="#mdPrintNotasMatInAll" id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                        </ul> -->
-                                    </div>
-                                    <div class="nav-tabs-navigation">
-                                        <div class="nav-tabs-wrapper">
-                                            <span class="nav-tabs-title">Tipo:</span>
-                                            <ul class="nav nav-tabs" data-tabs="tabs">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#mAdminreg" data-toggle="tab"
-                                                        id="tabbAdmin">
-                                                        Administrador
-                                                        <div class="ripple-container"></div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#mdDocentReg" data-toggle="tab"
-                                                        id="tabbTeache">
-                                                        Docente
-                                                        <div class="ripple-container"></div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#mdEstudentReg" data-toggle="tab"
-                                                        id="tabbStudent">
-                                                        Estudiante
-                                                        <div class="ripple-container"></div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body" style="margin-top: 20px;">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="mAdminreg">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <form id="formIngresoAdmin">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group grlbin dvnmad">
-                                                                    <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inNombreAdmin" value="" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control"
-                                                                        id="inEmailAdmin" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">Fecha de
-                                                                        nacimiento</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inNaciAdmin" required>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <style>
-                                                                        #selSexAdmin {
-                                                                            background-color: #1a2035;
-                                                                        }
-                                                                    </style>
-                                                                    <label class="bmd-label-floating">Sexo</label>
-                                                                    <!-- <label for="exampleFormControl
-                                                                        
-                                                                        1">Periodo</label> -->
-                                                                    <select class="form-control" id="selSexAdmin"
-                                                                        required>
-                                                                        <option selected disabled value="Elegir">Elegir
-                                                                        </option>
-                                                                        <option value="Femenino">Femenino</option>
-                                                                        <option value="Masculino">Masculino</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">DUI</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inDuiAdmin" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">Teléfono</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inTelAdmin" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">Usuario</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inUserAdmin" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group grlbin">
-                                                                    <label class="bmd-label-floating">Contraseña</label>
-                                                                    <input type="password" class="form-control"
-                                                                        id="inContraAdmin" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right"
-                                                            id="btnRegisAdmin">Registrar</button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                                <!-- col perfil para fonot  -->
-                                                <div class="col-md-4">
-                                                    <div class="card card-profile">
-                                                        <div class="card-avatar">
-                                                            <a href="#pablo">
-                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h6 class="card-category">Ingeniero en Sistemas</h6>
-                                                            <h4 class="card-title">Nombre</h4>
-                                                            <p class="card-description">
-                                                                Instituto Educativo de Santa Ana
-                                                            </p>
-                                                            <!-- <a href="#pablo" class="btn btn-primary btn-round">Subir</a> -->
-                                                            <div class="input-group has-validation">
-
-                                                                <input type="file" class="btn btn-primary btn-round"
-                                                                    required>
-                                                                <div class="invalid-feedback">
-                                                                    Please choose a username.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="mdDocentReg">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <form id="frmIngresoDocente">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control"
-                                                                         id="inNombreTeacher">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control"
-                                                                        id="inEmailTeacher">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Fecha de
-                                                                        nacimiento</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inNaciTeacher">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <style>
-                                                                        #selsexTeacher {
-                                                                            background-color: #1a2035;
-                                                                        }
-                                                                    </style>
-                                                                    <label class="bmd-label-floating">Sexo</label>
-                                                                    <!-- <label for="selsexTeachers">Periodo</label> -->
-                                                                    <select class="form-control" id="selsexTeacher">
-                                                                        <option selected disabled value="Elegir">Elegir
-                                                                        </option>
-                                                                        <option value="Femenino">Femenino</option>
-                                                                        <option value="Masculino">Masculino</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">DUI</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inDuiTeacher">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Teléfono</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inTelTeacher">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Usuario</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inUserTeacher">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Contraseña</label>
-                                                                    <input type="password" class="form-control"
-                                                                        id="inPassTeacher">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Grados</label>
-                                                                    <style>
-                                                                        #selgradoforesTeacher {
-                                                                            background-color: #1a2035;
-                                                                        }
-                                                                    </style>
-                                                                    <!-- <label class="bmd-label-floating">Sexo</label> -->
-                                                                    <!-- <label for="selgradoforesTeacher">  </label> -->
-                                                                    <select class="form-control"
-                                                                        id="selgradoforesTeacher">
-                                                                        <option selected disabled value="Elegir">Elegir
-                                                                        </option>
-                                                                        <!-- <option value="1° Grado">1° Grado</option>
-                                                                        <option value="2° Grado">2° Grado</option>
-                                                                        <option value="3° Grado">3° Grado</option>
-                                                                        <option value="4° Grado">4° Grado</option>
-                                                                        <option value="5° Grado">5° Grado</option>
-                                                                        <option value="6° Grado">6° Grado</option>
-                                                                        <option value="7° Grado">7° Grado</option>
-                                                                        <option value="8° Grado">8° Grado</option>
-                                                                        <option value="9° Grado">9° Grado</option> -->
-                                                                    </select>
-                                                                  
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right"
-                                                            id="btnRegisTeacher">
-                                                            Registrar
-                                                        </button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                                <!-- col perfil para fonot  -->
-                                                <div class="col-md-4">
-                                                    <div class="card card-profile">
-                                                        <div class="card-avatar">
-                                                            <a href="#pablo">
-                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h6 class="card-category">Bachillerato General</h6>
-                                                            <h4 class="card-title">Nombre</h4>
-                                                            <p class="card-description">
-                                                                Instituto Educativo de Santa Ana
-                                                            </p>
-                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="mdEstudentReg">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <form id="frmIngresoEstudiante">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inNombreEstudiante"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Fecha de
-                                                                        nacimiento</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inFechNacEstudiante">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <style>
-                                                                        #tipesexEstudianteingreso {
-                                                                            background-color: #1a2035;
-                                                                        }
-                                                                    </style>
-                                                                    <label class="bmd-label-floating">Sexo</label>
-                                                                    <!-- <label for="tipesexEstudianteingreso">Periodo</label> -->
-                                                                    <select class="form-control"
-                                                                        id="tipesexEstudianteingreso">
-                                                                        <option selected disabled value="Elegir">Elegir
-                                                                        </option>
-                                                                        <option value="Femenino">Femenino</option>
-                                                                        <option value="Masculino">Masculino</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Usuario</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inUserEstudiante">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Contraseña</label>
-                                                                    <input type="password" class="form-control"
-                                                                        id="inPassEstudiante">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Grados </label>
-                                                                    <style>
-                                                                        #selectGradoEstudiante {
-                                                                            background-color: #1a2035;
-                                                                        }
-                                                                    </style>
-                                                                    <!-- <label class="bmd-label-floating">Sexo</label> -->
-                                                                    <!-- <label for="selectGradoEstudiante">  </label> -->
-                                                                    <select class="form-control"
-                                                                        id="selectGradoEstudiante">
-                                                                        <!-- <option selected disabled value="Elegir">Elegir
-                                                                        </option>
-                                                                        <option value="1° Grado" data-techRG="jorge ">1° Grado</option>
-                                                                        <option value="2° Grado">2° Grado</option>
-                                                                        <option value="3° Grado">3° Grado</option>
-                                                                        <option value="4° Grado">4° Grado</option>
-                                                                        <option value="5° Grado">5° Grado</option>
-                                                                        <option value="6° Grado">6° Grado</option>
-                                                                        <option value="7° Grado">7° Grado</option>
-                                                                        <option value="8° Grado">8° Grado</option>
-                                                                        <option value="9° Grado">9° Grado</option> -->
-                                                                    </select>
-                                                                   
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <span>
-
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="text-center">
-                                                                    <h6>Datos de responsable</h6>
-                                                                </div>
-                                                                <div class="dropdown-divider"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Nombre</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inNombreEstuRespon">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Teléfono</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inTelEstuRespon">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">E-mail</label>
-                                                                    <input type="email" class="form-control"
-                                                                        id="inEmailEstuRespon">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">DUI</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inDUIEstuRspon">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Dirección</label>
-                                                                    <input type="text" class="form-control"
-                                                                        value=""
-                                                                        id="inDireccEstuRespon">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right"
-                                                            id="btnStudenForm">Registrar</button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                                <!-- col perfil para fonot  -->
-                                                <div class="col-md-4">
-                                                    <div class="card card-profile">
-                                                        <div class="card-avatar">
-                                                            <a href="#pablo">
-                                                                <img class="img" src="../assets/img/faces/marc.jpg" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h6 class="card-category">Bachillerato General</h6>
-                                                            <h4 class="card-title">Nombre</h4>
-                                                            <p class="card-description">
-                                                                Instituto Educativo de Santa Ana
-                                                            </p>
-                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col" id="containerTbUsers"></div>
-                    </div>
-                    <!-- TABLE FOR USER -->
-                    <div class="row">
-                        <div class="col-md-12" id="tblistAdmisRegistered">
-                            <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
-                                        <h4 class="card-title">Administradores</h4>
-                                        &nbsp;&nbsp;
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="notas.html" data-toggle="tab"
-                                                    id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Buscar</label>
-                                                <input type="text" class="form-control" id="buscarAdminRg"
-                                                    placeholder="Buscar administrador">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="table-responsive">
-                                        <!-- TABLE FOR ADMINS REGISTRADOS -->
-                                        <table class="table table-hover" id="tableAdminRegs">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        Nombre
-                                                    </th>
-                                                    <th>
-                                                        Correo
-                                                    </th>
-                                                    <th>
-                                                        Nacimiento
-                                                    </th>
-                                                    <th>
-                                                        Sexo
-                                                    </th>
-                                                    <th>
-                                                        DUI
-                                                    </th>
-                                                    <th>
-                                                        Teléfono
-                                                    </th>
-                                                    <th>
-                                                        Usuario
-                                                    </th>
-                                                    <th>
-                                                        Contraseña
-                                                    </th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12" id="tblisTeacherRegistered" style="display: none;">
-                            <!-- TABLE DOCENTES REGISTRADOS -->
-                            <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
-                                        <h4 class="card-title">Docentes</h4>
-                                        &nbsp;&nbsp;
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="notas.html" data-toggle="tab"
-                                                    id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Buscar</label>
-                                                <input type="text" class="form-control" id="buscarTeacherRg"
-                                                    placeholder="Buscar profesor">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover" id="tableTeachersReg">
-                                            <thead id="theadTechtbRegi">
-                                                <th class="text-white">
-                                                    Nombre
-                                                </th>
-                                                <th>
-                                                    Correo
-                                                </th>
-                                                <th>
-                                                    Nacimiento
-                                                </th>
-                                                <th>
-                                                    Sexo
-                                                </th>
-                                                <th>
-                                                    DUI
-                                                </th>
-                                                <th>
-                                                    Teléfono
-                                                </th>
-                                                <th>
-                                                    Usuario
-                                                </th>
-                                                <th>
-                                                    Contraseña
-                                                </th>
-                                                <th>
-                                                    Grado
-                                                </th>
-                                                <th>Acción</th>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12" id="tblistStudentsRegistered" style="display: none;">
-                            <!-- TABLE ESTUDIANTES REGISTRADO  -->
-                            <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <div class="form-check form-check-inline" id="materiasNotasEstu">
-                                        <h4 class="card-title">Estudiantes</h4>
-                                        &nbsp;&nbsp;
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="notas.html" data-toggle="tab"
-                                                    id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Buscar</label>
-                                                <input type="text" class="form-control" id="buscarEstudentRg"
-                                                    placeholder="Buscar estudiante">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <!-- TABLE FOR estudnates REGISTRADOS -->
-                                        <table class="table table-hover" id="tableStudentsReg">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    Nombre
-                                                </th>
-                                                <th>
-                                                    Nacimiento
-                                                </th>
-                                                <th>
-                                                    Sexo
-                                                </th>
-                                                <th>
-                                                    Grado
-                                                </th>
-                                                <th>
-                                                    Responsable
-                                                </th>
-                                                <th>
-                                                    Teléfono
-                                                </th>
-                                                <th>
-                                                    Correo
-                                                </th>
-                                                <th>
-                                                    DUI
-                                                </th>
-                                                <th>
-                                                    Usuario
-                                                </th>
-                                                <th>
-                                                    Contraseña
-                                                </th>
-                                                <th>Acción</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Jhon Rambo
-                                                    </td>
-                                                    <td>
-                                                        12/02/1999
-                                                    </td>
-                                                    <td>
-                                                        Masculino
-                                                    </td>
-                                                    <td>
-                                                        Juan Padn
-                                                    </td>
-                                                    <td>
-                                                        4578-8445
-                                                    </td>
-                                                    <td>
-                                                        Rambo88@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        04578936-8
-                                                    </td>
-                                                    <td>
-                                                        rambitoj
-                                                    </td>
-                                                    <td>
-                                                        123
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-info btn-sm btnEditStudent">
-                                                            <i class="material-icons">mode_edit</i>
-                                                        </button>
-                                                        <button class="btn btn-danger btn-sm btnDelStudent">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- FIN ROW TABLA REGISTROS ADMIN, TEACHER Y ESTUDIANTES -->
-                    </div>
-
-
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="fixed-plugin" id="fixenElementMenu">
-        <div class="dropdown show-dropdown" id="menushowdrpdwn">
-            <a href="#" data-toggle="dropdown">
-                <i class="material-icons" style="font-size: 40px;">
-                    list
-                </i>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+      <!-- <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Usuario
+        </a></div> -->
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link" href="./perfil.html">
+              <i class="material-icons">person</i>
+              <p>Perfil</p>
             </a>
-            <ul class="dropdown-menu" id="dpmenuUsuariosats">
-                <li class="header-title">Menu de usuarios</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger active-color">
-                        <div class="badge-colors ml-auto mr-auto">
-                            <span class="badge filter badge-purple bgAdmini bdgitemcolr active"
-                                data-color="purple"></span>
-                            <span class="badge filter badge-azure bgTeacheri bdgitemcolr" data-color="azure"></span>
-                            <span class="badge filter badge-green bgStudenti bdgitemcolr" data-color="green"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gestionusuario.html">
+              <i class="material-icons">person_add</i>
+              <p>Gestión de usuarios</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./gestiongrado.html">
+              <i class="material-icons">class</i>
+              <p>Gestión de grados</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./calificaciones.html">
+              <i class="material-icons">content_paste</i>
+              <p>Calificaciones</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="cerrarSesionOk">
+              <i class="material-icons">logout</i>
+              <p>Cerrar sesión</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:void(0)">Gestión de grados</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <!-- <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                <li class="button-container ">
-                    <a href="#tblistAdmisRegistered"
-                        class="btn btn-primary btn-block tuserc linkadmin">Administradores</a>
-                </li>
-                <li class="button-container ">
-                    <a href="#tblisTeacherRegistered" class="btn btn-block tuserc linkteacher"
-                        style="background-color: #029eb1;">
-                        Docentes
-                    </a>
-                </li>
-                <li class="button-container ">
-                    <a href="#tblistStudentsRegistered" class="btn btn-block tuserc linkstudent"
-                        style="background-color: #288c6c;">
-                        Estudiantes
-                    </a>
-                </li>
-            </ul>
+                  <a class="dropdown-item" href="javascript:void(0)">Mi persil</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Cerrar Sesión</a>
+                </div>
+              </li>
+            </ul> -->
+          </div>
         </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <div class="content" style="margin-top: 30px;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <div class="form-check form-check-inline">
+                    <h4 class="card-title ">Grados</h4>
+                    &nbsp;&nbsp;
+
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:printDocentes()" data-toggle="tab" id="printBoletNotas">
+                          <i class="material-icons">print</i> Imprimir
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Buscar</label>
+                        <input type="text" class="form-control" id="buscarTeacher" placeholder="Buscar Profesor">
+                      </div>
+                    </div>
+                  </div>
+                  <div id="grados">
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="tblistGrados">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th scope="col" class="text-center">
+                              Grado
+                            </th>
+                            <th scope="col" class="text-center">
+                              Encargado
+                            </th>
+                            <th scope="col" class="text-center">
+                              Acción
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              document.getElementById("printBoletNotas").addEventListener("click", () => {
+                printDocentes();
+              });
+            </script>
+
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <div class="form-check form-check-inline" id="materiasNotasEstu">
+                    <h4 class="card-title">Estudiantes <span id="titleGradeSel"></span></h4>
+                    &nbsp;&nbsp;
+
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="nav-item">
+                        <a class="nav-link text-center" href="javascript:printNotas()" data-toggle="tab"
+                          id="printBoletNotas2">
+                          <i class="material-icons">print</i> Imprimir
+                          <div class="ripple-container"></div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body" id="pnllisStudents">
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Buscar</label>
+                        <input type="text" class="form-control" id="buscarStudent" placeholder="Buscar estudiante">
+                      </div>
+                    </div>
+                    <div id="alumnos">
+                      <div class="table-responsive">
+                        <table class="table table-hover" id="tblistStudents">
+                          <thead class=" text-primary">
+                            <tr>
+                              <th scope="col" class="text-center">
+                                Nombre
+                              </th>
+                              <th scope="col" class="text-center">
+                                Fecha de nacimiento
+                              </th>
+                              <th scope="col" class="text-center">
+                                Sexo
+                              </th>
+                              <th scope="col" class="text-center">
+                                Usuario
+                              </th>
+                              <th scope="col" class="text-center">
+                                Contraseña
+                              </th>
+                              <th scope="col" class="text-center">
+                                Responsable
+                              </th>
+                              <th scope="col" class="text-center">
+                                Teléfono
+                              </th>
+                              <th scope="col" class="text-center">
+                                Correo
+                              </th>
+                              <th scope="col" class="text-center">
+                                DUI
+                              </th>
+                              <th scope="col" class="text-center">
+                                Dirección
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              document.getElementById("printBoletNotas2").addEventListener("click", () => {
+                printNotas();
+              });
+            </script>
+          </div>
+        </div>
+      </div>
     </div>
 
 
 
 
+    <!-- MODAL AGREGAR NOTA PERIODOS  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content dark-edition">
+          <div class="modal-header">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Agregar/Modificar nota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body ">
+            <form action="">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inNotaMateriaPeriod" class="bmd-label-floating">I Periodo</label>
+                  <input type="number" min="1" max="10" class="form-control" id="inNotaMateriaPeriod" value="3">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- modal imprimir usuarios admin, docent, student individual o todas -->
+    <!-- modal imprimir notas individual o todas -->
     <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content dark-edition">
-                <div class="modal-header">
-                    <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de usuarios</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="text-white">&times;</span>
-                    </button>
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content dark-edition">
+          <div class="modal-header">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Impresión de notas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body ">
+            <form action="">
+              <div class="form-group">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Sociales
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
                 </div>
-                <div class="modal-body ">
-                    <form action="">
-                        <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="text" id="in" value="option1">Administrador
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="text" id="inlineCheckbox2"
-                                        value="option2">Docentes
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="text" id="inlineCheckbox3"
-                                        value="option3">Estudiantes
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i
-                                    class="material-icons">print</i>
-                                Imprimir</button>
-                        </div>
-                    </form>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">Lenguaje
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
                 </div>
-                <!-- <div class="modal-footer">
-    </div> -->
-            </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Matemáticas
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Ciencias
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Inglés
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Todas
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+              <label for="inNotaMateriaPeriod" class="bmd-label-floating">Nota</label>
+              <input type="number" class="form-control" id="inNotaMateriaPeriod">
+            </div> -->
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="material-icons">print</i>
+                  Imprimir</button>
+              </div>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
+        
+        </div> -->
         </div>
+      </div>
     </div>
-
-    <!-- MODAL ELIMINAR REGISGRO  -->
-    <div class="modal fade" id="mdDeleteUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content dark-edition">
-                <div class="modal-header">
-                    <h5 class="modal-title text-white" id="exampleModalLabel">Eliminar Registro</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-light">
-                        ¿Desea Eliminar Registro?
-                    </p>
-                </div>
-                <div class="modal-footer" id="mdfterDeluser">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                        id="btnModalDeleteUsuario">Eliminar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- TOASST MESSAGES -->
-    <!-- <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
-        <div class="toast fade hide p-3 bg-success rounded-lg" id="toastMesAfteDelRegis" role="alert"
-            aria-live="assertive" aria-atomic="true" data-delay="2000">
-            <div class="toast-header ">
-                <strong class="mr-auto text-white">Mensaje</strong>
-                <div class="dropdown-divider"></div>
-                 <i class="material-icons">
-                    check
-                </i> 
-                <<small>11 mins ago</small> 
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                <p class="text-white text-center">
-                    Registro eliminado correctamente
-                </p>
-            </div>
-        </div>
-    </div> -->
-
-    <script>
-        // let toastMesa = document.getElementById("toastMesAfteDelRegis");
-
-        // document.getElementById('btnToastDelete').addEventListener('click', () => {
-        //     toastMesa.classList.add('show');
-        //     toastMesa.classList.remove('hide');
-
-        // });
-
-    </script>
-
-
-
-
-
-
-
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/default-passive-events"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
     <!-- Chartist JS -->
     <script src="../assets/js/plugins/chartist.min.js"></script>
     <!--  Notifications Plugin    -->
@@ -1051,177 +384,171 @@
     <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
+    <script src="../assets/js/jspdf.js"></script>
+    <script src="../estudiante/jsPDF-1.3.2/dist/jspdf.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $().ready(function () {
-                $sidebar = $('.sidebar');
+      $(document).ready(function () {
+        $().ready(function () {
+          $sidebar = $('.sidebar');
 
-                $sidebar_img_container = $sidebar.find('.sidebar-background');
+          $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-                $full_page = $('.full-page');
+          $full_page = $('.full-page');
 
-                $sidebar_responsive = $('body > .navbar-collapse');
+          $sidebar_responsive = $('body > .navbar-collapse');
 
-                window_width = $(window).width();
+          window_width = $(window).width();
 
-                $('.fixed-plugin a').click(function (event) {
-                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                    if ($(this).hasClass('switch-trigger')) {
-                        if (event.stopPropagation) {
-                            event.stopPropagation();
-                        } else if (window.event) {
-                            window.event.cancelBubble = true;
-                        }
-                    }
-                });
+          $('.fixed-plugin a').click(function (event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if ($(this).hasClass('switch-trigger')) {
+              if (event.stopPropagation) {
+                event.stopPropagation();
+              } else if (window.event) {
+                window.event.cancelBubble = true;
+              }
+            }
+          });
 
-                $('.fixed-plugin .active-color span').click(function () {
-                    $full_page_background = $('.full-page-background');
+          $('.fixed-plugin .active-color span').click(function () {
+            $full_page_background = $('.full-page-background');
 
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-                    var new_color = $(this).data('color');
+            var new_color = $(this).data('color');
 
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data-color', new_color);
-                    }
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-color', new_color);
+            }
 
-                    if ($full_page.length != 0) {
-                        $full_page.attr('filter-color', new_color);
-                    }
+            if ($full_page.length != 0) {
+              $full_page.attr('filter-color', new_color);
+            }
 
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.attr('data-color', new_color);
-                    }
-                });
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.attr('data-color', new_color);
+            }
+          });
 
-                $('.fixed-plugin .background-color .badge').click(function () {
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
+          $('.fixed-plugin .background-color .badge').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-                    var new_color = $(this).data('background-color');
+            var new_color = $(this).data('background-color');
 
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data-background-color', new_color);
-                    }
-                });
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-background-color', new_color);
+            }
+          });
 
-                $('.fixed-plugin .img-holder').click(function () {
-                    $full_page_background = $('.full-page-background');
+          $('.fixed-plugin .img-holder').click(function () {
+            $full_page_background = $('.full-page-background');
 
-                    $(this).parent('li').siblings().removeClass('active');
-                    $(this).parent('li').addClass('active');
-
-
-                    var new_image = $(this).find("img").attr('src');
-
-                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                        $sidebar_img_container.fadeOut('fast', function () {
-                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                            $sidebar_img_container.fadeIn('fast');
-                        });
-                    }
-
-                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $full_page_background.fadeOut('fast', function () {
-                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                            $full_page_background.fadeIn('fast');
-                        });
-                    }
-
-                    if ($('.switch-sidebar-image input:checked').length == 0) {
-                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                    }
-
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-                    }
-                });
-
-                $('.switch-sidebar-image input').change(function () {
-                    $full_page_background = $('.full-page-background');
-
-                    $input = $(this);
-
-                    if ($input.is(':checked')) {
-                        if ($sidebar_img_container.length != 0) {
-                            $sidebar_img_container.fadeIn('fast');
-                            $sidebar.attr('data-image', '#');
-                        }
-
-                        if ($full_page_background.length != 0) {
-                            $full_page_background.fadeIn('fast');
-                            $full_page.attr('data-image', '#');
-                        }
-
-                        background_image = true;
-                    } else {
-                        if ($sidebar_img_container.length != 0) {
-                            $sidebar.removeAttr('data-image');
-                            $sidebar_img_container.fadeOut('fast');
-                        }
-
-                        if ($full_page_background.length != 0) {
-                            $full_page.removeAttr('data-image', '#');
-                            $full_page_background.fadeOut('fast');
-                        }
-
-                        background_image = false;
-                    }
-                });
-
-                $('.switch-sidebar-mini input').change(function () {
-                    $body = $('body');
-
-                    $input = $(this);
-
-                    if (md.misc.sidebar_mini_active == true) {
-                        $('body').removeClass('sidebar-mini');
-                        md.misc.sidebar_mini_active = false;
-
-                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-                    } else {
-
-                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-                        setTimeout(function () {
-                            $('body').addClass('sidebar-mini');
-
-                            md.misc.sidebar_mini_active = true;
-                        }, 300);
-                    }
-
-                    // we simulate the window Resize so the charts will get updated in realtime.
-                    var simulateWindowResize = setInterval(function () {
-                        window.dispatchEvent(new Event('resize'));
-                    }, 180);
-
-                    // we stop the simulation of Window Resize after the animations are completed
-                    setTimeout(function () {
-                        clearInterval(simulateWindowResize);
-                    }, 1000);
-
-                });
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
 
 
-            });
+            var new_image = $(this).find("img").attr('src');
+
+            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              $sidebar_img_container.fadeOut('fast', function () {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+              });
+            }
+
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+              $full_page_background.fadeOut('fast', function () {
+                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                $full_page_background.fadeIn('fast');
+              });
+            }
+
+            if ($('.switch-sidebar-image input:checked').length == 0) {
+              var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            }
+
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+            }
+          });
+
+          $('.switch-sidebar-image input').change(function () {
+            $full_page_background = $('.full-page-background');
+
+            $input = $(this);
+
+            if ($input.is(':checked')) {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+              }
+
+              background_image = true;
+            } else {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+              }
+
+              if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+              }
+
+              background_image = false;
+            }
+          });
+
+          $('.switch-sidebar-mini input').change(function () {
+            $body = $('body');
+
+            $input = $(this);
+
+            if (md.misc.sidebar_mini_active == true) {
+              $('body').removeClass('sidebar-mini');
+              md.misc.sidebar_mini_active = false;
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+            } else {
+
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+              setTimeout(function () {
+                $('body').addClass('sidebar-mini');
+
+                md.misc.sidebar_mini_active = true;
+              }, 300);
+            }
+
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function () {
+              window.dispatchEvent(new Event('resize'));
+            }, 180);
+
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function () {
+              clearInterval(simulateWindowResize);
+            }, 1000);
+
+          });
         });
+      });
     </script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <script src="../assets/js/dommain.js"></script>
 
-
-    <!-- FIREBASE -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
 
@@ -1230,40 +557,82 @@
     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
 
     <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
-            authDomain: "escuelascrum.firebaseapp.com",
-            databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
-            projectId: "escuelascrum",
-            storageBucket: "escuelascrum.appspot.com",
-            messagingSenderId: "855708798969",
-            appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAEg_yQb0FhHjl7EG967BjTcPBPZxdHmiM",
+        authDomain: "escuelascrum.firebaseapp.com",
+        databaseURL: "https://escuelascrum-default-rtdb.firebaseio.com",
+        projectId: "escuelascrum",
+        storageBucket: "escuelascrum.appspot.com",
+        messagingSenderId: "855708798969",
+        appId: "1:855708798969:web:bdad54c63bd7f4bc747728"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
     </script>
-    <script src="../assets/js/admin/gestionuser/crudEstudiante.js"></script>
-    <script src="../assets/js/admin/gestionuser/crudAdmin.js"></script>
-    <script src="../assets/js/admin/gestionuser/crudTeacher.js"></script>
+    <script src="../assets/js/admin/gestiongrados/gestiongrado.js"></script>
     <script src="../assets/js/login/globalsesion.js"></script>
     <script>
-        window.addEventListener("DOMContentLoaded", (e) => {
-            if (GetLSSesionUser() == null) {
-                console.log("no logeado");
-                RutaDeAccesoPerfilUser("../login");
-            } else {
-                console.log("ok logeado");
-                console.log("funcionos iduse= ", GetLSSesionTipoU());
-            }
-        });
+      window.addEventListener("DOMContentLoaded", (e) => {
+        if (GetLSSesionUser() == null) {
+          console.log("no logeado");
+          RutaDeAccesoPerfilUser("../login");
+        } else {
+          console.log("ok logeado");
+          console.log("funcionos iduse= ", GetLSSesionTipoU());
+        }
+      });
 
-        document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
-            LogOut();
+      document.getElementById("cerrarSesionOk").addEventListener("click", (e) => {
+        LogOut();
 
-        });
+      });
     </script>
 
+    <script src="../assets/js/estudiante/getNotas.js"></script>
+    <script>
+      function printDocentes() {
+        var dataD = document.getElementById('Rdocentes').innerHTML;
+        let janelaD = window.open('', '', 'width=800, height=600');
+        janelaD.document.write('<htm><head>');
+        janelaD.document.write('<title>PDF </title></head>');
+        janelaD.document.write('<body class="text-center"><br>');
+        janelaD.document.write(dataD + "<br>");
+        janelaD.document.write('</body></html>');
+        janelaD.document.close();
+        janelaD.print();
+      }
+
+    </script>
+    <script>
+      function printNotas() {
+        var dataN = document.getElementById('alumnos').innerHTML;
+        let janelaN = window.open('', '', 'width=800, height=600');
+        janelaN.document.write('<htm><head>');
+        janelaN.document.write('<title>PDF </title></head>');
+        janelaN.document.write('<body class="text-center"> <br>');
+        janelaN.document.write(dataN + " <br>");
+        janelaN.document.write('</body></html>');
+        janelaN.document.close();
+        janelaN.print();
+      }
+    </script>
+    <!--<div class="text-center table table-responsive" id="Rdocentes">
+      <table class="table table-hover" id="tblistGrados">
+        <thead class=" text-primary">
+          <tr>
+            <th scope="col" class="text-center">
+              Grado
+            </th>
+            <th scope="col" class="text-center">
+              Encargado
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>-->
 </body>
 
 </html>
