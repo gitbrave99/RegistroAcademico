@@ -267,16 +267,15 @@
                                                             </a>
                                                         </div>
                                                         <div class="card-body">
-                                                            <h6 class="card-category">Ingeniero en Sistemas</h6>
-                                                            <h4 class="card-title">Nombre</h4>
+                                                            <h6 class="card-category">Admin</h6>
+                                                            <h4 class="card-title" id="resAdmin">Nombre</h4>
                                                             <p class="card-description">
                                                                 Instituto Educativo de Santa Ana
                                                             </p>
                                                             <!-- <a href="#pablo" class="btn btn-primary btn-round">Subir</a> -->
                                                             <div class="input-group has-validation">
 
-                                                                <input type="file" class="btn btn-primary btn-round"
-                                                                    required>
+                                                              
                                                                 <div class="invalid-feedback">
                                                                     Please choose a username.
                                                                 </div>
@@ -413,12 +412,11 @@
                                                             </a>
                                                         </div>
                                                         <div class="card-body">
-                                                            <h6 class="card-category">Bachillerato General</h6>
-                                                            <h4 class="card-title">Nombre</h4>
+                                                            <h6 class="card-category">Docente</h6>
+                                                            <h4 class="card-title" id="resTeacher">Nombre</h4>
                                                             <p class="card-description">
                                                                 Instituto Educativo de Santa Ana
                                                             </p>
-                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -581,12 +579,12 @@
                                                             </a>
                                                         </div>
                                                         <div class="card-body">
-                                                            <h6 class="card-category">Bachillerato General</h6>
-                                                            <h4 class="card-title">Nombre</h4>
+                                                            <h6 class="card-category">Estudiante</h6>
+                                                            <h4 class="card-title" id="resEstudiante">Nombre</h4>
                                                             <p class="card-description">
                                                                 Instituto Educativo de Santa Ana
                                                             </p>
-                                                            <a href="#pablo" class="btn btn-primary btn-round">Subir</a>
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>
@@ -613,7 +611,7 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="notas.html" data-toggle="tab"
                                                     id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
+                            
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
@@ -683,7 +681,6 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="notas.html" data-toggle="tab"
                                                     id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
@@ -752,7 +749,6 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="notas.html" data-toggle="tab"
                                                     id="printBoletNotas">
-                                                    <i class="material-icons">print</i> Imprimir
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
@@ -1262,6 +1258,23 @@
             LogOut();
 
         });
+    </script>
+
+    <script>
+        document.getElementById("inNombreAdmin").addEventListener("change",function () {
+            document.getElementById("resAdmin").innerText = 
+            document.getElementById("inNombreAdmin").value;
+        })
+
+        document.getElementById("inNombreTeacher").addEventListener("change",function () {
+            document.getElementById("resTeacher").innerText = 
+            document.getElementById("inNombreTeacher").value;
+        })
+
+        document.getElementById("inNombreEstudiante").addEventListener("change",function () {
+            document.getElementById("resEstudiante").innerText = 
+            document.getElementById("inNombreEstudiante").value;
+        })
     </script>
 
 </body>
