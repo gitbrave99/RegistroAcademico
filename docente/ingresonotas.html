@@ -128,7 +128,7 @@
                     &nbsp;&nbsp;
                     <ul class="nav nav-tabs" data-tabs="tabs">
                       <li class="nav-item">
-                        <a class="nav-link" href="notas.html" data-toggle="modal" data-target="#mdPrintNotasMatInAll"
+                        <a class="nav-link" data-toggle="modal" data-target="#mdPrintNotasMatInAll"
                           id="printBoletNotas">
                           <i class="material-icons">print</i> Imprimir
                           <div class="ripple-container"></div>
@@ -186,11 +186,11 @@
                           </div>
                         </div>
                       </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive" id="boxReporScociales">
                           <table class="table table-hover" id="tbListEstNotasSociales">
                             <thead class="">
                               <tr>
-                                <th scope="col" colspan="1"></th>
+                                <th scope="col" colspan="1"><b>Sociales</b></th>
                                 <th scope="col" colspan="3" class="text-center">
                                   1° Periodo
                                 </th>
@@ -264,11 +264,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="table-responsive">
+                      <div class="table-responsive" id="boxReporLenguaje">
                         <table class="table table-hover" id="tbListEstNotasLenguaje">
                           <thead class="">
                             <tr>
-                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="1"><b>Lenguaje</b></th>
                               <th scope="col" colspan="3" class="text-center">
                                 1° Periodo
                               </th>
@@ -342,11 +342,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="table-responsive">
+                      <div class="table-responsive" id="boxReporMatematica">
                         <table class="table table-hover" id="tbListEstNotasMatematica">
                           <thead class="">
                             <tr>
-                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="1">Matemática</th>
                               <th scope="col" colspan="3" class="text-center">
                                 1° Periodo
                               </th>
@@ -420,11 +420,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="table-responsive">
+                      <div class="table-responsive" id="boxReporCiencia">
                         <table class="table table-hover" id="tbListEstNotasCiencia">
                           <thead class="">
                             <tr>
-                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="1">Ciencias</th>
                               <th scope="col" colspan="3" class="text-center">
                                 1° Periodo
                               </th>
@@ -498,11 +498,12 @@
                           </div>
                         </div>
                       </div>
-                      <div class="table-responsive">
+                      <div class="table-responsive" id="boxReporIngles">
                         <table class="table table-hover" id="tbListEstNotasIngles">
                           <thead class="">
                             <tr>
-                              <th scope="col" colspan="1"></th>
+                              <th scope="col" colspan="1">Inglés
+                              </th>
                               <th scope="col" colspan="3" class="text-center">
                                 1° Periodo
                               </th>
@@ -671,7 +672,7 @@
             <div class="form-group">
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Sociales
+                  <input class="form-check-input" type="radio" id="rsociales" name="opremaa" value="option1">Sociales
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -679,7 +680,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">Lenguaje
+                  <input class="form-check-input" type="radio" id="rlenguaje" name="opremaa" value="option2">Lenguaje
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -687,7 +688,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Matemáticas
+                  <input class="form-check-input" type="radio" id="rmatematicas" name="opremaa" value="option3">Matemáticas
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -695,7 +696,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Ciencias
+                  <input class="form-check-input" type="radio" id="rciencias" name="opremaa" value="option3">Ciencias
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -703,7 +704,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Inglés
+                  <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Inglés
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -711,7 +712,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">Todas
+                  <input class="form-check-input" type="radio" id="rtodos"  name="opremaa" >Todas
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -724,7 +725,8 @@
             </div> -->
             <div class="form-group">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="material-icons">print</i>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="GenrearPdfNotasMaterias()">
+                <i class="material-icons">print</i>
                 Imprimir</button>
             </div>
           </form>
@@ -959,6 +961,41 @@
     });
   </script>
   <script src="../assets/js/docente/ingresonotas/notasbk.js"></script>
+
+  <script>
+    function GenrearPdfNotasMaterias() {
+          var datas = document.getElementById('boxReporScociales').innerHTML;
+        var datal = document.getElementById('boxReporLenguaje').innerHTML;
+        var datac = document.getElementById('boxReporCiencia').innerHTML;
+        var datai = document.getElementById('boxReporIngles').innerHTML;
+        var datam = document.getElementById('boxReporMatematica').innerHTML;
+
+        let janela = window.open('', '', 'width=800, height=600');
+          janela.document.write('<htm><head>');
+          janela.document.write('<title>PDF </title></head>');
+          janela.document.write('<body><br>');
+        if (document.getElementById('rsociales').checked) {
+          janela.document.write(datas + "<br>");
+        } else if (document.getElementById('rlenguaje').checked) {
+          janela.document.write(datal + "<br>");
+        } else if (document.getElementById('rciencias').checked) {
+          janela.document.write(datac + "<br>");
+        } else if (document.getElementById('ringles').checked) {
+          janela.document.write(datai + "<br>");
+        } else if (document.getElementById('rmatematicas').checked) {
+          janela.document.write(datam + "<br>");
+        }else if(document.getElementById('rtodos').checked){
+          janela.document.write(datas + "<br>");
+          janela.document.write(datal + "<br>");
+          janela.document.write(datam + "<br>");
+          janela.document.write(datac + "<br>");
+          janela.document.write(datai + "<br>");
+        }
+        janela.document.write('</body></html>');
+          janela.document.close();
+          janela.print();
+    }
+  </script>
 </body>
 
 </html>
