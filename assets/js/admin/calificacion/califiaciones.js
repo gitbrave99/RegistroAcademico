@@ -123,7 +123,7 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
                     <td class="text-center">${doc.data().p3nota2}</td>
                     <td class="text-center">${doc.data().p3nota3}</td>
                     <td class="text-primary text-center">${truncNota(totP3, 2)}</td>
-                    <td class="text-success text-center">${truncNota(totFinal, 2)}</td>
+                    <td class="text-success text-center">${GetColorNotaPasONo(totFinal)}</td>
                     <td>
                     <button class="btn btn-info green accent-4 ${pBtnClassByMatAddNCrud}" data-idmatselected="${doc.id}" data-toggle="modal"
                     data-target="#mdlAddNotaCrudAdmin">
@@ -152,7 +152,17 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
 
         }).catch((er) => {
             console.log("err ", er);
-        })
+        });
+        function GetColorNotaPasONo(trunCnot) {
+            let valor=``;
+            if (trunCnot >= 5) {
+                valor =`<span class="text-success">${truncNota(trunCnot,2)}</span>`;
+            }else{
+                valor =`<span class="text-warning">${truncNota(trunCnot,2)}</span>`;
+            }
+            return valor;
+        }
+
 }
 
 

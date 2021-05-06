@@ -1,11 +1,17 @@
 function GetLSSesionUser() {
-  var sesi = localStorage.getItem('sesionUser');
+  let sesi = localStorage.getItem('sesionUser');
   return sesi;
 }
 function GetLSSesionTipoU() {
-  var tipo = localStorage.getItem('sesesionTipoUser');
+  let tipo = localStorage.getItem('sesesionTipoUser');
   return tipo;
 }
+function GetNameUserLog() {
+  let nmUser= localStorage.getItem('seNombreuserlog');
+  return nmUser;
+}
+
+
 function LogOut() {
   localStorage.clear();
   RutaDeAccesoPerfilUser("../login");

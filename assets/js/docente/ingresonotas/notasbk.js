@@ -195,7 +195,7 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                     <td class="text-center">${doc.data().p3nota2}</td>
                     <td class="text-center">${doc.data().p3nota3}</td>
                     <td class="text-primary text-center">${truncNota(totP3, 2)}</td>
-                    <td class="text-primary text-success">${truncNota(totFinal, 2)}</td>
+                    <td class="text-primary text-success">${GetColorNotaPasONo(totFinal)}</td>
                     <td>
                             <button type="button" class="btn btn-info green accent-4 ${pBtnclassByMateria}" data-idmatselected="${doc.id}" data-nmstudent="${doc.data().estudiante}" data-nmteacher="${doc.data().profesor}" data-materia="${doc.data().materia}" data-toggle="modal" data-target="#mdAgregarNota">
                                 Agregar Nota
@@ -224,6 +224,16 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
         }).catch((error) => {
             console.log(error);
         });
+
+        function GetColorNotaPasONo(trunCnot) {
+            let valor=``;
+            if (trunCnot >= 5) {
+                valor =`<span class="text-success">${truncNota(trunCnot,2)}</span>`;
+            }else{
+                valor =`<span class="text-warning">${truncNota(trunCnot,2)}</span>`;
+            }
+            return valor;
+        }
 }
 
 

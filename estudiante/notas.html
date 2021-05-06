@@ -23,11 +23,9 @@
 <body class="dark-edition">
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-            <!-- <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Jhon Rambo
-                </a>
-            </div> -->
+            <div class="logo">
+                <span class="simple-text logo-normal" id="UserLog"></span>
+            </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
@@ -452,6 +450,7 @@
         } else {
             console.log("ok logeado");
             console.log("funcionos iduse= ", GetLSSesionTipoU());
+            document.getElementById("UserLog").innerHTML=GetNameUserLog();
         }
     });
 

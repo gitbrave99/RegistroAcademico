@@ -11,9 +11,10 @@ formLogin.addEventListener("submit", async (e) => {
     const password = formLogin["password"].value;
     dbGetUserForLogin.collection("estudiante").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
-            let userResponseStu, passResponseStu;
+            let userResponseStu, nmUserStud, passResponseStu;
             querySnapshot.forEach((doc) => {
                 userResponseStu = doc.data().user;
+                nmUserStud=doc.data().nombre;
                 passResponseStu = doc.data().password;
             });
             if (userResponseStu == undefined) {
@@ -26,7 +27,7 @@ formLogin.addEventListener("submit", async (e) => {
                 console.log("estudiante user loging");
                 // mensajesToForm.innerHTML = "Loging";
                 RutaDeAccesoPerfilUser("estudiante/perfil");
-                SetLSSesion(userResponseStu, "estudiante");
+                SetLSSesion(userResponseStu, "estudiante",nmUserStud);
             }
         }).catch((error) => {
             console.log("sino exite student error=", error);
@@ -34,9 +35,10 @@ formLogin.addEventListener("submit", async (e) => {
     // OBTENCION DE DATOS ADMINISTRADOR
     dbGetUserForLogin.collection("administrador").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
-            let userResponseAdmin, passResponseAdmmin;
+            let userResponseAdmin, nmUserLogAdmin, passResponseAdmmin;
             querySnapshot.forEach((doc) => {
                 userResponseAdmin = doc.data().user;
+                nmUserLogAdmin=doc.data().nombre;
                 passResponseAdmmin = doc.data().password;
             });
             if (userResponseAdmin == undefined) {
@@ -48,7 +50,7 @@ formLogin.addEventListener("submit", async (e) => {
                 mensajesToForm.classList.add("text-success");
                 mensajesToForm.innerHTML = "";
                 RutaDeAccesoPerfilUser("admin/perfil");
-                SetLSSesion(userResponseAdmin, "administrador");
+                SetLSSesion(userResponseAdmin, "administrador",nmUserLogAdmin);
             }
         }).catch((error) => {
             console.log("sino exite admin error=", error);
@@ -57,9 +59,10 @@ formLogin.addEventListener("submit", async (e) => {
     // OBTENCION DE DATOS TEACHER
     dbGetUserForLogin.collection("profesor").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
-            let userResponseAdminTeacher, passResponseTeacher;
+            let userResponseAdminTeacher, nmUserlogteacher, passResponseTeacher;
             querySnapshot.forEach((doc) => {
                 userResponseAdminTeacher = doc.data().user;
+                nmUserlogteacher=doc.data().nombre;
                 passResponseTeacher = doc.data().password;
             });
             if (userResponseAdminTeacher == undefined) {
@@ -71,7 +74,7 @@ formLogin.addEventListener("submit", async (e) => {
                 mensajesToForm.classList.add("text-success");
                 mensajesToForm.innerHTML = "";
                 RutaDeAccesoPerfilUser("docente/perfil");
-                SetLSSesion(userResponseAdminTeacher, "docente");
+                SetLSSesion(userResponseAdminTeacher, "docente",nmUserlogteacher);
             }
         }).catch((error) => {
             console.log("sino exite techer error=", error);
@@ -80,8 +83,9 @@ formLogin.addEventListener("submit", async (e) => {
 
 });
 
-function SetLSSesion(pUser, pTipo) {
+function SetLSSesion(pUser, pTipo,pNmU) {
     localStorage.setItem('sesionUser', pUser);
+    localStorage.setItem('seNombreuserlog', pNmU);
     localStorage.setItem('sesesionTipoUser', pTipo);
 }
 
