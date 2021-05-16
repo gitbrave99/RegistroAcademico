@@ -1,5 +1,6 @@
 const db = firebase.firestore();
 const nombreUserTeacher = GetLSSesionUser();
+const nmUserLog = GetNameUserLog();
 //BTN ADD NOTAS
 let userNm = "";
 const tbListEstNotasSociales = document.querySelector("#tbListEstNotasSociales tbody");
@@ -20,15 +21,77 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 titleGradeResponsable.value = doc.data().gradoEncargado;
                 ShowNotasStudentByMateriaAll(nmTechComP, "Sociales", "tbListEstNotasSociales", "btnPrevImprsion");
             });
-
         })
 
     // document.getElementById("btnGuardarNotas").addEventListener("click",(e)=>{
     //     console.log("target nmte",e.target.dataset.nmteacher);
     // });
 
+    //MOSTRAR NOTAS POR PERIODO PARA BOLETA DE NOTAS, POR PERIODO Y FINALES
+    document.getElementById("selPerFnNotas").addEventListener("change", (e) => {
+        let opSelted = e.target.value;
+        console.log("clicke", opSelted);
+        let nmStusleted = document.getElementById("nmStudente").innerHTML;
+
+        switch (opSelted) {
+            case 'I Periodo':
+                ShowSubjectForPeriPrint('I Periodo', nmStusleted);
+                break;
+            case 'II Periodo':
+                ShowSubjectForPeriPrint('II Periodo', nmStusleted);
+                break;
+            case 'III Periodo':
+                ShowSubjectForPeriPrint('III Periodo', nmStusleted);
+                break;
+            case 'Finales':
+                ShowSubjectForPeriPrint('Finales', nmStusleted);
+                break;
+
+            default:
+                break;
+        }
+    });
 
 });
+
+function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
+    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    let tblistar = document.querySelector("#tbToPrintNtStudent");
+    db.collection("materia").where("estudiante", "==", pnmStu)
+        .get()
+        .then((querySnapshot) => {
+            tblistar.innerHTML = "";
+            querySnapshot.forEach((doc) => {
+                switch (pNperiodo) {
+                    case 'I Periodo':
+                        totPrdo = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+                        break;
+                    case 'II Periodo':
+                        totPrdo = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+                        break;
+                    case 'III Periodo':
+                        totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        break;
+                    case 'Finales':
+                        totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+                        totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+                        totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        totFinal = (totP1 + totP2 + totP3) / 3;
+                        totPrdo = totFinal
+                        break;
+                    default:
+                        break;
+                }
+                totFinal = totPrdo;
+                tblistar.innerHTML += `
+                <tr>
+                    <td class="text-center">${doc.data().materia}</td>
+                    <td class="text-center">${truncNota(totFinal, 2)}</td>
+                </tr>`;
+            });
+        });
+}
+
 
 
 function GetNombreCTeacher(pUsernm) {
@@ -79,22 +142,20 @@ function truncNota(x, posiciones = 0) {
 function OnlyShowSubjects(pNmesudin) {
     let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
-    let nmstutoprintn=document.getElementById("nmStudentToPrintNotas");
-    nmstutoprintn.innerHTML=pNmesudin;
+    let nmstutoprintn = document.getElementById("nmStudentToPrintNotas");
+    nmstutoprintn.innerHTML = pNmesudin;
     db.collection("materia").where("estudiante", "==", pNmesudin)
         .get()
         .then((querySnapshot) => {
-            tblistar.innerHTML="";
+            tblistar.innerHTML = "";
             querySnapshot.forEach((doc) => {
                 console.log(doc.data().materia);
                 totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-                totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-                totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                totFinal = (totP1 + totP2 + totP3) / 3;
+                totFinal = totP1;
                 tblistar.innerHTML += `
                 <tr>
                     <td class="text-center">${doc.data().materia}</td>
-                    <td class="text-center">${truncNota(totFinal,2)}</td>
+                    <td class="text-center">${truncNota(totFinal, 2)}</td>
                 </tr>`;
             });
         });
@@ -123,16 +184,15 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                             <button type="button" class="btn btn-info green accent-4 ${pBtnclassByMateria}" data-nmstudent="${docet.data().nombre}" data-nmteacher="${doc.data().profesor}" data-toggle="modal" data-target="#mdPrevImpresion">
                                 Imprimir
                             </button>
-                        </td>
-                        `;
-                        })
+                        </td>`;
+                        });
 
                         const allbtnpreimp = document.querySelectorAll(".btnPrevImprsion");
                         allbtnpreimp.forEach((btn) => {
                             btn.addEventListener("click", (e) => {
                                 console.log("clicked imprei");
                                 OnlyShowSubjects(e.target.dataset.nmstudent);
-                                
+                                document.getElementById('nmStudente').innerHTML = e.target.dataset.nmstudent;
                             });
                         });
                     });
