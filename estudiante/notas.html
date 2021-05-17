@@ -30,13 +30,13 @@
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="./perfil.html">
-                            <i class="material-icons">person</i>
+                            <i class="material-icons">dashboard</i>
                             <p>Perfil</p>
                         </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="./notas.html">
-                            <i class="material-icons">library_books</i>
+                            <i class="material-icons">person</i>
                             <p>Notas</p>
                         </a>
                     </li>
@@ -46,12 +46,6 @@
                             <p>Cerrar sesión</p>
                         </a>
                     </li>
-                    <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
                 </ul>
             </div>
         </div>
@@ -99,11 +93,16 @@
                                     <p class="card-category">
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="javascript:printNotas()" data-toggle="tab"
-                                                id="printBoletNotas">
-                                                <i class="material-icons">print</i> Imprimir
+                                            <button type="button" id="printBoletNotas" class="btn btn-primary" >
+                                                <i class="material-icons">print</i> Todas
                                                 <div class="ripple-container"></div>
-                                            </a>
+                                              </button>
+                                        </li>
+                                         <li class="nav-item">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdPrevImpresion">
+                                                <i class="material-icons">print</i> Periodo
+                                                <div class="ripple-container"></div>
+                                              </button>
                                         </li>
                                     </ul>
                                     </p>
@@ -118,7 +117,7 @@
                                         printNotas();
                                     });
                                 </script>
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-12 col-sm-12 col-md-6">
                                             <div class="form-group">
@@ -132,9 +131,9 @@
                                         <div class="row">
                                             <div class="col-12 col-sm-12 col-md-6">
                                                 <div class="form-group">
-                                                    
+
                                                     <div style="color: #202940;">
-                                                       <p>Nombre: <span id="shwNmStudenToPrint"></span></p>
+                                                        <p>Nombre: <span id="shwNmStudenToPrint"></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,6 +211,95 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+    <!-- MODAL AGREGAR NOTA PERIODOS  -->
+    <div class="modal fade" id="mdPrevImpresion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content dark-edition">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Imprimir boleta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <div class="row row-cols-1 row-cols-md-2">
+                        <div class="col">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <button class="btn btn-primary" href="#" id="printBoletNotasEstudiantex"
+                                        onclick="printNotasByStuonlu()">
+                                        <i class="material-icons list-inline-item">print</i>
+                                        Imprimir
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col form-group">
+                            <style>
+                                #selPerFnNotas {
+                                    background-color: #1a2035;
+                                }
+                            </style>
+                            <label class="bmd-label-floating"></label>
+                            <select class="form-control" id="selPerFnNotas" required>
+                                <option selected disabled value="Elegir">Elegir
+                                </option>
+                                <option value="I Periodo">I Periodo</option>
+                                <option value="II Periodo">II Periodo</option>
+                                <option value="III Periodo">III Periodo</option>
+                                <option value="Finales">Finales</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span hidden id="nmStudente"></span>
+                    <div id="boxPrintNotasxStuden" class="text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="text-white"><b>Nombre:</b></label>
+                                    <br>
+                                    <span id="nmStudentToPrintNotas" class="text-muted"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="tbToPrintNtStudent">
+                                <thead class="text-center text-white">
+                                    <tr>
+                                        <th scope="col">
+                                            Materia
+                                        </th>
+                                        <th scope="col">
+                                            Nota
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
     <!-- * * * * * * * START / Firebase and Firestore * * * * * * * -->
 
@@ -426,20 +514,20 @@
 
 </body>
 
-<!--<script src="../estudiante/jsPDF-1.3.2/libs/html2canvas/dist/html2canvas.js"></script>
+<script src="../estudiante/jsPDF-1.3.2/libs/html2canvas/dist/html2canvas.js"></script>
 <script>
-    function impNotas() {
-        html2canvas(document.getElementById("notasAlumno"),{
-            onreaderer: function (canvas){
+    // function impNotas() {
+    //     html2canvas(document.getElementById("notasAlumno"),{
+    //         onreaderer: function (canvas){
 
-                var doc = new jsPDF();
-                doc.save("prueba.pdf")
-            }
-        });
+    //             var doc = new jsPDF();
+    //             doc.save("prueba.pdf")
+    //         }
+    //     });
         
-    }
+    // }
 
-</script>-->
+</script>
 
 <script src="../assets/js/login/globalsesion.js"></script>
 <script>
@@ -450,7 +538,7 @@
         } else {
             console.log("ok logeado");
             console.log("funcionos iduse= ", GetLSSesionTipoU());
-            document.getElementById("UserLog").innerHTML=GetNameUserLog();
+            document.getElementById("UserLog").innerHTML = GetNameUserLog();
         }
     });
 
@@ -462,6 +550,7 @@
 
 
 <script src="../assets/js/estudiante/getNotas.js"></script>
+<script src="../assets/js/estudiante/boleta.js"></script>
 <script>
     function printNotas() {
         var data = document.getElementById('notasAlumnno').innerHTML;

@@ -100,6 +100,15 @@ function ShowAllStudentsByGradeTeacher(pGrade) {
     });
 }
 
+function GetColorNotaPasONo(trunCnot) {
+    let valor = ``;
+    if (trunCnot >= 5) {
+        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+    } else {
+        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+    }
+    return valor;
+}
 function truncNota(x, posiciones = 0) {
     var s = x.toString()
     var l = s.length
@@ -140,7 +149,7 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                 tblistar.innerHTML += `
                 <tr>
                     <td class="text-center">${doc.data().materia}</td>
-                    <td class="text-center">${truncNota(totFinal, 2)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td>
                 </tr>`;
             });
         });
