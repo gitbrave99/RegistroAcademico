@@ -137,8 +137,8 @@
                                             <div class="col-12 col-sm-12 col-md-6">
                                                 <div class="form-group">
 
-                                                    <div style="color: #202940;">
-                                                        <p>Nombre: <span id="shwNmStudenToPrint"></span></p>
+                                                    <div style="color: #cac9c9;">
+                                                        <p>Estudiante: <span id="shwNmStudenToPrint"></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -268,27 +268,10 @@
                     </div>
                     
                     <span hidden id="nmStudente"></span>
-                    <div id="boxPrintNotasxStuden" class="text-center">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1" class="text-white"><b>Nombre:</b></label>
-                                    <br>
-                                    <span id="nmStudentToPrintNotas" class="text-muted"></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="boxPrintNotasxStuden" class="text-center" style="padding-top: 20px;">
                         <div class="table-responsive">
                             <table class="table" id="tbToPrintNtStudent">
                                 <thead class="text-center text-white">
-                                    <tr>
-                                        <th scope="col">
-                                            Materia
-                                        </th>
-                                        <th scope="col">
-                                            Nota
-                                        </th>
-                                    </tr>
                                 </thead>
                                 <tbody>
 
@@ -571,7 +554,7 @@
         obj.setFont("helvetica");
         obj.setFontType("normal");
         obj.setFontSize(13);
-        obj.text('Colegio Santa Ana', 80, 47)
+        obj.text('Instituto Educativo Santa Ana', 80, 47)
 
         // Obteniendo período
         var cb = document.getElementById('selPerFnNotas');
@@ -582,7 +565,7 @@
 
         obj.text('Resúmen de notas ' + txtPeriodo, 40, 90)
         obj.text('Alumno: ' + txtEstudiante, 40, 120)
-        obj.autoTable(res.columns, res.data, { startX: 10, startY: 140 })
+        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 140 })
         obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
 
         /* var data = document.getElementById('notasAlumnno').innerHTML;
@@ -603,7 +586,7 @@
         pdf.setFont("helvetica");
         pdf.setFontType("normal");
         pdf.setFontSize(13);
-        pdf.text('Colegio Santa Ana', 32, 33)
+        pdf.text('Instituto Educativo Santa Ana', 32, 33)
         pdf.text('Resúmen de notas', 15, 50)
 
         // Obteniendo estudiante
