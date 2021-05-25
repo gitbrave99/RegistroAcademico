@@ -259,8 +259,6 @@
                             </style>
                             <label class="bmd-label-floating"></label>
                             <select class="form-control" id="selPerFnNotas" required>
-                                <option selected disabled value="Elegir">Elegir
-                                </option>
                                 <option value="I Periodo">I Periodo</option>
                                 <option value="II Periodo">II Periodo</option>
                                 <option value="III Periodo">III Periodo</option>
@@ -268,6 +266,7 @@
                             </select>
                         </div>
                     </div>
+                    
                     <span hidden id="nmStudente"></span>
                     <div id="boxPrintNotasxStuden" class="text-center">
                         <div class="row">
@@ -573,10 +572,18 @@
         obj.setFontType("normal");
         obj.setFontSize(13);
         obj.text('Colegio Santa Ana', 80, 47)
-        obj.text('Periodo 1', 40, 90)
-        obj.text('Alumno: ' + document.getElementById('UserLog').innerHTML, 40, 120)
+
+        // Obteniendo período
+        var cb = document.getElementById('selPerFnNotas');
+        var txtPeriodo = cb.options[cb.selectedIndex].text;
+
+        // Obteniendo estudiante
+        var txtEstudiante = document.getElementById('UserLog').innerHTML;
+
+        obj.text('Resúmen de notas ' + txtPeriodo, 40, 90)
+        obj.text('Alumno: ' + txtEstudiante, 40, 120)
         obj.autoTable(res.columns, res.data, { startX: 10, startY: 140 })
-        obj.save('example.pdf');
+        obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
 
         /* var data = document.getElementById('notasAlumnno').innerHTML;
          let janela = window.open('', '', 'width=800, height=600');
@@ -597,10 +604,14 @@
         pdf.setFontType("normal");
         pdf.setFontSize(13);
         pdf.text('Colegio Santa Ana', 32, 33)
-        pdf.text('Periodo 1', 15, 50)
-        pdf.text('Alumno: ' + document.getElementById('UserLog').innerHTML, 15, 60)
+        pdf.text('Resúmen de notas', 15, 50)
+
+        // Obteniendo estudiante
+        var txtEstudiante = document.getElementById('UserLog').innerHTML;
+
+        pdf.text('Alumno: ' + txtEstudiante, 15, 60)
         pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 70})
-        pdf.save('PruebaHorizontal.pdf')
+        pdf.save('Resumen_Notas_' + txtEstudiante + '.pdf')
     }
 
 </script>
