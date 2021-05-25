@@ -284,13 +284,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
     <!-- * * * * * * * START / Firebase and Firestore * * * * * * * -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -554,18 +547,55 @@
         obj.setFont("helvetica");
         obj.setFontType("normal");
         obj.setFontSize(13);
-        obj.text('Instituto Educativo Santa Ana', 80, 47)
+        obj.text('Colegio Santa Ana', 80, 47)
 
         // Obteniendo período
         var cb = document.getElementById('selPerFnNotas');
         var txtPeriodo = cb.options[cb.selectedIndex].text;
 
+        obj.text('Resúmen de notas ' + txtPeriodo, 40, 90)
+
+        // Obteniendo fecha actual
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        obj.setFontSize(10);
+        obj.text(mm + '/' + dd + '/' + yyyy, 42, 110)
+
         // Obteniendo estudiante
         var txtEstudiante = document.getElementById('UserLog').innerHTML;
 
-        obj.text('Resúmen de notas ' + txtPeriodo, 40, 90)
-        obj.text('Alumno: ' + txtEstudiante, 40, 120)
-        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 140 })
+        obj.setFontSize(13);
+        obj.text('Alumno: ' + txtEstudiante, 40, 140)
+
+        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 160 })
+
+        // Obteniendo materias aprobadas y reprobadas        
+        var tabla = document.getElementById('tbToPrintNtStudent');
+        var materiasReprobadas = [];
+        var materiasAprobadas = [];
+
+        for (var i = 0, row; row = tabla.rows[i]; i++) {
+
+            for (var j = 0, col; col = row.cells[j]; j++) {
+
+                if (row.cells[j].innerText >= 5) {
+                    materiasAprobadas.push(row.cells[j-1].innerText);
+                } 
+                if (row.cells[j].innerText < 5) {
+                    materiasReprobadas.push(row.cells[j-1].innerText);
+                } 
+            }
+        }
+
+        obj.setFontSize(11);
+        obj.text('Materias aprobadas: ' + materiasAprobadas.length, 40, 320)
+        obj.text('' + materiasAprobadas, 40, 340)
+        obj.text('Materias reprobadas: ' + materiasReprobadas.length, 40, 370)
+        obj.text('' + materiasReprobadas, 40, 390)
+
         obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
 
         /* var data = document.getElementById('notasAlumnno').innerHTML;
@@ -586,7 +616,7 @@
         pdf.setFont("helvetica");
         pdf.setFontType("normal");
         pdf.setFontSize(13);
-        pdf.text('Instituto Educativo Santa Ana', 32, 33)
+        pdf.text('Colegio Santa Ana', 32, 33)
         pdf.text('Resúmen de notas', 15, 50)
 
         // Obteniendo estudiante
