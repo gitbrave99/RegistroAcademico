@@ -584,7 +584,7 @@
                 if (row.cells[j].innerText >= 5) {
                     materiasAprobadas.push(row.cells[j-1].innerText);
                 } 
-                if (row.cells[j].innerText < 5) {
+                else if (row.cells[j].innerText < 5) {
                     materiasReprobadas.push(row.cells[j-1].innerText);
                 } 
             }
@@ -617,13 +617,44 @@
         pdf.setFontType("normal");
         pdf.setFontSize(13);
         pdf.text('Colegio Santa Ana', 32, 33)
-        pdf.text('Resúmen de notas', 15, 50)
+        pdf.text('Resúmen de notas de Año Académico', 15, 50)
+
+        // Obteniendo fecha actual
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        pdf.setFontSize(10);
+        pdf.text(mm + '/' + dd + '/' + yyyy, 16, 58)
 
         // Obteniendo estudiante
         var txtEstudiante = document.getElementById('UserLog').innerHTML;
 
-        pdf.text('Alumno: ' + txtEstudiante, 15, 60)
-        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 70})
+        pdf.setFontSize(13);
+        pdf.text('Alumno: ' + txtEstudiante, 15, 70)
+        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 78})
+
+        // Obteniendo materias aprobadas y reprobadas        
+        var tabla = document.getElementById('tbListEstNotasAlumnoUser');
+        var materiasReprobadas = [];
+        var materiasAprobadas = [];
+
+        for (i = 2; i < tabla.rows.length; i++) {         
+            if (tabla.rows[i].cells[13].innerText >= 5) {
+                materiasAprobadas.push(tabla.rows[i].cells[0].innerText);
+            } 
+            else if (tabla.rows[i].cells[13].innerText < 5) {
+                materiasReprobadas.push(tabla.rows[i].cells[0].innerText);
+            } 
+        }
+
+        pdf.setFontSize(11);
+        pdf.text('Materias aprobadas: ' + materiasAprobadas.length, 15, 142)
+        pdf.text('' + materiasAprobadas, 15, 150)
+        pdf.text('Materias reprobadas: ' + materiasReprobadas.length, 15, 162)
+        pdf.text('' + materiasReprobadas, 15, 170)
+
         pdf.save('Resumen_Notas_' + txtEstudiante + '.pdf')
     }
 
