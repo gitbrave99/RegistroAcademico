@@ -46,7 +46,7 @@
                             <i class="material-icons">logout</i>
                             <p>Cerrar sesión</p>
                         </a>
-                    </li>                    
+                    </li>
                 </ul>
             </div>
         </div>
@@ -96,8 +96,15 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control" value="Jhon Bernard"
+                                                    <input type="text" class="form-control" value=""
                                                         id="nombreStudent" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Grado</label>
+                                                    <input type="text" class="form-control" value=""
+                                                        id="gradoStudent" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +112,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group bmd-form-group is-filled" id="fecha_llenadoestu">
                                                     <label class="bmd-label-floating">Fecha</label>
-                                                    <input type="text" class="form-control" value="12/02/2020"
+                                                    <input type="text" class="form-control" value=""
                                                         id="fechanacStudent" disabled>
                                                 </div>
                                             </div>
@@ -132,13 +139,15 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombreResonsble" disabled>
+                                                    <input type="text" class="form-control" id="nombreResonsble"
+                                                        disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">Teléfono</label>
-                                                    <input type="text" class="form-control" id="telResponsable" disabled>
+                                                    <input type="text" class="form-control" id="telResponsable"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,13 +155,15 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">E-mail</label>
-                                                    <input type="email" class="form-control" id="emailResponsable" disabled>
+                                                    <input type="email" class="form-control" id="emailResponsable"
+                                                        disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="bmd-label-floating">DUI</label>
-                                                    <input type="email" class="form-control" id="duiResponsable" disabled>
+                                                    <input type="email" class="form-control" id="duiResponsable"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -385,7 +396,7 @@
             });
         });
     </script>
-    
+
     <script src="../assets/js/login/globalsesion.js"></script>
     <script>
         window.addEventListener("DOMContentLoaded", (e) => {
@@ -395,7 +406,7 @@
             } else {
                 console.log("ok logeado");
                 console.log("funcionos iduse= ", GetLSSesionTipoU());
-                document.getElementById("UserLog").innerHTML=GetNameUserLog();
+                document.getElementById("UserLog").innerHTML = GetNameUserLog();
             }
         });
 

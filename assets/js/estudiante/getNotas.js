@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         .then((querySnapShot) => {
             querySnapShot.forEach((doc) => {
                 document.getElementById("shwNmStudenToPrint").innerHTML=doc.data().nombre;
+                document.getElementById("shwGradeStToPrint").innerHTML=doc.data().grado;
                 db.collection("materia").where("estudiante", "==", doc.data().nombre)
                     .get()
                     .then((querySnapShotm) => {
