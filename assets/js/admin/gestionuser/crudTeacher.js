@@ -35,9 +35,9 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 <td>${doc.data().sexo}</td>
                 <td>${doc.data().dui}</td>
                 <td>${doc.data().telefono}</td>
+                <td>${doc.data().gradoEncargado}</td>
                 <td>${doc.data().user}</td>
                 <td>${doc.data().password}</td>
-                <td>${doc.data().gradoEncargado}</td>
                 <td>
                      <a class="btn btn-info btn-sm btnEditTeacher" href="#panelsUsers" data-id="${teacherdoc.id}">
                         Editar
