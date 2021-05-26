@@ -62,7 +62,7 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
         .then((querySnapshot) => {
             tblistar.innerHTML = "";
             querySnapshot.forEach((doc) => {
-                switch (pNperiodo) {
+               switch (pNperiodo) {
                     case 'I Periodo':
                         totPrdo = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         break;
