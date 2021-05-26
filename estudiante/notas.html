@@ -549,13 +549,13 @@
         obj.addImage(imgData, 'PNG', 30, 20, 47, 47)
         obj.setFont("helvetica");
         obj.setFontType("normal");
-        obj.setFontSize(13);
+        obj.setFontSize(14);
         obj.text('Colegio Santa Ana', 80, 47)
 
         // Obteniendo período
         var cb = document.getElementById('selPerFnNotas');
         var txtPeriodo = cb.options[cb.selectedIndex].text;
-
+        obj.setFontSize(12);
         obj.text('Resúmen de notas ' + txtPeriodo, 40, 90)
 
         // Obteniendo fecha actual
@@ -569,11 +569,14 @@
 
         // Obteniendo estudiante
         var txtEstudiante = document.getElementById('UserLog').innerHTML;
+        //Obteniendo grado
+        var txtGrado = document.getElementById('shwGradeStToPrint').innerHTML;
+        
+        obj.setFontSize(12);
+        obj.text( txtGrado, 500, 90)
+        obj.text('Alumno: ' + txtEstudiante, 40, 132)
 
-        obj.setFontSize(13);
-        obj.text('Alumno: ' + txtEstudiante, 40, 140)
-
-        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 160 })
+        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 155 })
 
         // Obteniendo materias aprobadas y reprobadas        
         var tabla = document.getElementById('tbToPrintNtStudent');
@@ -618,8 +621,9 @@
         pdf.addImage(imgData, 'PNG', 8, 20, 25, 25)
         pdf.setFont("helvetica");
         pdf.setFontType("normal");
-        pdf.setFontSize(13);
+        pdf.setFontSize(14);
         pdf.text('Colegio Santa Ana', 32, 33)
+        pdf.setFontSize(12);
         pdf.text('Resúmen de notas de Año Académico', 15, 50)
 
         // Obteniendo fecha actual
@@ -629,14 +633,17 @@
         var yyyy = today.getFullYear();
 
         pdf.setFontSize(10);
-        pdf.text(mm + '/' + dd + '/' + yyyy, 263, 50)
+        pdf.text(mm + '/' + dd + '/' + yyyy, 263, 33)
 
         // Obteniendo estudiante
         var txtEstudiante = document.getElementById('UserLog').innerHTML;
-
-        pdf.setFontSize(13);
-        pdf.text('Alumno: ' + txtEstudiante, 15, 70)
-        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 78})
+        //Obteniendo grado
+        var txtGrado = document.getElementById('shwGradeStToPrint').innerHTML;
+        
+        pdf.setFontSize(12);
+        pdf.text( txtGrado, 263, 50)
+        pdf.text('Alumno: ' + txtEstudiante, 15, 64)
+        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 74})
 
         // Obteniendo materias aprobadas y reprobadas        
         var tabla = document.getElementById('tbListEstNotasAlumnoUser');
