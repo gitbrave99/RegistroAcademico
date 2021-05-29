@@ -89,7 +89,9 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 });
 
-let arrAllGradeslc = ["1° Grado", "2° Grado", "3° Grado", "4° Grado", "5° Grado", "6° Grado", "7° Grado", "8° Grado", "9° Grado"];
+let arrAllGradeslc = ["1° Grado", "2° Grado", "3° Grado", "4° Grado", "5° Grado", 
+"6° Grado", "7° Grado", "8° Grado", "9° Grado",
+"Primer Año Bachillerato", "Segundo Año Bachillerato"];
 let arrreservedGrades=[];
 let arrGrdFinal=[];
 function CargarGradesDispForRegTeachers() {
