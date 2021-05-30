@@ -1,4 +1,4 @@
-class TableHeader {
+class TableHeader{
 
     fTbHeaderForTecBachelor(pMateria = "Sociales") {
 
