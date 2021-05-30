@@ -10,6 +10,11 @@ function GetNameUserLog() {
   let nmUser= localStorage.getItem('seNombreuserlog');
   return nmUser;
 }
+function GetGradoResponsable(){
+ let grdRespon= localStorage.getItem('seGradoResponsable'); 
+ return grdRespon;
+}
+
 
 
 function LogOut() {

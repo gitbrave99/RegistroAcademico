@@ -11,11 +11,12 @@ formLogin.addEventListener("submit", async (e) => {
     const password = formLogin["password"].value;
     dbGetUserForLogin.collection("estudiante").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
-            let userResponseStu, nmUserStud, passResponseStu;
+            let userResponseStu, nmUserStud, passResponseStu, gradElegidoEst;
             querySnapshot.forEach((doc) => {
                 userResponseStu = doc.data().user;
                 nmUserStud=doc.data().nombre;
                 passResponseStu = doc.data().password;
+                grdResponseTeac= doc.data().grado;
             });
             if (userResponseStu == undefined) {
                 // mensajesToForm.classList.add("text-warning");
@@ -28,6 +29,8 @@ formLogin.addEventListener("submit", async (e) => {
                 // mensajesToForm.innerHTML = "Loging";
                 RutaDeAccesoPerfilUser("estudiante/perfil");
                 SetLSSesion(userResponseStu, "estudiante",nmUserStud);
+                //setea grado de estudiatne
+                SetGradoRespable(grdResponseTeac);
             }
         }).catch((error) => {
             console.log("sino exite student error=", error);
@@ -59,11 +62,12 @@ formLogin.addEventListener("submit", async (e) => {
     // OBTENCION DE DATOS TEACHER
     dbGetUserForLogin.collection("profesor").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
-            let userResponseAdminTeacher, nmUserlogteacher, passResponseTeacher;
+            let userResponseAdminTeacher, nmUserlogteacher, passResponseTeacher, grdResponseTeac;
             querySnapshot.forEach((doc) => {
                 userResponseAdminTeacher = doc.data().user;
                 nmUserlogteacher=doc.data().nombre;
                 passResponseTeacher = doc.data().password;
+                grdResponseTeac=doc.data().gradoEncargado;
             });
             if (userResponseAdminTeacher == undefined) {
                 // mensajesToForm.classList.add("text-warning");
@@ -74,6 +78,8 @@ formLogin.addEventListener("submit", async (e) => {
                 mensajesToForm.classList.add("text-success");
                 mensajesToForm.innerHTML = "";
                 RutaDeAccesoPerfilUser("docente/perfil");
+                //obtiene grado responsabel
+                SetGradoRespable(grdResponseTeac);
                 SetLSSesion(userResponseAdminTeacher, "docente",nmUserlogteacher);
             }
         }).catch((error) => {
@@ -89,4 +95,7 @@ function SetLSSesion(pUser, pTipo,pNmU) {
     localStorage.setItem('sesesionTipoUser', pTipo);
 }
 
+function SetGradoRespable(pGradeR) {
+    localStorage.setItem('seGradoResponsable',pGradeR)
+}
 

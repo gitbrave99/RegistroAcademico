@@ -1,4 +1,6 @@
 const db = firebase.firestore();
+//instancia de onlytable
+const cTheader = new TableHeader();
 const nombreUserTeacher = GetLSSesionUser();
 //BTN ADD NOTAS
 let userNm = "";
@@ -8,24 +10,57 @@ const btnAddNotCiencias = document.querySelectorAll(".btnAddNotCiencias");
 const btnAddNotIngles = document.querySelectorAll(".btnAddNotIngles");
 const fillgrForTielgrR = document.getElementById("frmgrpGrRespon");
 
+//------TABLE HEADER SEGUN GRDO VARS
+
+//carga tabla para docente bachillerato
+const tbSocialTeacher = document.querySelector("#tbListEstNotasSociales thead");
+const tbLenguajTeacher = document.querySelector("#tbListEstNotasLenguaje thead");
+const tbMatemaTeacher = document.querySelector("#tbListEstNotasMatematica thead");
+const tbCienciaTeacher = document.querySelector("#tbListEstNotasCiencia thead");
+const tbInglesTeacher = document.querySelector("#tbListEstNotasIngles thead");
+//otas only for bachelor
+// const tbElectricidadTeacher= document.querySelector("#tbListEstNotasSociales");
+// const tbSeminarioTeacher= document.querySelector("#tbListEstNotasSociales");
+// const tbDibujTecnicTeacher= document.querySelector("#tbListEstNotasSociales");
+// const tbOPVTeacher= document.querySelector("#tbListEstNotasSociales");
+
 window.addEventListener("DOMContentLoaded", async (e) => {
     const titleGradeResponsable = document.getElementById("gradoResponsable");
-
-    let nmTechComP = "";
     db.collection("profesor").where("user", "==", nombreUserTeacher)
         .get()
         .then((querySnapshot) => {
+
             querySnapshot.forEach((doc) => {
                 nmTechComP = doc.data().nombre;
+
+                if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable == "Segundo Año Bachillerato") {
+                    tbSocialTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Sociales");
+                    tbLenguajTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Lenguaje");
+                    tbMatemaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Matemática");
+                    tbCienciaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Ciencias");
+                    tbInglesTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Inglés");
+                } else {
+                    tbSocialTeacher.innerHTML = cTheader.fTbHeaderForGrades("Sociales");
+                    tbLenguajTeacher.innerHTML = cTheader.fTbHeaderForGrades("Lenguaje");
+                    tbMatemaTeacher.innerHTML = cTheader.fTbHeaderForGrades("Matemática");
+                    tbCienciaTeacher.innerHTML = cTheader.fTbHeaderForGrades("Ciencias");
+                    tbInglesTeacher.innerHTML = cTheader.fTbHeaderForGrades("Inglés");
+
+                }
+
+
                 titleGradeResponsable.value = doc.data().gradoEncargado;
-                ShowNotasStudentByMateriaAll(nmTechComP, "Sociales", "tbListEstNotasSociales", "btnAddNotSociales");
-                ShowNotasStudentByMateriaAll(nmTechComP, "Lenguaje", "tbListEstNotasLenguaje", "btnAddNotLenguaje");
-                ShowNotasStudentByMateriaAll(nmTechComP, "Matemáticas", "tbListEstNotasMatematica", "btnAddNotMatematicas");
-                ShowNotasStudentByMateriaAll(nmTechComP, "Ciencias", "tbListEstNotasCiencia", "btnAddNotCiencias");
-                ShowNotasStudentByMateriaAll(nmTechComP, "Inglés", "tbListEstNotasIngles", "btnAddNotIngles");
+                let grdRespn = doc.data().gradoEncargado;
+                ShowNotasStudentByMateriaAll(nmTechComP, "Sociales", "tbListEstNotasSociales", "btnAddNotSociales", grdRespn);
+                ShowNotasStudentByMateriaAll(nmTechComP, "Lenguaje", "tbListEstNotasLenguaje", "btnAddNotLenguaje", grdRespn);
+                ShowNotasStudentByMateriaAll(nmTechComP, "Matemáticas", "tbListEstNotasMatematica", "btnAddNotMatematicas", grdRespn);
+                ShowNotasStudentByMateriaAll(nmTechComP, "Ciencias", "tbListEstNotasCiencia", "btnAddNotCiencias", grdRespn);
+                ShowNotasStudentByMateriaAll(nmTechComP, "Inglés", "tbListEstNotasIngles", "btnAddNotIngles", grdRespn);
             });
 
+
         })
+
 
     // document.getElementById("btnGuardarNotas").addEventListener("click",(e)=>{
     //     console.log("target nmte",e.target.dataset.nmteacher);
@@ -166,42 +201,22 @@ function OnlyShowSubjects(doc, tbliMate) {
 }
 
 // FUNCION FOR SHOW SOCIALES 
-function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassByMateria) {
+function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassByMateria, pGrdRespn) {
     let tableMateriaSel = document.querySelector(`#${pTableMat} tbody`);
+
     db.collection("materia").where("materia", "==", pMateria).where("profesor", "==", pTeacher)
         .get()
         .then((querySnapshot) => {
+
             tableMateriaSel.innerHTML = "";
             querySnapshot.forEach((doc) => {
                 // console.log("en foreach", doc.data());
-                let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-                //PERIODO I
-                totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-                totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-                totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                totFinal = (totP1 + totP2 + totP3) / 3;
-                tableMateriaSel.innerHTML += `
-                <tr>
-                    <td class="text-center">${doc.data().estudiante}</td>
-                    <td class="text-center">${doc.data().p1nota1}</td>
-                    <td class="text-center">${doc.data().p1nota2}</td>
-                    <td class="text-center">${doc.data().p1nota3}</td>
-                    <td class="text-primary text-center">${truncNota(totP1, 2)}</td>
-                    <td class="text-center">${doc.data().p2nota1}</td>
-                    <td class="text-center">${doc.data().p2nota2}</td>
-                    <td class="text-center">${doc.data().p2nota3}</td>
-                    <td class="text-primary text-center">${truncNota(totP2, 2)}</td>
-                    <td class="text-center">${doc.data().p3nota1}</td>
-                    <td class="text-center">${doc.data().p3nota2}</td>
-                    <td class="text-center">${doc.data().p3nota3}</td>
-                    <td class="text-primary text-center">${truncNota(totP3, 2)}</td>
-                    <td class="text-primary text-success">${GetColorNotaPasONo(totFinal)}</td>
-                    <td>
-                            <button type="button" class="btn btn-info green accent-4 ${pBtnclassByMateria}" data-idmatselected="${doc.id}" data-nmstudent="${doc.data().estudiante}" data-nmteacher="${doc.data().profesor}" data-materia="${doc.data().materia}" data-toggle="modal" data-target="#mdAgregarNota">
-                                Agregar Nota
-                            </button>
-                    </td>
-                </tr>`;
+
+                if (pGrdRespn == "Primer Año Bachillerato" || pGrdRespn == "Segundo Año Bachillerato") {
+                    tableMateriaSel.innerHTML=cTheader.GetNotasFourPeriodos(doc,pBtnclassByMateria);    
+                }else{
+                tableMateriaSel.innerHTML=cTheader.GetNotasThreePeriodos(doc,pBtnclassByMateria);
+            }
 
             });
 
@@ -225,16 +240,34 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
             console.log(error);
         });
 
-        function GetColorNotaPasONo(trunCnot) {
-            let valor=``;
-            if (trunCnot >= 5) {
-                valor =`<span class="text-success">${truncNota(trunCnot,2)}</span>`;
-            }else{
-                valor =`<span class="text-warning">${truncNota(trunCnot,2)}</span>`;
-            }
-            return valor;
+    function GetColorNotaPasONo(trunCnot) {
+        let valor = ``;
+        if (trunCnot >= 5) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
         }
+        return valor;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $(document).ready(function () {
