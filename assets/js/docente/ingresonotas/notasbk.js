@@ -18,11 +18,13 @@ const tbLenguajTeacher = document.querySelector("#tbListEstNotasLenguaje thead")
 const tbMatemaTeacher = document.querySelector("#tbListEstNotasMatematica thead");
 const tbCienciaTeacher = document.querySelector("#tbListEstNotasCiencia thead");
 const tbInglesTeacher = document.querySelector("#tbListEstNotasIngles thead");
-//otas only for bachelor
-// const tbElectricidadTeacher= document.querySelector("#tbListEstNotasSociales");
-// const tbSeminarioTeacher= document.querySelector("#tbListEstNotasSociales");
-// const tbDibujTecnicTeacher= document.querySelector("#tbListEstNotasSociales");
-// const tbOPVTeacher= document.querySelector("#tbListEstNotasSociales");
+
+// Pestañas de materias para bachillerato
+var tabInf = document.getElementById("tabInformatica");
+var tabOpv = document.getElementById("tabOpv");
+var tabSem = document.getElementById("tabSeminario");
+var tabElec = document.getElementById("tabElectricidad");
+var tabDt = document.getElementById("tabDt");
 
 window.addEventListener("DOMContentLoaded", async (e) => {
     const titleGradeResponsable = document.getElementById("gradoResponsable");
@@ -34,12 +36,20 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 nmTechComP = doc.data().nombre;
 
                 if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
+                    // Mostrar pestañas de materias
+                    
+                    tabInf.style.display = "block"; tabOpv.style.display = "block";
+                    tabSem.style.display = "block"; tabElec.style.display = "block";
+                    tabDt.style.display = "block";
+
+                    // Formato de tabla para Bachillerato
                     tbSocialTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Sociales");
                     tbLenguajTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Lenguaje");
                     tbMatemaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Matemática");
                     tbCienciaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Ciencias");
                     tbInglesTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Inglés");
                 } else {
+                    // Formato de tabla para otros grados
                     tbSocialTeacher.innerHTML = cTheader.fTbHeaderForGrades("Sociales");
                     tbLenguajTeacher.innerHTML = cTheader.fTbHeaderForGrades("Lenguaje");
                     tbMatemaTeacher.innerHTML = cTheader.fTbHeaderForGrades("Matemática");

@@ -189,11 +189,13 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
                 const profesor = await GetProfesor(grado);
                 registrarMateriasBachillerato(nombre, grado, 'Sociales', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Ciencias', 0, 0, 0, 0, 0, 0, 
+                registrarMateriasBachillerato(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
                 registrarMateriasBachillerato(nombre, grado, 'Matemáticas', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0, 
+                registrarMateriasBachillerato(nombre, grado, 'Ciencias', 0, 0, 0, 0, 0, 0, 
+                0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Inglés', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
                 registrarMateriasBachillerato(nombre, grado, 'Informática', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
