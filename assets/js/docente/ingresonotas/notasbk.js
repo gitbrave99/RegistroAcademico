@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             querySnapshot.forEach((doc) => {
                 nmTechComP = doc.data().nombre;
 
-                if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable == "Segundo Año Bachillerato") {
+                if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
                     tbSocialTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Sociales");
                     tbLenguajTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Lenguaje");
                     tbMatemaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Matemática");
