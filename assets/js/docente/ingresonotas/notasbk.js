@@ -22,15 +22,14 @@ const tbInglesTeacher = document.querySelector("#tbListEstNotasIngles thead");
 const tbInformaticaTeacher = document.querySelector("#tbListEstNotasInformatica thead");
 const tbOpvTeacher = document.querySelector("#tbListEstNotasOpv thead");
 const tbSeminarioTeacher = document.querySelector("#tbListEstNotasSeminario thead");
-const tbElectriciadTeacher = document.querySelector("#tbListEstNotasElectricidad thead");
-const tbDibujoTecnicoTeacher = document.querySelector("#tbListEstNotasDibujoTecnico thead");
+const tbOptativaTeacher = document.querySelector("#tbListEstNotasOptativa thead");
 
 // Pestañas de materias para bachillerato
 var tabInf = document.getElementById("tabInformatica");
 var tabOpv = document.getElementById("tabOpv");
 var tabSem = document.getElementById("tabSeminario");
 var tabElec = document.getElementById("tabElectricidad");
-var tabDt = document.getElementById("tabDt");
+var tabOptativa = document.getElementById("tabOptativa");
 
 //const for slec options trimestres 3 0 4
 const selectPeriod= document.getElementById("selectForPeriodos");
@@ -53,8 +52,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     listRadiosToprint.innerHTML=cTheader.GetRadiosToPrinSubjectsFourPeriodos();
                     
                     tabInf.style.display = "block"; tabOpv.style.display = "block";
-                    tabSem.style.display = "block"; tabElec.style.display = "block";
-                    tabDt.style.display = "block";
+                    tabSem.style.display = "block"; tabOptativa.style.display = "block";
 
                     // Formato de tabla para Bachillerato
                     tbSocialTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Sociales");
@@ -66,8 +64,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     tbInformaticaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Informática");
                     tbOpvTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("OPV");
                     tbSeminarioTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Seminario");
-                    tbElectriciadTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Electricidad");
-                    tbDibujoTecnicoTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Dibujo Técnico");
+                    tbOptativaTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Optativa");
 
                 } else {
                     // Formato de tabla para otros grados
@@ -96,18 +93,11 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     ShowNotasStudentByMateriaAll(nmTechComP, "Informática", "tbListEstNotasInformatica", "btnAddNotInformática", grdRespn);
                     ShowNotasStudentByMateriaAll(nmTechComP, "OPV", "tbListEstNotasOpv", "btnAddNotOpv", grdRespn);
                     ShowNotasStudentByMateriaAll(nmTechComP, "Seminario", "tbListEstNotasSeminario", "btnAddNotSeminario", grdRespn);
-                    ShowNotasStudentByMateriaAll(nmTechComP, "Electricidad", "tbListEstNotasElectricidad", "btnAddNotElectricidad", grdRespn);
-                    ShowNotasStudentByMateriaAll(nmTechComP, "Dibujo Técnico", "tbListEstNotasDibujoTecnico", "btnAddNotDt", grdRespn);
+                    ShowNotasStudentByMateriaAll(nmTechComP, "Optativa", "tbListEstNotasOptativa", "btnAddNotOptativa", grdRespn);
                 }
             });
         })
-
-
-
-
-
 });
-
 
 function GetNombreCTeacher(pUsernm) {
     console.log("parametro ", pUsernm);

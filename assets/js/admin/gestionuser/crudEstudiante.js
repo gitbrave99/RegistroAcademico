@@ -203,9 +203,7 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
                 0, 0, 0, 0, 0, 0, profesor[0]);
                 registrarMateriasBachillerato(nombre, grado, 'Seminario', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Electricidad', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Dibujo Técnico', 0, 0, 0, 0, 0, 0, 
+                registrarMateriasBachillerato(nombre, grado, 'Optativa', 0, 0, 0, 0, 0, 0, 
                 0, 0, 0, 0, 0, 0, profesor[0]);
             } 
 
