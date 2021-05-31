@@ -1,8 +1,8 @@
 class TableHeader {
 
-    fTbHeaderForTecBachelor(pMateria = "Sociales") {
-  
-      const theadForTebachelor = `
+  fTbHeaderForTecBachelor(pMateria = "Sociales") {
+
+    const theadForTebachelor = `
       <tr>
         <th scope="col" colspan="1"><b>${pMateria}</b></th>
         <th scope="col" colspan="4" class="text-center">
@@ -79,13 +79,13 @@ class TableHeader {
           Acción
         </th>
       </tr>`;
-  
-      return theadForTebachelor;
-    }
-  
-    fTbHeaderForGrades(pMateria = "Sociales") {
-  
-      const theadForTebachelor = `<tr>
+
+    return theadForTebachelor;
+  }
+
+  fTbHeaderForGrades(pMateria = "Sociales") {
+
+    const theadForTebachelor = `<tr>
           <th scope="col" colspan="1"><b>${pMateria}</b></th>
           <th scope="col" colspan="4" class="text-center">
             1° Trimestre
@@ -146,22 +146,22 @@ class TableHeader {
             Acción
           </th>
         </tr>`;
-  
-      return theadForTebachelor;
-    }
-  
-    GetNotasFourPeriodos(doc, pBtnclassByMateria) {
-      let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-      let totalP4;
-      //PERIODO I
-      totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-      totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-      totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-      totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
-  
-  
-      totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
-      const notes = `  <tr>
+
+    return theadForTebachelor;
+  }
+
+  GetNotasFourPeriodos(doc, pBtnclassByMateria) {
+    let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    let totalP4;
+    //PERIODO I
+    totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+    totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+    totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+    totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+
+
+    totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
+    const notes = `  <tr>
           <td class="text-center">${doc.data().estudiante}</td>
           <td class="text-center">${doc.data().p1nota1}</td>
           <td class="text-center">${doc.data().p1nota2}</td>
@@ -186,19 +186,19 @@ class TableHeader {
                   </button>
           </td>
       </tr>`;
-      return notes;
-    }
-  
-    GetNotasThreePeriodos(doc, pBtnclassByMateria) {
-      let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-      //PERIODO I
-      totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-      totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-      totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-  
-  
-      totFinal = (totP1 + totP2 + totP3) / 3;
-      const notes = `  <tr>
+    return notes;
+  }
+
+  GetNotasThreePeriodos(doc, pBtnclassByMateria) {
+    let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    //PERIODO I
+    totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+    totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+    totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+
+
+    totFinal = (totP1 + totP2 + totP3) / 3;
+    const notes = `  <tr>
           <td class="text-center">${doc.data().estudiante}</td>
           <td class="text-center">${doc.data().p1nota1}</td>
           <td class="text-center">${doc.data().p1nota2}</td>
@@ -219,46 +219,48 @@ class TableHeader {
                   </button>
           </td>
       </tr>`;
-      return notes;
+    return notes;
+  }
+
+  truncNota(x, posiciones = 0) {
+    var s = x.toString()
+    var l = s.length
+    var decimalLength = s.indexOf('.') + 1
+    var numStr = s.substr(0, decimalLength + posiciones)
+    return Number(numStr)
+  }
+  GetColorNotaPasONo(trunCnot) {
+    let valor = ``;
+    if (trunCnot >= 5) {
+      valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+    } else {
+      valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
     }
-  
-    truncNota(x, posiciones = 0) {
-      var s = x.toString()
-      var l = s.length
-      var decimalLength = s.indexOf('.') + 1
-      var numStr = s.substr(0, decimalLength + posiciones)
-      return Number(numStr)
-    }
-    GetColorNotaPasONo(trunCnot) {
-      let valor = ``;
-      if (trunCnot >= 5) {
-        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
-      } else {
-        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
-      }
-      return valor;
-    }
-  
-  
-    //select de periodos #selectForPeriodos
-    GetSelectForThreePeriodos() {
-      const options = `<option selected disabled value="Elegir">Elegir</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>`;
-      return options;
-    }
-    GetSelectForFourPeriodos() {
-      const options = `  <option selected disabled value="Elegir">Elegir</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>`;
-      return options;
-    }
-  
-    GetRadiosToPrinSubjectsThreePeriodos() {
-      const lisRadios = `<div class="form-check form-check-inline">
+    return valor;
+  }
+
+
+  //select de periodos #selectForPeriodos
+  GetSelectForThreePeriodos() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="1">I Periodo</option>
+    <option value="2">II Periodo</option>
+    <option value="3">III Periodo</option>
+    <option value="11">III Finales</option>`;
+    return options;
+  }
+  GetSelectForFourPeriodos() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="1">I Periodo</option>
+    <option value="2">II Periodo</option>
+    <option value="3">III Periodo</option>
+    <option value="4">IIII Periodo</option>
+    <option value="11">IIII Periodo</option>`;
+    return options;
+  }
+
+  GetRadiosToPrinSubjectsThreePeriodos() {
+    const lisRadios = `<div class="form-check form-check-inline">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" id="rsociales" name="opremaa" value="option1">Sociales
             <span class="form-check-sign">
@@ -307,10 +309,10 @@ class TableHeader {
             </span>
           </label>
         </div>`;
-      return lisRadios;
-    }
-    GetRadiosToPrinSubjectsFourPeriodos() {
-      const lisRadios = `<div class="form-check form-check-inline">
+    return lisRadios;
+  }
+  GetRadiosToPrinSubjectsFourPeriodos() {
+    const lisRadios = `<div class="form-check form-check-inline">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" id="rsociales" name="opremaa" value="option1">Sociales
             <span class="form-check-sign">
@@ -391,7 +393,7 @@ class TableHeader {
             </span>
           </label>
         </div>`;
-      return lisRadios;
-    }
-  
+    return lisRadios;
   }
+
+}

@@ -243,17 +243,17 @@ class TableHeader {
   //select de periodos #selectForPeriodos
   GetSelectForThreePeriodos() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>`;
+      <option value="1">I Periodo</option>
+      <option value="2">II Periodo</option>
+      <option value="3">III Periodo</option>`;
     return options;
   }
   GetSelectForFourPeriodos() {
-    const options = `  <option selected disabled value="Elegir">Elegir</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>`;
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+      <option value="1">I Periodo</option>
+      <option value="2">II Periodo</option>
+      <option value="3">III Periodo</option>
+      <option value="4">IIII Periodo</option>`;
     return options;
   }
 

@@ -150,6 +150,7 @@ frmGuardarNotas.addEventListener('submit', async (e) => {
     e.preventDefault();
     const periodo = parseInt(document.getElementById('selectForPeriodos').value);
     if (!isNaN(periodo)) {
+        console.log("selecte idma",frmGuardarNotas['btnGuardarNotas'].dataset.idmaterysel);
         idMateToguardar = frmGuardarNotas['btnGuardarNotas'].dataset.idmaterysel;
         materia = frmGuardarNotas['btnGuardarNotas'].dataset.nmmateria;
         estudiante = frmGuardarNotas['btnGuardarNotas'].dataset.nmstudent;
@@ -192,14 +193,14 @@ frmGuardarNotas.addEventListener('submit', async (e) => {
             });
         }
         else if (periodo === 4) {
-            const p3nota1 = frmGuardarNotas['inNota1'].value;
-            const p3nota2 = frmGuardarNotas['inNota2'].value;
-            const p3nota3 = frmGuardarNotas['inNota3'].value;
+            const p4nota1 = frmGuardarNotas['inNota1'].value;
+            const p4nota2 = frmGuardarNotas['inNota2'].value;
+            const p4nota3 = frmGuardarNotas['inNota3'].value;
 
             await UpdateNotasMateria(idMateToguardar, {
-                p4nota1: p3nota1,
-                p4nota2: p3nota2,
-                p4nota3: p3nota3,
+                p4nota1: p4nota1,
+                p4nota2: p4nota2,
+                p4nota3: p4nota3,
             });
         }
         frmGuardarNotas.reset();
@@ -263,9 +264,9 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                 // console.log("en foreach", doc.data());
 
                 if (pGrdRespn == "Primer Año Bachillerato" || pGrdRespn == "Segundo Año Bachillerato") {
-                    tableMateriaSel.innerHTML = cTheader.GetNotasFourPeriodos(doc, pBtnclassByMateria);
+                    tableMateriaSel.innerHTML += cTheader.GetNotasFourPeriodos(doc, pBtnclassByMateria);
                 } else {
-                    tableMateriaSel.innerHTML = cTheader.GetNotasThreePeriodos(doc, pBtnclassByMateria);
+                    tableMateriaSel.innerHTML += cTheader.GetNotasThreePeriodos(doc, pBtnclassByMateria);
                 }
 
             });

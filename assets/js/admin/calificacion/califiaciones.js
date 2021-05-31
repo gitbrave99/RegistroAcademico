@@ -46,8 +46,6 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     tbMtDibujoTectStu.innerHTML = cTheader.fTbHeaderForGrades("Dibujo Técnico");
 
 
-
-
     //MOSTRAR LISTA DE DOCENTES Y GRADOS
     db.collection("profesor")
         .get().then((querySnapshot) => {
@@ -66,24 +64,31 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             const btnToShowGrades = document.querySelectorAll(".btnShowStudensNotes");
             btnToShowGrades.forEach(btn => {
                 btn.addEventListener('click', async (e) => {
+                    console.log("clicked");
                     //variables for targe button
                     let grade = e.target.dataset.grade;
                     let teacher = e.target.dataset.teacher;
                     let Materi = e.target.dataset.teacher;
                     console.log("envio  agrade", grade);
-                    MostrarAllNotasMaterias(teacher, "Sociales", "tbLiEstuMatSociales", "btnCrudNotaSociales", grade);
-                    MostrarAllNotasMaterias(teacher, "Lenguaje", "tbLiEstuMatLenguaje", "btnCrudNotaLenguaje", grade);
-                    MostrarAllNotasMaterias(teacher, "Matemáticas", "tbLiEstuMatMatematica", "btnCrudNotaMatematica", grade);
-                    MostrarAllNotasMaterias(teacher, "Ciencias", "tbLiEstuMatCiencias", "btnCrudNotaCiencias", grade);
-                    MostrarAllNotasMaterias(teacher, "Inglés", "tbLiEstuMatIngles", "btnCrudNotaIngles", grade);
 
                     if (grade === "Primer Año Bachillerato" || grade === "Segundo Año Bachillerato") {
                         // console.log("select",grade);
+                        MostrarAllNotasMaterias(teacher, "Sociales", "tbLiEstuMatSociales", "btnCrudNotaSociales", grade);
+                        MostrarAllNotasMaterias(teacher, "Lenguaje", "tbLiEstuMatLenguaje", "btnCrudNotaLenguaje", grade);
+                        MostrarAllNotasMaterias(teacher, "Matemáticas", "tbLiEstuMatMatematica", "btnCrudNotaMatematica", grade);
+                        MostrarAllNotasMaterias(teacher, "Ciencias", "tbLiEstuMatCiencias", "btnCrudNotaCiencias", grade);
+                        MostrarAllNotasMaterias(teacher, "Inglés", "tbLiEstuMatIngles", "btnCrudNotaIngles", grade);
                         MostrarAllNotasMaterias(teacher, "Informática", "tbListEstNotasInformatica", "btnAddNotInformática", grade);
                         MostrarAllNotasMaterias(teacher, "OPV", "tbListEstNotasOpv", "btnAddNotOpv", grade);
                         MostrarAllNotasMaterias(teacher, "Seminario", "tbListEstNotasSeminario", "btnAddNotSeminario", grade);
                         MostrarAllNotasMaterias(teacher, "Electricidad", "tbListEstNotasElectricidad", "btnAddNotElectricidad", grade);
                         MostrarAllNotasMaterias(teacher, "Dibujo Técnico", "tbListEstNotasDibujoTecnico", "btnAddNotDt", grade);
+                    }else{
+                        MostrarAllNotasMaterias(teacher, "Sociales", "tbLiEstuMatSociales", "btnCrudNotaSociales", grade);
+                        MostrarAllNotasMaterias(teacher, "Lenguaje", "tbLiEstuMatLenguaje", "btnCrudNotaLenguaje", grade);
+                        MostrarAllNotasMaterias(teacher, "Matemáticas", "tbLiEstuMatMatematica", "btnCrudNotaMatematica", grade);
+                        MostrarAllNotasMaterias(teacher, "Ciencias", "tbLiEstuMatCiencias", "btnCrudNotaCiencias", grade);
+                        MostrarAllNotasMaterias(teacher, "Inglés", "tbLiEstuMatIngles", "btnCrudNotaIngles", grade);
                     }
 
                     titleGradeSelected.innerHTML = grade;
@@ -170,7 +175,7 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
         .then((querySnapshot) => {
             tbleMatSel.innerHTML = "";
             querySnapshot.forEach((doc) => {
-
+                console.log("showing", doc.data().materia);
                 if (pGrdResp === "Primer Año Bachillerato" || pGrdResp === "Segundo Año Bachillerato") {
 
                     // Mostrar pestañas de materias
@@ -209,10 +214,9 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
                 }
                 if (pGrdResp === "Primer Año Bachillerato" || pGrdResp === "Segundo Año Bachillerato") {
 
-                    tbleMatSel.innerHTML = cTheader.GetNotasFourPeriodos(doc, pBtnClassByMatAddNCrud);
+                    tbleMatSel.innerHTML += cTheader.GetNotasFourPeriodos(doc, pBtnClassByMatAddNCrud);
                 } else {
-
-                    tbleMatSel.innerHTML = cTheader.GetNotasThreePeriodos(doc, pBtnClassByMatAddNCrud);
+                    tbleMatSel.innerHTML += cTheader.GetNotasThreePeriodos(doc, pBtnClassByMatAddNCrud);
                 }
 
             });

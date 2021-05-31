@@ -1,7 +1,10 @@
 const db = firebase.firestore();
+const cTheader = new TableHeader();
 const tblistGradesTeacher = document.querySelector("#tblistGrados tbody");
 const tblistAllStudensInTeachergrade = document.querySelector("#tblistStudents tbody");
 const titleGradSelected = document.querySelector("#titleGradeSel");
+const sOptionsToPrimNotasPeriodo = document.getElementById("selPerFnNotas");
+
 window.addEventListener("DOMContentLoaded", async (e) => {
     db.collection("profesor").get()
         .then((querySnapshot) => {
@@ -22,6 +25,11 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             btnstoShowStudbytg.forEach((btn) => {
                 btn.addEventListener("click", (evt) => {
                     const dtgrade = evt.target.dataset.grade;
+                    if (dtgrade === "Primer Año Bachillerato" || dtgrade == "Segundo Año Bachillerato") {
+                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForFourPeriodos();
+                    } else {
+                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForThreePeriodos();
+                    }
                     ShowAllStudentsByGradeTeacher(dtgrade);
                     titleGradSelected.innerHTML = dtgrade;
                 });
@@ -80,16 +88,19 @@ function ShowAllStudentsByGradeTeacher(pGrade) {
         console.log("clicke", opSelted);
         let nmStusleted = document.getElementById("nmStudente").innerHTML;
         switch (opSelted) {
-            case 'I Periodo':
+            case 1:
                 ShowSubjectForPeriPrint('I Periodo', nmStusleted);
                 break;
-            case 'II Periodo':
+            case 2:
                 ShowSubjectForPeriPrint('II Periodo', nmStusleted);
                 break;
-            case 'III Periodo':
+            case 3:
                 ShowSubjectForPeriPrint('III Periodo', nmStusleted);
                 break;
-            case 'Finales':
+            case 3:
+                ShowSubjectForPeriPrint('IIII Periodo', nmStusleted);
+                break;
+            case 11:
                 ShowSubjectForPeriPrint('Finales', nmStusleted);
                 break;
 
@@ -118,7 +129,7 @@ function truncNota(x, posiciones = 0) {
 }
 
 function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
-    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totP4 = 0, totFinal = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
     db.collection("materia").where("estudiante", "==", pnmStu)
         .get()
@@ -135,11 +146,15 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                     case 'III Periodo':
                         totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
                         break;
+                    case 'IIII Periodo':
+                        totPrdo = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                        break;
                     case 'Finales':
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
                         totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                        totFinal = (totP1 + totP2 + totP3) / 3;
+                        // totP4 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        totFinal = (totP1 + totP2 + totP3) / 4;
                         totPrdo = totFinal
                         break;
                     default:

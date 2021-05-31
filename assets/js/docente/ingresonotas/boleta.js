@@ -43,6 +43,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             case 'III Periodo':
                 ShowSubjectForPeriPrint('III Periodo', nmStusleted);
                 break;
+            case 'IIII Periodo':
+                ShowSubjectForPeriPrint('III Periodo', nmStusleted);
+                break;
             case 'Finales':
                 ShowSubjectForPeriPrint('Finales', nmStusleted);
                 break;
@@ -62,7 +65,7 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
         .then((querySnapshot) => {
             tblistar.innerHTML = "";
             querySnapshot.forEach((doc) => {
-               switch (pNperiodo) {
+                switch (pNperiodo) {
                     case 'I Periodo':
                         totPrdo = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         break;
@@ -71,6 +74,9 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                         break;
                     case 'III Periodo':
                         totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        break;
+                    case 'IIII Periodo':
+                        totPrdo = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
                         break;
                     case 'Finales':
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
@@ -200,7 +206,7 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                         const allbtnpreimp = document.querySelectorAll(".btnPrevImprsion");
                         allbtnpreimp.forEach((btn) => {
                             btn.addEventListener("click", (e) => {
-                                ShowSubjectForPeriPrint("I Periodo",(e.target.dataset.nmstudent));
+                                ShowSubjectForPeriPrint("I Periodo", (e.target.dataset.nmstudent));
                                 // console.log("clicked imprei");
                                 // OnlyShowSubjects(e.target.dataset.nmstudent);
                                 document.getElementById('nmStudente').innerHTML = e.target.dataset.nmstudent;
