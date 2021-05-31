@@ -240,19 +240,19 @@ class TableHeader {
   //select for calificaion elegir 3
   GetSelectForThreePeriodosAddNota() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-    <option value="1">I Periodo</option>
-    <option value="2">II Periodo</option>
-    <option value="3">III Periodo</option>
+    <option value="1">I Trimestre</option>
+    <option value="2">II Trimestre</option>
+    <option value="3">III Trimestre</option>
     <option value="11">Finales</option>`;
     return options;
   }
   //select for calificaion elegir 4
   GetSelectForFourPeriodosAddNota() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-    <option value="1">I Periodo</option>
-    <option value="2">II Periodo</option>
-    <option value="3">III Periodo</option>
-    <option value="4  ">IIII Periodo</option>
+    <option value="1">I Trimestre</option>
+    <option value="2">II Trimestre</option>
+    <option value="3">III Trimestre</option>
+    <option value="4  ">IIII Trimestre</option>
     <option value="11">Finales</option>`;
     return options;
   }
@@ -261,17 +261,17 @@ class TableHeader {
   //select de periodos #selectForPeriodos
   GetSelectForThreePeriodos() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-    <option value="1">I Periodo</option>
-    <option value="2">II Periodo</option>
-    <option value="3">III Periodo</option>`;
+    <option value="1">I Trimestre</option>
+    <option value="2">II Trimestre</option>
+    <option value="3">III Trimestre</option>`;
     return options;
   }
   GetSelectForFourPeriodos() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-    <option value="1">I Periodo</option>
-    <option value="2">II Periodo</option>
-    <option value="3">III Periodo</option>
-    <option value="4">IIII Periodo</option>`;
+    <option value="1">I Trimestre</option>
+    <option value="2">II Trimestre</option>
+    <option value="3">III Trimestre</option>
+    <option value="4">IIII Trimestre</option>`;
     return options;
   }
 

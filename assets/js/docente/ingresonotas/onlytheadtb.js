@@ -269,10 +269,10 @@ class TableHeader {
   }
   GetSelectForFourPeriodos() {
     const options = `<option selected disabled value="Elegir">Elegir</option>
-      <option value="1">I Periodo</option>
-      <option value="2">II Periodo</option>
-      <option value="3">III Periodo</option>
-      <option value="4">IIII Periodo</option>`;
+      <option value="1">I Trimestre</option>
+      <option value="2">II Trimestre</option>
+      <option value="3">III Trimestre</option>
+      <option value="4">IIII Trimestre</option>`;
     return options;
   }
 
