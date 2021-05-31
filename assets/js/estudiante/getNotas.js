@@ -2,25 +2,19 @@
 const db = firebase.firestore();
 const cTheader = new TableHeader();
 const nombreUserStudent = GetLSSesionUser();
-const tableRegistroNotas = document.querySelector("#tbListEstNotasAlumnoUser tbody");
-const tbNotasStudent= document.querySelector("#tbListEstNotasAlumnoUser thead");
+//tbody 
+const tableRegistroNotas = document.querySelector("#tbListEstNotasAlumnoUser tbody#tbodyalln");
+//head table
+const tbNotasStudent= document.querySelector("#tbListEstNotasAlumnoUser thead#theadalln");
 const selctForTrimsToPrint= document.getElementById("selPerFnNotas");
 window.addEventListener("DOMContentLoaded", async (e) => {
     //cargar datos
-
-
-    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
-        selctForTrimsToPrint.innerHTML = cTheader.GetSelectForFourPeriodosToPrint();
-        tbNotasStudent.innerHTML=cTheader.fTbHeaderForTecBachelor();
-    } else {
-        selctForTrimsToPrint.innerHTML = cTheader.GetSelectForThreePeriodosToPrint();
-        tbNotasStudent.innerHTML=cTheader.fTbHeaderForGrades();
-    }       
 
     db.collection("estudiante").where("user", "==", nombreUserStudent)
         .get()
         .then((querySnapShot) => {
             querySnapShot.forEach((doc) => {
+               
                 document.getElementById("shwNmStudenToPrint").innerHTML=doc.data().nombre;
                 document.getElementById("shwGradeStToPrint").innerHTML=doc.data().grado;
 
@@ -29,13 +23,20 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     .then((querySnapShotm) => {
                         tableRegistroNotas.innerHTML = "";
                         querySnapShotm.forEach((doc) => {
+                            if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
+                                selctForTrimsToPrint.innerHTML = cTheader.GetSelectForFourPeriodosToPrint();
+                                tbNotasStudent.innerHTML = cTheader.fTbHeaderForTecBachelor();
+                            } else {
+                                selctForTrimsToPrint.innerHTML = cTheader.GetSelectForThreePeriodosToPrint();
+                                tbNotasStudent.innerHTML=cTheader.fTbHeaderForGrades();
+                            }     
 
                             if (doc.data().grado == "Primer Año Bachillerato" || doc.data().grado == "Segundo Año Bachillerato") {
                                 console.log("bchilleato");
-                                tbNotasStudent.innerHTML += cTheader.GetNotasFourPeriodos(doc);
+                                tableRegistroNotas.innerHTML += cTheader.GetNotasFourPeriodos(doc);
                             } else {
                                 console.log("3 ciclo");
-                                tbNotasStudent.innerHTML += cTheader.GetNotasThreePeriodos(doc);
+                                tableRegistroNotas.innerHTML += cTheader.GetNotasThreePeriodos(doc);
                             }
                                    
                         });
