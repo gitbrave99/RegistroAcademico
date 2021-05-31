@@ -200,6 +200,9 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
                     tbMtElectricidaStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Electricidad");
                     tbMtDibujoTectStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Dibujo Técnico");
                 } else {
+                    tabInf.style.display = "none"; tabOpv.style.display = "none";
+                    tabSem.style.display = "none"; tabElec.style.display = "none";
+                    tabDt.style.display = "none";
 
                     // Formato de tabla para otros grados
                     tbMtSocialesStu.innerHTML = cTheader.fTbHeaderForGrades("Sociales");
@@ -213,12 +216,10 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
                     listRadiosToprint.innerHTML = cTheader.GetRadiosToPrinSubjectsThreePeriodos();
                 }
                 if (pGrdResp === "Primer Año Bachillerato" || pGrdResp === "Segundo Año Bachillerato") {
-
                     tbleMatSel.innerHTML += cTheader.GetNotasFourPeriodos(doc, pBtnClassByMatAddNCrud);
                 } else {
                     tbleMatSel.innerHTML += cTheader.GetNotasThreePeriodos(doc, pBtnClassByMatAddNCrud);
                 }
-
             });
             const btnModalCrudNotaMateria = document.querySelectorAll(`.${pBtnClassByMatAddNCrud}`);
             btnModalCrudNotaMateria.forEach((btn) => {

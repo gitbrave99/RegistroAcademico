@@ -26,10 +26,10 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 btn.addEventListener("click", (evt) => {
                     const dtgrade = evt.target.dataset.grade;
                     if (dtgrade === "Primer Año Bachillerato" || dtgrade == "Segundo Año Bachillerato") {
-                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForFourPeriodos();
+                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForFourPeriodosAddNota();
                     } else {
-                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForThreePeriodos();
-                    }
+                        sOptionsToPrimNotasPeriodo.innerHTML = cTheader.GetSelectForThreePeriodosAddNota();
+                    }       
                     ShowAllStudentsByGradeTeacher(dtgrade);
                     titleGradSelected.innerHTML = dtgrade;
                 });
@@ -88,19 +88,24 @@ function ShowAllStudentsByGradeTeacher(pGrade) {
         console.log("clicke", opSelted);
         let nmStusleted = document.getElementById("nmStudente").innerHTML;
         switch (opSelted) {
-            case 1:
+            case "1":
+                console.log("selected", opSelted);
                 ShowSubjectForPeriPrint('I Periodo', nmStusleted);
                 break;
-            case 2:
+            case "2":
+                console.log("selected", opSelted);
                 ShowSubjectForPeriPrint('II Periodo', nmStusleted);
                 break;
-            case 3:
+            case "3":
+                console.log("selected", opSelted);
                 ShowSubjectForPeriPrint('III Periodo', nmStusleted);
                 break;
-            case 3:
+            case "4":
+                console.log("selected", opSelted);
                 ShowSubjectForPeriPrint('IIII Periodo', nmStusleted);
                 break;
-            case 11:
+            case "11":
+                console.log("selected", opSelted);
                 ShowSubjectForPeriPrint('Finales', nmStusleted);
                 break;
 
@@ -153,8 +158,16 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
                         totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+
+                        //para cuatro periodos
+                        if (doc.data().p4nota1 != null || doc.data().p4nota1 != undefined) {
+                            totP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                            totFinal = (totP1 + totP2 + totP3 + totP4) / 4;
+                        } else {
+                            //para 3 periodos
+                            totFinal = (totP1 + totP2 + totP3) / 3;
+                        }
                         // totP4 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                        totFinal = (totP1 + totP2 + totP3) / 4;
                         totPrdo = totFinal
                         break;
                     default:

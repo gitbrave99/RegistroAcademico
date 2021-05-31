@@ -159,8 +159,7 @@ class TableHeader {
     totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
     totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
 
-
-    totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
+    totFinal = (totP1 + totP2 + totP3 + totalP4) / 4;
     const notes = `  <tr>
           <td class="text-center">${doc.data().estudiante}</td>
           <td class="text-center">${doc.data().p1nota1}</td>
@@ -232,11 +231,30 @@ class TableHeader {
   GetColorNotaPasONo(trunCnot) {
     let valor = ``;
     if (trunCnot >= 5) {
-      valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-success">${this.truncNota(trunCnot, 2)}</span>`;
     } else {
-      valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-warning">${this.truncNota(trunCnot, 2)}</span>`;
     }
     return valor;
+  }
+  //select for calificaion elegir 3
+  GetSelectForThreePeriodosAddNota() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="1">I Periodo</option>
+    <option value="2">II Periodo</option>
+    <option value="3">III Periodo</option>
+    <option value="11">Finales</option>`;
+    return options;
+  }
+  //select for calificaion elegir 4
+  GetSelectForFourPeriodosAddNota() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="1">I Periodo</option>
+    <option value="2">II Periodo</option>
+    <option value="3">III Periodo</option>
+    <option value="4  ">IIII Periodo</option>
+    <option value="11">Finales</option>`;
+    return options;
   }
 
 
@@ -245,8 +263,7 @@ class TableHeader {
     const options = `<option selected disabled value="Elegir">Elegir</option>
     <option value="1">I Periodo</option>
     <option value="2">II Periodo</option>
-    <option value="3">III Periodo</option>
-    <option value="11">III Finales</option>`;
+    <option value="3">III Periodo</option>`;
     return options;
   }
   GetSelectForFourPeriodos() {
@@ -254,8 +271,7 @@ class TableHeader {
     <option value="1">I Periodo</option>
     <option value="2">II Periodo</option>
     <option value="3">III Periodo</option>
-    <option value="4">IIII Periodo</option>
-    <option value="11">IIII Periodo</option>`;
+    <option value="4">IIII Periodo</option>`;
     return options;
   }
 
