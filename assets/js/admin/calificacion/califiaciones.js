@@ -4,11 +4,55 @@ const titleGradeSelected = document.getElementById("titleGradeSelected");
 //tables materias
 // const tbMateriaSociales = document.querySelector("#tbMatSociales tbody");
 const frmGuardarNotas = document.getElementById("frmCrudNotaStudenadm");
+//table headers
+const cTheader = new TableHeader();
+
+//list tables 
+const tbMtSocialesStu = document.querySelector("#tbLiEstuMatSociales thead");
+const tbMtLenguajeStu = document.querySelector("#tbLiEstuMatLenguaje thead");
+const tbMtMatematicaStu = document.querySelector("#tbLiEstuMatMatematica thead");
+const tbMtCienciasStu = document.querySelector("#tbLiEstuMatCiencias thead");
+const tbMtInglesStu = document.querySelector("#tbLiEstuMatIngles thead");
+
+const tbMtInformaticaStu = document.querySelector("#tbListEstNotasInformatica thead");
+const tbMtOPVStu = document.querySelector("#tbListEstNotasOpv thead");
+const tbMtSeminarioStu = document.querySelector("#tbListEstNotasSeminario thead");
+const tbMtElectricidaStu = document.querySelector("#tbListEstNotasElectricidad thead");
+const tbMtDibujoTectStu = document.querySelector("#tbListEstNotasDibujoTecnico thead");
+//---------------------------
+var tabInf = document.getElementById("tabInformatica");
+var tabOpv = document.getElementById("tabOpv");
+var tabSem = document.getElementById("tabSeminario");
+var tabElec = document.getElementById("tabElectricidad");
+var tabDt = document.getElementById("tabDt");
+
+// slect option para agregar nota 
+const selectPeriod = document.getElementById("selectForPeriodos");
+const listRadiosToprint = document.getElementById("radiosToPrintM");
+
+
 window.addEventListener("DOMContentLoaded", async (e) => {
+    //cargar header cuanodo carge
+    tbMtSocialesStu.innerHTML = cTheader.fTbHeaderForGrades();
+    tbMtLenguajeStu.innerHTML = cTheader.fTbHeaderForGrades("Lenguaje");
+    tbMtMatematicaStu.innerHTML = cTheader.fTbHeaderForGrades("Matemática");
+    tbMtCienciasStu.innerHTML = cTheader.fTbHeaderForGrades("Ciencias");
+    tbMtInglesStu.innerHTML = cTheader.fTbHeaderForGrades("Inglés");
+
+    tbMtInformaticaStu.innerHTML = cTheader.fTbHeaderForGrades("Informática");
+    tbMtOPVStu.innerHTML = cTheader.fTbHeaderForGrades("OPV");
+    tbMtSeminarioStu.innerHTML = cTheader.fTbHeaderForGrades("Seminario");
+    tbMtElectricidaStu.innerHTML = cTheader.fTbHeaderForGrades("Electricidad");
+    tbMtDibujoTectStu.innerHTML = cTheader.fTbHeaderForGrades("Dibujo Técnico");
+
+
+
+
     //MOSTRAR LISTA DE DOCENTES Y GRADOS
     db.collection("profesor")
         .get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
+
                 tbleListGrados.innerHTML += `<tr>
                     <td  class="text-center">${doc.data().gradoEncargado}</td>
                     <td  class="text-center">${doc.data().nombre}</td>
@@ -22,14 +66,26 @@ window.addEventListener("DOMContentLoaded", async (e) => {
             const btnToShowGrades = document.querySelectorAll(".btnShowStudensNotes");
             btnToShowGrades.forEach(btn => {
                 btn.addEventListener('click', async (e) => {
+                    //variables for targe button
                     let grade = e.target.dataset.grade;
                     let teacher = e.target.dataset.teacher;
                     let Materi = e.target.dataset.teacher;
-                    MostrarAllNotasMaterias(teacher, "Sociales", "tbLiEstuMatSociales", "btnCrudNotaSociales");
-                    MostrarAllNotasMaterias(teacher, "Lenguaje", "tbLiEstuMatLenguaje", "btnCrudNotaLenguaje");
-                    MostrarAllNotasMaterias(teacher, "Matemáticas", "tbLiEstuMatMatematica", "btnCrudNotaMatematica");
-                    MostrarAllNotasMaterias(teacher, "Ciencias", "tbLiEstuMatCiencias", "btnCrudNotaCiencias");
-                    MostrarAllNotasMaterias(teacher, "Inglés", "tbLiEstuMatIngles", "btnCrudNotaIngles");
+                    console.log("envio  agrade", grade);
+                    MostrarAllNotasMaterias(teacher, "Sociales", "tbLiEstuMatSociales", "btnCrudNotaSociales", grade);
+                    MostrarAllNotasMaterias(teacher, "Lenguaje", "tbLiEstuMatLenguaje", "btnCrudNotaLenguaje", grade);
+                    MostrarAllNotasMaterias(teacher, "Matemáticas", "tbLiEstuMatMatematica", "btnCrudNotaMatematica", grade);
+                    MostrarAllNotasMaterias(teacher, "Ciencias", "tbLiEstuMatCiencias", "btnCrudNotaCiencias", grade);
+                    MostrarAllNotasMaterias(teacher, "Inglés", "tbLiEstuMatIngles", "btnCrudNotaIngles", grade);
+
+                    if (grade === "Primer Año Bachillerato" || grade === "Segundo Año Bachillerato") {
+                        // console.log("select",grade);
+                        MostrarAllNotasMaterias(teacher, "Informática", "tbListEstNotasInformatica", "btnAddNotInformática", grade);
+                        MostrarAllNotasMaterias(teacher, "OPV", "tbListEstNotasOpv", "btnAddNotOpv", grade);
+                        MostrarAllNotasMaterias(teacher, "Seminario", "tbListEstNotasSeminario", "btnAddNotSeminario", grade);
+                        MostrarAllNotasMaterias(teacher, "Electricidad", "tbListEstNotasElectricidad", "btnAddNotElectricidad", grade);
+                        MostrarAllNotasMaterias(teacher, "Dibujo Técnico", "tbListEstNotasDibujoTecnico", "btnAddNotDt", grade);
+                    }
+
                     titleGradeSelected.innerHTML = grade;
                 });
             });
@@ -48,7 +104,7 @@ frmGuardarNotas.addEventListener("submit", async (e) => {
     const periodo = parseInt(document.getElementById('selectForPeriodos').value);
     idMateToguardar = frmGuardarNotas['btnGuardarNotaSt'].dataset.idmaterissld;
     if (!isNaN(periodo)) {
-        console.log(" no nan idm=",idMateToguardar);
+        console.log(" no nan idm=", idMateToguardar);
 
         if (periodo === 1) {
 
@@ -86,55 +142,82 @@ frmGuardarNotas.addEventListener("submit", async (e) => {
                 p3nota3: p3nota3,
             });
         }
+        else if (periodo === 4) {
+            console.log("en el cuarto");
+            const p4nota1 = frmGuardarNotas['inNota1'].value;
+            const p4nota2 = frmGuardarNotas['inNota2'].value;
+            const p4nota3 = frmGuardarNotas['inNota3'].value;
+
+            await UpdateNotasMateria(idMateToguardar, {
+                p4nota1: p4nota1,
+                p4nota2: p4nota2,
+                p4nota3: p4nota3,
+            });
+        }
         frmGuardarNotas.reset();
         location.reload();
-    }else{
-        console.log("selecione= ",periodo);
+    } else {
+        console.log("selecione= ", periodo);
     }
     console.log("en funcion");
 });
 
 
 
-function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAddNCrud) {
+function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAddNCrud, pGrdResp) {
     let tbleMatSel = document.querySelector(`#${pTbliMate} tbody`);
     db.collection("materia").where("profesor", "==", pDocente).where("materia", "==", pMateria).get()
         .then((querySnapshot) => {
             tbleMatSel.innerHTML = "";
             querySnapshot.forEach((doc) => {
-                let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-                //PERIODO I
-                totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-                totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-                totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                totFinal = (totP1 + totP2 + totP3) / 3;
-                tbleMatSel.innerHTML += `
-                <tr>
-                    <td class="text-center">${doc.data().estudiante}</td>
-                    <td class="text-center">${doc.data().p1nota1}</td>
-                    <td class="text-center">${doc.data().p1nota2}</td>
-                    <td class="text-center">${doc.data().p1nota3}</td>
-                    <td class="text-primary text-center">${truncNota(totP1, 2)}</td>
-                    <td class="text-center">${doc.data().p2nota1}</td>
-                    <td class="text-center">${doc.data().p2nota2}</td>
-                    <td class="text-center">${doc.data().p2nota2}</td>
-                    <td class="text-primary text-center">${truncNota(totP2, 2)}</td>
-                    <td class="text-center">${doc.data().p3nota1}</td>
-                    <td class="text-center">${doc.data().p3nota2}</td>
-                    <td class="text-center">${doc.data().p3nota3}</td>
-                    <td class="text-primary text-center">${truncNota(totP3, 2)}</td>
-                    <td class="text-success text-center">${GetColorNotaPasONo(totFinal)}</td>
-                    <td>
-                    <button class="btn btn-info green accent-4 ${pBtnClassByMatAddNCrud}" data-idmatselected="${doc.id}" data-toggle="modal"
-                    data-target="#mdlAddNotaCrudAdmin">
-                       Nota
-                  </button>
-                    </td>
-                </tr>`;
+
+                if (pGrdResp === "Primer Año Bachillerato" || pGrdResp === "Segundo Año Bachillerato") {
+
+                    // Mostrar pestañas de materias
+                    selectPeriod.innerHTML = cTheader.GetSelectForFourPeriodos();
+                    //print materias 8
+                    listRadiosToprint.innerHTML = cTheader.GetRadiosToPrinSubjectsFourPeriodos();
+
+                    tabInf.style.display = "block"; tabOpv.style.display = "block";
+                    tabSem.style.display = "block"; tabElec.style.display = "block";
+                    tabDt.style.display = "block";
+
+                    // Formato de tabla para Bachillerato
+                    tbMtSocialesStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Sociales");
+                    tbMtLenguajeStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Lenguaje");
+                    tbMtMatematicaStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Matemática");
+                    tbMtCienciasStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Ciencias");
+                    tbMtInglesStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Inglés");
+
+                    tbMtInformaticaStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Informática");
+                    tbMtOPVStu.innerHTML = cTheader.fTbHeaderForTecBachelor("OPV");
+                    tbMtSeminarioStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Seminario");
+                    tbMtElectricidaStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Electricidad");
+                    tbMtDibujoTectStu.innerHTML = cTheader.fTbHeaderForTecBachelor("Dibujo Técnico");
+                } else {
+
+                    // Formato de tabla para otros grados
+                    tbMtSocialesStu.innerHTML = cTheader.fTbHeaderForGrades("Sociales");
+                    tbMtLenguajeStu.innerHTML = cTheader.fTbHeaderForGrades("Lenguaje");
+                    tbMtMatematicaStu.innerHTML = cTheader.fTbHeaderForGrades("Matemática");
+                    tbMtCienciasStu.innerHTML = cTheader.fTbHeaderForGrades("Ciencias");
+                    tbMtInglesStu.innerHTML = cTheader.fTbHeaderForGrades("Inglés");
+                    //select periodos para imprimir
+                    selectPeriod.innerHTML = cTheader.GetSelectForThreePeriodos();
+                    // //for radios to print materiaa individual an all
+                    listRadiosToprint.innerHTML = cTheader.GetRadiosToPrinSubjectsThreePeriodos();
+                }
+                if (pGrdResp === "Primer Año Bachillerato" || pGrdResp === "Segundo Año Bachillerato") {
+
+                    tbleMatSel.innerHTML = cTheader.GetNotasFourPeriodos(doc, pBtnClassByMatAddNCrud);
+                } else {
+
+                    tbleMatSel.innerHTML = cTheader.GetNotasThreePeriodos(doc, pBtnClassByMatAddNCrud);
+                }
+
             });
             const btnModalCrudNotaMateria = document.querySelectorAll(`.${pBtnClassByMatAddNCrud}`);
             btnModalCrudNotaMateria.forEach((btn) => {
-                console.log("for");
                 btn.addEventListener("click", async (e) => {
                     let idMatSe = e.target.dataset.idmatselected;
                     let materia = e.target.dataset.materia;
@@ -153,15 +236,15 @@ function MostrarAllNotasMaterias(pDocente, pMateria, pTbliMate, pBtnClassByMatAd
         }).catch((er) => {
             console.log("err ", er);
         });
-        function GetColorNotaPasONo(trunCnot) {
-            let valor=``;
-            if (trunCnot >= 5) {
-                valor =`<span class="text-success">${truncNota(trunCnot,2)}</span>`;
-            }else{
-                valor =`<span class="text-warning">${truncNota(trunCnot,2)}</span>`;
-            }
-            return valor;
+    function GetColorNotaPasONo(trunCnot) {
+        let valor = ``;
+        if (trunCnot >= 5) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
         }
+        return valor;
+    }
 
 }
 
