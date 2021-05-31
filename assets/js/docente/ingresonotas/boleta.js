@@ -192,7 +192,7 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                         <td class="text-center">${docet.data().direccion}</td>
                         <td>
                             <button type="button" class="btn btn-info green accent-4 ${pBtnclassByMateria}" data-nmstudent="${docet.data().nombre}" data-nmteacher="${doc.data().profesor}" data-toggle="modal" data-target="#mdPrevImpresion">
-                                Imprimir
+                                Boleta
                             </button>
                         </td>`;
                         });

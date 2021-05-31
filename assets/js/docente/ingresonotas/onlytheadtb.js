@@ -1,8 +1,8 @@
-class TableHeader{
+class TableHeader {
 
-    fTbHeaderForTecBachelor(pMateria = "Sociales") {
+  fTbHeaderForTecBachelor(pMateria = "Sociales") {
 
-        const theadForTebachelor = `
+    const theadForTebachelor = `
     <tr>
       <th scope="col" colspan="1"><b>${pMateria}</b></th>
       <th scope="col" colspan="4" class="text-center">
@@ -80,12 +80,12 @@ class TableHeader{
       </th>
     </tr>`;
 
-        return theadForTebachelor;
-    }
+    return theadForTebachelor;
+  }
 
-    fTbHeaderForGrades(pMateria = "Sociales") {
+  fTbHeaderForGrades(pMateria = "Sociales") {
 
-        const theadForTebachelor = `<tr>
+    const theadForTebachelor = `<tr>
         <th scope="col" colspan="1"><b>${pMateria}</b></th>
         <th scope="col" colspan="4" class="text-center">
           1° Trimestre
@@ -147,21 +147,21 @@ class TableHeader{
         </th>
       </tr>`;
 
-        return theadForTebachelor;
-    }
+    return theadForTebachelor;
+  }
 
-    GetNotasFourPeriodos(doc, pBtnclassByMateria) {
-        let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-        let totalP4;
-        //PERIODO I
-        totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-        totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-        totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-        totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+  GetNotasFourPeriodos(doc, pBtnclassByMateria) {
+    let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    let totalP4;
+    //PERIODO I
+    totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+    totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+    totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+    totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
 
 
-        totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
-        const notes = `  <tr>
+    totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
+    const notes = `  <tr>
         <td class="text-center">${doc.data().estudiante}</td>
         <td class="text-center">${doc.data().p1nota1}</td>
         <td class="text-center">${doc.data().p1nota2}</td>
@@ -186,19 +186,19 @@ class TableHeader{
                 </button>
         </td>
     </tr>`;
-        return notes;
-    }
+    return notes;
+  }
 
-    GetNotasThreePeriodos(doc, pBtnclassByMateria) {
-        let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-        //PERIODO I
-        totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-        totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-        totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+  GetNotasThreePeriodos(doc, pBtnclassByMateria) {
+    let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    //PERIODO I
+    totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+    totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+    totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
 
 
-        totFinal = (totP1 + totP2 + totP3) / 3;
-        const notes = `  <tr>
+    totFinal = (totP1 + totP2 + totP3) / 3;
+    const notes = `  <tr>
         <td class="text-center">${doc.data().estudiante}</td>
         <td class="text-center">${doc.data().p1nota1}</td>
         <td class="text-center">${doc.data().p1nota2}</td>
@@ -219,23 +219,179 @@ class TableHeader{
                 </button>
         </td>
     </tr>`;
-        return notes;
-    }
+    return notes;
+  }
 
-    truncNota(x, posiciones = 0) {
-        var s = x.toString()
-        var l = s.length
-        var decimalLength = s.indexOf('.') + 1
-        var numStr = s.substr(0, decimalLength + posiciones)
-        return Number(numStr)
+  truncNota(x, posiciones = 0) {
+    var s = x.toString()
+    var l = s.length
+    var decimalLength = s.indexOf('.') + 1
+    var numStr = s.substr(0, decimalLength + posiciones)
+    return Number(numStr)
+  }
+  GetColorNotaPasONo(trunCnot) {
+    let valor = ``;
+    if (trunCnot >= 5) {
+      valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+    } else {
+      valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
     }
-    GetColorNotaPasONo(trunCnot) {
-        let valor = ``;
-        if (trunCnot >= 5) {
-            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
-        } else {
-            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
-        }
-        return valor;
-    }
+    return valor;
+  }
+
+
+  //select de periodos #selectForPeriodos
+  GetSelectForThreePeriodos() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>`;
+    return options;
+  }
+  GetSelectForFourPeriodos() {
+    const options = `  <option selected disabled value="Elegir">Elegir</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>`;
+    return options;
+  }
+
+  GetRadiosToPrinSubjectsThreePeriodos() {
+    const lisRadios = `<div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rsociales" name="opremaa" value="option1">Sociales
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rlenguaje" name="opremaa" value="option2">Lenguaje
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rmatematicas" name="opremaa"
+            value="option3">Matemáticas
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rciencias" name="opremaa" value="option3">Ciencias
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Inglés
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" checked id="rtodos" name="opremaa">Todas
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>`;
+    return lisRadios;
+  }
+  GetRadiosToPrinSubjectsFourPeriodos() {
+    const lisRadios = `<div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rsociales" name="opremaa" value="option1">Sociales
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rlenguaje" name="opremaa" value="option2">Lenguaje
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rmatematicas" name="opremaa"
+            value="option3">Matemáticas
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="rciencias" name="opremaa" value="option3">Ciencias
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Inglés
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Informática
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+      </label>
+    </div>
+    <div class="form-check form-check-inline">
+    <label class="form-check-label">
+      <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Seminario
+      <span class="form-check-sign">
+        <span class="check"></span>
+      </span>
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Electricidad
+    <span class="form-check-sign">
+      <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-inline">
+<label class="form-check-label">
+  <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Dibujo Técnico
+  <span class="form-check-sign">
+    <span class="check"></span>
+  </span>
+</label>
+</div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" checked id="rtodos" name="opremaa">Todas
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>`;
+    return lisRadios;
+  }
+
 }

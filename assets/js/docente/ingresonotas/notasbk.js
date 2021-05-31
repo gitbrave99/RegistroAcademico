@@ -32,6 +32,11 @@ var tabSem = document.getElementById("tabSeminario");
 var tabElec = document.getElementById("tabElectricidad");
 var tabDt = document.getElementById("tabDt");
 
+//const for slec options trimestres 3 0 4
+const selectPeriod= document.getElementById("selectForPeriodos");
+//const radioList materia par imprimirt¿r
+const listRadiosToprint= document.getElementById("radiosToPrintM");
+
 window.addEventListener("DOMContentLoaded", async (e) => {
     const titleGradeResponsable = document.getElementById("gradoResponsable");
     db.collection("profesor").where("user", "==", nombreUserTeacher)
@@ -43,6 +48,9 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
                 if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
                     // Mostrar pestañas de materias
+                    selectPeriod.innerHTML=cTheader.GetSelectForFourPeriodos();
+                    //print materias 8
+                    listRadiosToprint.innerHTML=cTheader.GetRadiosToPrinSubjectsFourPeriodos();
                     
                     tabInf.style.display = "block"; tabOpv.style.display = "block";
                     tabSem.style.display = "block"; tabElec.style.display = "block";
@@ -60,6 +68,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     tbSeminarioTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Seminario");
                     tbElectriciadTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Electricidad");
                     tbDibujoTecnicoTeacher.innerHTML = cTheader.fTbHeaderForTecBachelor("Dibujo Técnico");
+
                 } else {
                     // Formato de tabla para otros grados
                     tbSocialTeacher.innerHTML = cTheader.fTbHeaderForGrades("Sociales");
@@ -68,6 +77,10 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                     tbCienciaTeacher.innerHTML = cTheader.fTbHeaderForGrades("Ciencias");
                     tbInglesTeacher.innerHTML = cTheader.fTbHeaderForGrades("Inglés");
 
+                    //select periodos para imprimir
+                    selectPeriod.innerHTML=cTheader.GetSelectForThreePeriodos();
+                    // //for radios to print materiaa individual an all
+                    listRadiosToprint.innerHTML=cTheader.GetRadiosToPrinSubjectsThreePeriodos();
                 }
 
                 titleGradeResponsable.value = doc.data().gradoEncargado;
@@ -79,7 +92,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 ShowNotasStudentByMateriaAll(nmTechComP, "Inglés", "tbListEstNotasIngles", "btnAddNotIngles", grdRespn);
 
                 if (GetGradoResponsable() == "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
-                    
+
                     ShowNotasStudentByMateriaAll(nmTechComP, "Informática", "tbListEstNotasInformatica", "btnAddNotInformática", grdRespn);
                     ShowNotasStudentByMateriaAll(nmTechComP, "OPV", "tbListEstNotasOpv", "btnAddNotOpv", grdRespn);
                     ShowNotasStudentByMateriaAll(nmTechComP, "Seminario", "tbListEstNotasSeminario", "btnAddNotSeminario", grdRespn);
@@ -90,9 +103,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
         })
 
 
-    // document.getElementById("btnGuardarNotas").addEventListener("click",(e)=>{
-    //     console.log("target nmte",e.target.dataset.nmteacher);
-    // });
+
 
 
 });
@@ -180,6 +191,17 @@ frmGuardarNotas.addEventListener('submit', async (e) => {
                 p3nota3: p3nota3,
             });
         }
+        else if (periodo === 4) {
+            const p3nota1 = frmGuardarNotas['inNota1'].value;
+            const p3nota2 = frmGuardarNotas['inNota2'].value;
+            const p3nota3 = frmGuardarNotas['inNota3'].value;
+
+            await UpdateNotasMateria(idMateToguardar, {
+                p4nota1: p3nota1,
+                p4nota2: p3nota2,
+                p4nota3: p3nota3,
+            });
+        }
         frmGuardarNotas.reset();
         location.reload();
     }
@@ -241,10 +263,10 @@ function ShowNotasStudentByMateriaAll(pTeacher, pMateria, pTableMat, pBtnclassBy
                 // console.log("en foreach", doc.data());
 
                 if (pGrdRespn == "Primer Año Bachillerato" || pGrdRespn == "Segundo Año Bachillerato") {
-                    tableMateriaSel.innerHTML=cTheader.GetNotasFourPeriodos(doc,pBtnclassByMateria);    
-                }else{
-                tableMateriaSel.innerHTML=cTheader.GetNotasThreePeriodos(doc,pBtnclassByMateria);
-            }
+                    tableMateriaSel.innerHTML = cTheader.GetNotasFourPeriodos(doc, pBtnclassByMateria);
+                } else {
+                    tableMateriaSel.innerHTML = cTheader.GetNotasThreePeriodos(doc, pBtnclassByMateria);
+                }
 
             });
 
