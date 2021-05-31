@@ -160,7 +160,7 @@ class TableHeader {
     totalP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
 
 
-    totFinal = (totP1 + totP2 + totP3 + totalP4) / 3;
+    totFinal = (totP1 + totP2 + totP3 + totalP4) / 4;
     const notes = `  <tr>
         <td class="text-center">${doc.data().estudiante}</td>
         <td class="text-center">${doc.data().p1nota1}</td>
@@ -239,6 +239,25 @@ class TableHeader {
     return valor;
   }
 
+  //select de periodos para IMPRIMIR #selectForPeriodos
+  GetSelectForFourPeriodosToPrint() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="I Periodo">I Trimestre</option>
+    <option value="II Periodo">II Trimestre</option>
+    <option value="III Periodo">III Trimestre</option>
+    <option value="IIII Periodo">IIII Trimestre</option>
+    <option value="Finales">Finales</option>`;
+    return options;
+  }
+  //select de periodos para IMPRIMIR #selectForPeriodos
+  GetSelectForThreePeriodosToPrint() {
+    const options = `<option selected disabled value="Elegir">Elegir</option>
+    <option value="I Periodo">I Trimestre</option>
+    <option value="II Periodo">II Trimestre</option>
+    <option value="III Periodo">III Trimestre</option>
+    <option value="Finales">Finales</option>`;
+    return options;
+  }
 
   //select de periodos #selectForPeriodos
   GetSelectForThreePeriodos() {
