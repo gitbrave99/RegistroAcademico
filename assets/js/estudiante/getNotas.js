@@ -1,44 +1,42 @@
 //BTN ADD NOTAS
 const db = firebase.firestore();
+const cTheader = new TableHeader();
 const nombreUserStudent = GetLSSesionUser();
 const tableRegistroNotas = document.querySelector("#tbListEstNotasAlumnoUser tbody");
-
+const tbNotasStudent= document.querySelector("#tbListEstNotasAlumnoUser thead");
+const selctForTrimsToPrint= document.getElementById("selPerFnNotas");
 window.addEventListener("DOMContentLoaded", async (e) => {
-    
+    //cargar datos
+
+
+    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato") {
+        selctForTrimsToPrint.innerHTML = cTheader.GetSelectForFourPeriodosToPrint();
+        tbNotasStudent.innerHTML=cTheader.fTbHeaderForTecBachelor();
+    } else {
+        selctForTrimsToPrint.innerHTML = cTheader.GetSelectForThreePeriodosToPrint();
+        tbNotasStudent.innerHTML=cTheader.fTbHeaderForGrades();
+    }       
+
     db.collection("estudiante").where("user", "==", nombreUserStudent)
         .get()
         .then((querySnapShot) => {
             querySnapShot.forEach((doc) => {
                 document.getElementById("shwNmStudenToPrint").innerHTML=doc.data().nombre;
                 document.getElementById("shwGradeStToPrint").innerHTML=doc.data().grado;
+
                 db.collection("materia").where("estudiante", "==", doc.data().nombre)
                     .get()
                     .then((querySnapShotm) => {
                         tableRegistroNotas.innerHTML = "";
-                        querySnapShotm.forEach((docm) => {
-                            let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-                            //PERIODO I
-                            totP1 = ((docm.data().p1nota1 * 0.35) + (docm.data().p1nota2 * 0.35) + (docm.data().p1nota3 * 0.30));
-                            totP2 = ((docm.data().p2nota1 * 0.35) + (docm.data().p2nota2 * 0.35) + (docm.data().p2nota3 * 0.30));
-                            totP3 = ((docm.data().p3nota1 * 0.35) + (docm.data().p3nota2 * 0.35) + (docm.data().p3nota3 * 0.30));
-                            totFinal = (totP1 + totP2 + totP3) / 3;
-                            tableRegistroNotas.innerHTML += `
-                                <tr>
-                                    <td class="text-center">${docm.data().materia}</td>
-                                    <td class="text-center">${docm.data().p1nota1}</td>
-                                    <td class="text-center">${docm.data().p1nota2}</td>
-                                    <td class="text-center">${docm.data().p1nota3}</td>
-                                    <td class="text-primary text-center">${truncNota(totP1, 2)}</td>
-                                    <td class="text-center">${docm.data().p2nota1}</td>
-                                    <td class="text-center">${docm.data().p2nota2}</td>
-                                    <td class="text-center">${docm.data().p2nota3}</td>
-                                    <td class="text-primary text-center">${truncNota(totP2, 2)}</td>
-                                    <td class="text-center">${docm.data().p3nota1}</td>
-                                    <td class="text-center">${docm.data().p3nota2}</td>
-                                    <td class="text-center">${docm.data().p3nota3}</td>
-                                    <td class="text-center text-primary">${truncNota(totP3, 2)}</td>
-                                    <td class="text-center text-success">${GetColorNotaPasONo(totFinal)}</td>
-                                </tr>`;
+                        querySnapShotm.forEach((doc) => {
+
+                            if (doc.data().grado == "Primer Año Bachillerato" || doc.data().grado == "Segundo Año Bachillerato") {
+                                console.log("bchilleato");
+                                tbNotasStudent.innerHTML += cTheader.GetNotasFourPeriodos(doc);
+                            } else {
+                                console.log("3 ciclo");
+                                tbNotasStudent.innerHTML += cTheader.GetNotasThreePeriodos(doc);
+                            }
                                    
                         });
                     })

@@ -2,6 +2,7 @@ var mdImpresionPeriodosF = document.getElementById("mdPrevImpresion");
 var tblistar = document.querySelector("#tbToPrintNtStudent");
 var btnImprimirNotas = document.querySelector("#printBoletNotasEstudiantex");
 var nombreUser = GetNameUserLog();
+
 window.addEventListener("DOMContentLoaded", async (e) => {
 
 
@@ -21,6 +22,10 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 console.log("funco");
                 ShowSubjectForPeriPrint('III Periodo', nombreUser);
                 break;
+            case 'IIII Periodo':
+                console.log("funco");
+                ShowSubjectForPeriPrint('III Periodo', nombreUser);
+                break;
             case 'Finales':
                 console.log("funco");
                 ShowSubjectForPeriPrint('Finales', nombreUser);
@@ -37,7 +42,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
 
 function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
-    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
+    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0,totP4=0, totFinal = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
     db.collection("materia").where("estudiante", "==", nombreUser)
         .get()
@@ -54,11 +59,21 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                     case 'III Periodo':
                         totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
                         break;
+                    case 'IIII Periodo':
+                        totPrdo = ((doc.data().p4nota1 * 0.45) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                        break;
                     case 'Finales':
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
                         totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                        totFinal = (totP1 + totP2 + totP3) / 3;
+                         //para cuatro periodos
+                         if (doc.data().p4nota1 != null || doc.data().p4nota1 != undefined) {
+                            totP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                            totFinal = (totP1 + totP2 + totP3 + totP4) / 4;
+                        } else {
+                            //para 3 periodos
+                            totFinal = (totP1 + totP2 + totP3) / 3;
+                        }
                         totPrdo = totFinal
                         break;
                     default:
