@@ -3,6 +3,7 @@ var tblistar = document.querySelector("#tbToPrintNtStudent");
 var btnImprimirNotas = document.querySelector("#printBoletNotasEstudiantex");
 var nombreUser = GetNameUserLog();
 
+
 window.addEventListener("DOMContentLoaded", async (e) => {
 
 
@@ -43,24 +44,40 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
 function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
     let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totP4 = 0, totFinal = 0;
+    let not1 = 0, not2 = 0, not3 = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
+    const cTheader = new TableHeader();
+    const tbNotasDetalle = document.querySelector("#tbToPrintNtStudent thead#theadGrades");
     db.collection("materia").where("estudiante", "==", nombreUser)
         .get()
         .then((querySnapshot) => {
-            tblistar.innerHTML = "";
+            tbNotasDetalle.innerHTML = "";
+            tbNotasDetalle.innerHTML=cTheader.fTbHeaderForGradesDetails();
             querySnapshot.forEach((doc) => {
                 switch (pNperiodo) {
                     case 'I Periodo':
                         totPrdo = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+                        not1 = doc.data().p1nota1;
+                        not2 = doc.data().p1nota2;
+                        not3 = doc.data().p1nota3;
                         break;
                     case 'II Periodo':
                         totPrdo = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+                        not1 = doc.data().p2nota1;
+                        not2 = doc.data().p2nota2;
+                        not3 = doc.data().p2nota3;
                         break;
                     case 'III Periodo':
                         totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        not1 = doc.data().p3nota1;
+                        not2 = doc.data().p3nota2;
+                        not3 = doc.data().p3nota3;
                         break;
                     case 'IIII Periodo':
                         totPrdo = ((doc.data().p4nota1 * 0.45) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                        not1 = doc.data().p4nota1;
+                        not2 = doc.data().p4nota2;
+                        not3 = doc.data().p4nota3;
                         break;
                     case 'Finales':
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
@@ -85,18 +102,18 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                 matnota += `<tr><td class="text-center">${doc.data().materia}</td>`;
 
                 if (totP4 == 0) {
-                    matnota += `<td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not2)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not3)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
                 } else {
-                    matnota += `<td class="text-center">${GetColorNotaPasONoBachiller(totFinal)}</td></tr>`;
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not2)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not3)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
                 }
 
-                tblistar.innerHTML += matnota;
-
-                // tblistar.innerHTML += `
-                // <tr>
-                //     <td class="text-center">${doc.data().materia}</td>
-                //     <td class="text-center">${GetColorNotaPasONo(totFinal)}</td>
-                // </tr>`;
+                tbNotasDetalle.innerHTML += matnota;
             });
         });
 }
