@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
 
 function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
-    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0,totP4=0, totFinal = 0;
+    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totP4 = 0, totFinal = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
     db.collection("materia").where("estudiante", "==", nombreUser)
         .get()
@@ -66,8 +66,8 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                         totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
                         totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
                         totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-                         //para cuatro periodos
-                         if (doc.data().p4nota1 != null || doc.data().p4nota1 != undefined) {
+                        //para cuatro periodos
+                        if (doc.data().p4nota1 != null || doc.data().p4nota1 != undefined) {
                             totP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
                             totFinal = (totP1 + totP2 + totP3 + totP4) / 4;
                         } else {
@@ -80,16 +80,37 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                         break;
                 }
                 totFinal = totPrdo;
-                tblistar.innerHTML += `
-                <tr>
-                    <td class="text-center">${doc.data().materia}</td>
-                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td>
-                </tr>`;
+                
+                let matnota = "";
+                matnota += `<tr><td class="text-center">${doc.data().materia}</td>`;
+
+                if (totP4 == 0) {
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
+                } else {
+                    matnota += `<td class="text-center">${GetColorNotaPasONoBachiller(totFinal)}</td></tr>`;
+                }
+
+                tblistar.innerHTML += matnota;
+
+                // tblistar.innerHTML += `
+                // <tr>
+                //     <td class="text-center">${doc.data().materia}</td>
+                //     <td class="text-center">${GetColorNotaPasONo(totFinal)}</td>
+                // </tr>`;
             });
         });
 }
 
 function GetColorNotaPasONo(trunCnot) {
+    let valor = ``;
+    if (trunCnot >= 5) {
+        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+    } else {
+        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+    }
+    return valor;
+}
+function GetColorNotaPasONoBachiller(trunCnot) {
     let valor = ``;
     if (trunCnot >= 5) {
         valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;

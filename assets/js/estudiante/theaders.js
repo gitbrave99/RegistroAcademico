@@ -173,7 +173,7 @@ class TableHeader {
           <td class="text-center">${doc.data().p4nota2}</td>
           <td class="text-center">${doc.data().p4nota3}</td>
           <td class="text-primary text-center">${this.truncNota(totalP4, 2)}</td>
-          <td class="text-primary text-success">${this.GetColorNotaPasONo(totFinal)}</td>
+          <td class="text-primary text-success">${this.GetColorNotaPasONoBachiller(totFinal)}</td>
          
       </tr>`;
       return notes;
@@ -217,6 +217,16 @@ class TableHeader {
     GetColorNotaPasONo(trunCnot) {
       let valor = ``;
       if (trunCnot >= 5) {
+        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+      } else {
+        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+      }
+      return valor;
+    }
+    //bachiillerato
+    GetColorNotaPasONoBachiller(trunCnot) {
+      let valor = ``;
+      if (trunCnot >= 6) {
         valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
       } else {
         valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
