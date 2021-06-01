@@ -422,6 +422,46 @@ class TableHeader {
     return lisRadios;
   }
 
+  //this is for the notes details header
+  fTbHeaderForGradesDetails() {
+  
+    const theadForTebachelor = `
+      <tr>
+        <th scope="col" class="text-center">
+          Materia
+        </th>
+        <th scope="col" class="text-center">
+          Nota 1 35%
+        </th>
+        <th scope="col" class="text-center">
+          Nota 2 35%
+        </th>
+        <th scope="col" class="text-center">
+          Nota 3 30%
+        </th>
+        <th scope="col" class="text-center">
+          Total
+        </th>
+      </tr>`;
+
+    return theadForTebachelor;
+  }
+  //this is only for the final notes
+  fTbHeaderForGradesDetailsFinalNotes() {
+
+    const theadForTebachelor = `
+      <tr>
+        <th scope="col" class="text-center">
+          Materia
+        </th>
+        <th scope="col" class="text-center">
+          Nota Final
+        </th>
+      </tr>`;
+
+    return theadForTebachelor;
+  }
+
   //boleta notas color 
   GetNotasToPrintNotasBachillerBoleta(doc, pNperiodo) {
 

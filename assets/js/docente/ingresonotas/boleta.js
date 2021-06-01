@@ -64,17 +64,92 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 });
 
 function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
-    // let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totP4 = 0, totFinal = 0;
+    let totPrdo = 0, totP1 = 0, totP2 = 0, totP3 = 0, totP4 = 0, totFinal = 0;
     let tblistar = document.querySelector("#tbToPrintNtStudent");
+    const cTheader = new TableHeader();
+    const tbNotasDetalle = document.querySelector("#tbToPrintNtStudent thead#tableContent");
+    const tbNotasFinalDetalle = document.querySelector("#tbToPrintNtStudent thead#tableContent");
+    const tbNotasDetalleCompleto = document.querySelector("#tbToPrintNtStudent tbody#tableContent");
     db.collection("materia").where("estudiante", "==", pnmStu)
         .get()
         .then((querySnapshot) => {
-            tblistar.innerHTML = "";
+            tbNotasDetalle.innerHTML = "";
+            tbNotasFinalDetalle.innerHTML = "";
+            tbNotasDetalleCompleto.innerHTML = "";
+            tbNotasDetalle.innerHTML=cTheader.fTbHeaderForGradesDetails();
+            
             querySnapshot.forEach((doc) => {
-                if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() === "Segundo Año Bachillerato") {
-                    tblistar.innerHTML += cTheader.GetNotasToPrintNotasBachillerBoleta(doc, pNperiodo);
+                switch (pNperiodo) {
+                    case 'I Periodo':
+                        totPrdo = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+                        not1 = doc.data().p1nota1;
+                        not2 = doc.data().p1nota2;
+                        not3 = doc.data().p1nota3;
+                        break;
+                    case 'II Periodo':
+                        totPrdo = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+                        not1 = doc.data().p2nota1;
+                        not2 = doc.data().p2nota2;
+                        not3 = doc.data().p2nota3;
+                        break;
+                    case 'III Periodo':
+                        totPrdo = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        not1 = doc.data().p3nota1;
+                        not2 = doc.data().p3nota2;
+                        not3 = doc.data().p3nota3;
+                        break;
+                    case 'IIII Periodo':
+                        totPrdo = ((doc.data().p4nota1 * 0.45) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                        not1 = doc.data().p4nota1;
+                        not2 = doc.data().p4nota2;
+                        not3 = doc.data().p4nota3;
+                        break;
+                    case 'Finales':
+                        totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
+                        totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
+                        totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
+                        //para cuatro periodos
+                        if (doc.data().p4nota1 != null || doc.data().p4nota1 != undefined) {
+                            totP4 = ((doc.data().p4nota1 * 0.35) + (doc.data().p4nota2 * 0.35) + (doc.data().p4nota3 * 0.30));
+                            totFinal = (totP1 + totP2 + totP3 + totP4) / 4;
+                        } else {
+                            //para 3 periodos
+                            totFinal = (totP1 + totP2 + totP3) / 3;
+                        }
+                        totPrdo = totFinal
+                        break;
+                    default:
+                        break;
+                }
+                totFinal = totPrdo;
+                
+                let matnota = "";
+                matnota += `<tr><td class="text-center">${doc.data().materia}</td>`;
+
+                if(pNperiodo == 'Finales'){
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
+                }else if (totP4 == 0) {
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not2)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not3)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
                 } else {
-                    tblistar.innerHTML += cTheader.GetNotasToPrintNotasBoleta(doc,pNperiodo);
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not2)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(not3)}</td>
+                    <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
+                }
+
+                if(pNperiodo == 'I Periodo' || pNperiodo == 'II Periodo' || pNperiodo == 'III Periodo' || pNperiodo == 'IIII Periodo'){
+                    console.log("yamete");
+                    tbNotasDetalle.innerHTML;
+                    tbNotasDetalleCompleto.innerHTML += matnota;
+                }
+                else if(pNperiodo == 'Finales'){
+                    console.log("onichan");
+                    tbNotasFinalDetalle.innerHTML = cTheader.fTbHeaderForGradesDetailsFinalNotes();
+                    tbNotasFinalDetalle.innerHTML;
+                    tbNotasDetalleCompleto.innerHTML += matnota;
                 }
             });
         });

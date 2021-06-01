@@ -150,6 +150,45 @@ class TableHeader {
     return theadForTebachelor;
   }
 
+  fTbHeaderForGradesDetails() {
+  
+    const theadForTebachelor = `
+      <tr>
+        <th scope="col" class="text-center">
+          Materia
+        </th>
+        <th scope="col" class="text-center">
+          Nota 1 35%
+        </th>
+        <th scope="col" class="text-center">
+          Nota 2 35%
+        </th>
+        <th scope="col" class="text-center">
+          Nota 3 30%
+        </th>
+        <th scope="col" class="text-center">
+          Total
+        </th>
+      </tr>`;
+
+    return theadForTebachelor;
+  }
+
+  fTbHeaderForGradesDetailsFinalNotes() {
+
+    const theadForTebachelor = `
+      <tr>
+        <th scope="col" class="text-center">
+          Materia
+        </th>
+        <th scope="col" class="text-center">
+          Nota Final
+        </th>
+      </tr>`;
+
+    return theadForTebachelor;
+  }
+  
   GetNotasFourPeriodos(doc, pBtnclassByMateria) {
     let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
     let totalP4;
@@ -263,7 +302,7 @@ class TableHeader {
     <option value="1">I Periodo</option>
     <option value="2">II Periodo</option>
     <option value="3">III Periodo</option>
-    <option value="4  ">IV Periodo</option>
+    <option value="4">IV Periodo</option>
     <option value="11">Finales</option>`;
     return options;
   }
