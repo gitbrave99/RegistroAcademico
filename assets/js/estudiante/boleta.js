@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 break;
             case 'IIII Periodo':
                 console.log("funco");
-                ShowSubjectForPeriPrint('III Periodo', nombreUser);
+                ShowSubjectForPeriPrint('IIII Periodo', nombreUser);
                 break;
             case 'Finales':
                 console.log("funco");
@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
             default:
                 console.log("funco");
-                ShowSubjectForPeriPrint('Finales', nombreUser);
+                ShowSubjectForPeriPrint('I Periodo', nombreUser);
                 break;
         }
     });

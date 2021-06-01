@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 ShowSubjectForPeriPrint('III Periodo', nmStusleted);
                 break;
             case 'IIII Periodo':
-                ShowSubjectForPeriPrint('III Periodo', nmStusleted);
+                ShowSubjectForPeriPrint('IIII Periodo', nmStusleted);
                 break;
             case 'Finales':
                 ShowSubjectForPeriPrint('Finales', nmStusleted);
