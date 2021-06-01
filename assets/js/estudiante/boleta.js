@@ -5,7 +5,7 @@ var nombreUser = GetNameUserLog();
 
 window.addEventListener("DOMContentLoaded", async (e) => {
 
-
+    
     ShowSubjectForPeriPrint('I Periodo', nombreUser);
     document.getElementById("selPerFnNotas").addEventListener("change", (e) => {
         let opSelted = e.target.value;
