@@ -263,7 +263,7 @@ class TableHeader {
     <option value="1">I Periodo</option>
     <option value="2">II Periodo</option>
     <option value="3">III Periodo</option>
-    <option value="4  ">IV Periodo</option>
+    <option value="4">IV Periodo</option>
     <option value="11">Finales</option>`;
     return options;
   }
