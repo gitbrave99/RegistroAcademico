@@ -6,6 +6,9 @@ const nombreUserStudent = GetLSSesionUser();
 const tableRegistroNotas = document.querySelector("#tbListEstNotasAlumnoUser tbody#tbodyalln");
 //head table
 const tbNotasStudent= document.querySelector("#tbListEstNotasAlumnoUser thead#theadalln");
+//try to fill a table
+const tbNotasDetalle = document.querySelector("#tbToPrintNtStudent thead#theadGrades");
+
 const selctForTrimsToPrint= document.getElementById("selPerFnNotas");
 window.addEventListener("DOMContentLoaded", async (e) => {
     //cargar datos
@@ -29,6 +32,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                             } else {
                                 selctForTrimsToPrint.innerHTML = cTheader.GetSelectForThreePeriodosToPrint();
                                 tbNotasStudent.innerHTML=cTheader.fTbHeaderForGrades();
+                                tbNotasDetalle.innerHTML=cTheader.fTbHeaderForGradesDetails();
                             }     
 
                             if (doc.data().grado == "Primer Año Bachillerato" || doc.data().grado == "Segundo Año Bachillerato") {
