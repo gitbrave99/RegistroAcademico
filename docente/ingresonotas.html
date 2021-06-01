@@ -736,8 +736,11 @@
   <script>
 
     function GenrearPdfNotasMaterias() {
-      //landscape para que sea horizontal
-      var pdf = new jsPDF('landscape')
+     
+
+
+ //landscape para que sea horizontal
+ var pdf = new jsPDF('landscape')
       //obteniendo fecha actual
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
@@ -780,50 +783,39 @@
         pdf.text('Resúmen de notas: Inglés', 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasIngles', startX: 10, startY: 85 })
       }
-      else if (document.getElementById('rtodos')) {
+      else if (document.getElementById('rinformatica').checked) {
+        pdf.text('Resúmen de notas: Informática', 15, 50);
+        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
+      }
+      else if (document.getElementById('rseminario').checked) {
+        pdf.text('Resúmen de notas: Seminario', 15, 50);
+        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: 85 })
+      }
+      else if (document.getElementById('ropv').checked) {
+        pdf.text('Resúmen de notas: Orientación Para la Vida', 15, 50);
+        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: 85 })
+      } 
+      else if (document.getElementById('roptativa').checked) {
+        pdf.text('Resúmen de notas: Optativa', 15, 50);
+        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: 85 })
+      }
+      else if (document.getElementById('rinformatica').checked) {
+        pdf.text('Resúmen de notas: Informática', 15, 50);
+        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
+      }
+      else if (document.getElementById('rtodos').checked) {
         pdf.text('Resúmen de notas', 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasSociales', startX: 10, startY: 85 })
         pdf.autoTable({ html: '#tbListEstNotasLenguaje', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
         pdf.autoTable({ html: '#tbListEstNotasMatematica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
         pdf.autoTable({ html: '#tbListEstNotasCiencia', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
         pdf.autoTable({ html: '#tbListEstNotasIngles', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
       }
       pdf.save('Resumen_Notas_  ' + gradoResp + '.pdf')
-
-
-      // let finalY = pdf.previousAutoTable.finalY; //this gives you the value of the end-y-axis-position of the previous autotable.
-      /*
-          var datas = document.getElementById('boxReporScociales').innerHTML;
-        var datal = document.getElementById('boxReporLenguaje').innerHTML;
-        var datac = document.getElementById('boxReporCiencia').innerHTML;
-        var datai = document.getElementById('boxReporIngles').innerHTML;
-        var datam = document.getElementById('boxReporMatematica').innerHTML;
-
-        let janela = window.open('', '', 'width=800, height=600');
-          janela.document.write('<htm><head>');
-          janela.document.write('<title>PDF </title></head>');
-          janela.document.write('<body><br>');
-        if (document.getElementById('rsociales').checked) {
-          janela.document.write(datas + "<br>");
-        } else if (document.getElementById('rlenguaje').checked) {
-          janela.document.write(datal + "<br>");
-        } else if (document.getElementById('rciencias').checked) {
-          janela.document.write(datac + "<br>");
-        } else if (document.getElementById('ringles').checked) {
-          janela.document.write(datai + "<br>");
-        } else if (document.getElementById('rmatematicas').checked) {
-          janela.document.write(datam + "<br>");
-        }else if(document.getElementById('rtodos').checked){
-          janela.document.write(datas + "<br>");
-          janela.document.write(datal + "<br>");
-          janela.document.write(datam + "<br>");
-          janela.document.write(datac + "<br>");
-          janela.document.write(datai + "<br>");
-        }   
-        janela.document.write('</body></html>');
-          janela.document.close();
-          janela.print();
-   */
     }
   </script>
 </body>

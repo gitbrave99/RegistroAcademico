@@ -6,18 +6,18 @@ class TableHeader {
     <tr>
       <th scope="col" colspan="1"><b>${pMateria}</b></th>
       <th scope="col" colspan="4" class="text-center">
-        1° Trimestre
+        1° Periodo
       </th>
       <th scope="col" colspan="4" class="text-center">
-        2° Trimestre
+        2° Periodo
       </th>
       <th scope="col" colspan="4" class="text-center">
-        3° Trimestre
+        3° Periodo
       </th>
       <th scope="col" colspan="4" class="text-center">
-        4° Trimestre
+        4° Periodo
       </th>
-      <th scope="col" colspan="2" class="text-center">
+      <th scope="col" colspan="1" class="text-center">
       </th>
     </tr>
     <tr>
@@ -34,7 +34,7 @@ class TableHeader {
         Nota 3 30%
       </th>
       <th scope="col" class="text-center">
-        Total Trimestre
+        Total Periodo
       </th>
       <th scope="col" class="text-center">
         Nota 1 35%
@@ -46,7 +46,7 @@ class TableHeader {
         Nota 3 30%
       </th>
       <th scope="col" class="text-center">
-        Total Trimestre
+        Total Periodo
       </th>
       <th scope="col" class="text-center">
         Nota 1 35%
@@ -58,7 +58,7 @@ class TableHeader {
         Nota 3 30%
       </th>
       <th scope="col" class="text-center">
-        Total Trimestre
+        Total Periodo
       </th>
       <th scope="col" class="text-center">
         Nota 1 35%
@@ -70,7 +70,7 @@ class TableHeader {
         Nota 3 30%
       </th>
       <th scope="col" class="text-center">
-        Total Trimestre
+        Total Periodo
       </th>
       <th scope="col" class="text-center">
         Nota Final
@@ -96,7 +96,7 @@ class TableHeader {
         <th scope="col" colspan="4" class="text-center">
           3° Trimestre
         </th>
-        <th scope="col" colspan="2" class="text-center">
+        <th scope="col" colspan="1" class="text-center">
         </th>
       </tr>
       <tr>
@@ -241,17 +241,17 @@ class TableHeader {
 
   //select de periodos para IMPRIMIR #selectForPeriodos
   GetSelectForFourPeriodosToPrint() {
-    const options = `<option selected disabled value="Elegir">Elegir</option>
-    <option value="I Periodo">I Trimestre</option>
-    <option value="II Periodo">II Trimestre</option>
-    <option value="III Periodo">III Trimestre</option>
-    <option value="IIII Periodo">IIII Trimestre</option>
+    const options = `
+    <option value="I Periodo">I Periodo</option>
+    <option value="II Periodo">II Periodo</option>
+    <option value="III Periodo">III Periodo</option>
+    <option value="IIII Periodo">IV Periodo</option>
     <option value="Finales">Finales</option>`;
     return options;
   }
   //select de periodos para IMPRIMIR #selectForPeriodos
   GetSelectForThreePeriodosToPrint() {
-    const options = `<option selected disabled value="Elegir">Elegir</option>
+    const options = `
     <option value="I Periodo">I Trimestre</option>
     <option value="II Periodo">II Trimestre</option>
     <option value="III Periodo">III Trimestre</option>
@@ -261,18 +261,18 @@ class TableHeader {
 
   //select de periodos #selectForPeriodos
   GetSelectForThreePeriodos() {
-    const options = `<option selected disabled value="Elegir">Elegir</option>
-      <option value="1">I Periodo</option>
-      <option value="2">II Periodo</option>
-      <option value="3">III Periodo</option>`;
+    const options = `
+      <option value="1">I Trimestre</option>
+      <option value="2">II Trimestre</option>
+      <option value="3">III Trimestre</option>`;
     return options;
   }
   GetSelectForFourPeriodos() {
-    const options = `<option selected disabled value="Elegir">Elegir</option>
-      <option value="1">I Trimestre</option>
-      <option value="2">II Trimestre</option>
-      <option value="3">III Trimestre</option>
-      <option value="4">IIII Trimestre</option>`;
+    const options = `
+      <option value="1">I Periodo</option>
+      <option value="2">II Periodo</option>
+      <option value="3">III Periodo</option>
+      <option value="4">IV Periodo</option>`;
     return options;
   }
 
@@ -372,7 +372,7 @@ class TableHeader {
       </div>
       <div class="form-check form-check-inline">
       <label class="form-check-label">
-        <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Informática
+        <input class="form-check-input" type="radio" id="rinformatica" name="opremaa" value="option3">Informática
         <span class="form-check-sign">
           <span class="check"></span>
         </span>
@@ -380,7 +380,7 @@ class TableHeader {
     </div>
     <div class="form-check form-check-inline">
     <label class="form-check-label">
-      <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Seminario
+      <input class="form-check-input" type="radio" id="rseminario" name="opremaa" value="option3">Seminario
       <span class="form-check-sign">
         <span class="check"></span>
       </span>
@@ -388,7 +388,7 @@ class TableHeader {
   </div>
   <div class="form-check form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Electricidad
+    <input class="form-check-input" type="radio" id="ropv" name="opremaa" value="option3">OPV
     <span class="form-check-sign">
       <span class="check"></span>
     </span>
@@ -396,7 +396,7 @@ class TableHeader {
 </div>
 <div class="form-check form-check-inline">
 <label class="form-check-label">
-  <input class="form-check-input" type="radio" id="ringles" name="opremaa" value="option3">Dibujo Técnico
+  <input class="form-check-input" type="radio" id="roptativa" name="opremaa" value="option3">Optativa
   <span class="form-check-sign">
     <span class="check"></span>
   </span>
