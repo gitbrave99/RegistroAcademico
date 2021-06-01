@@ -6,16 +6,16 @@ class TableHeader {
       <tr>
         <th scope="col" colspan="1"><b>Materia</b></th>
         <th scope="col" colspan="4" class="text-center">
-          1° Trimestre
+          1° Periodo
         </th>
         <th scope="col" colspan="4" class="text-center">
-          2° Trimestre
+          2° Periodo
         </th>
         <th scope="col" colspan="4" class="text-center">
-          3° Trimestre
+          3° Periodo
         </th>
         <th scope="col" colspan="4" class="text-center">
-          4° Trimestre
+          4° Periodo
         </th>
         <th scope="col" colspan="2" class="text-center">
         </th>
@@ -34,7 +34,7 @@ class TableHeader {
           Nota 3 30%
         </th>
         <th scope="col" class="text-center">
-          Total Trimestre
+          Total Periodo
         </th>
         <th scope="col" class="text-center">
           Nota 1 35%
@@ -46,7 +46,7 @@ class TableHeader {
           Nota 3 30%
         </th>
         <th scope="col" class="text-center">
-          Total Trimestre
+          Total Periodo
         </th>
         <th scope="col" class="text-center">
           Nota 1 35%
@@ -58,7 +58,7 @@ class TableHeader {
           Nota 3 30%
         </th>
         <th scope="col" class="text-center">
-          Total Trimestre
+          Total Periodo
         </th>
         <th scope="col" class="text-center">
           Nota 1 35%
@@ -70,7 +70,7 @@ class TableHeader {
           Nota 3 30%
         </th>
         <th scope="col" class="text-center">
-          Total Trimestre
+          Total Periodo
         </th>
         <th scope="col" class="text-center">
           Nota Final
@@ -161,7 +161,7 @@ class TableHeader {
             Nota 3 30%
           </th>
           <th scope="col" class="text-center">
-            Total Trimestre
+            Total
           </th>
         </tr>`;
   
@@ -259,11 +259,11 @@ class TableHeader {
     }
     //select de periodos para IMPRIMIR #selectForPeriodos
     GetSelectForFourPeriodosToPrint() {
-      const options = `<option selected disabled value="Elegir">Elegir</option>
-      <option value="I Periodo">I Trimestre</option>
-      <option value="II Periodo">II Trimestre</option>
-      <option value="III Periodo">III Trimestre</option>
-      <option value="IIII Periodo">IIII Trimestre</option>
+      const options = `
+      <option value="I Periodo">I Periodo</option>
+      <option value="II Periodo">II Periodo</option>
+      <option value="III Periodo">III Periodo</option>
+      <option value="IIII Periodo">IV Periodo</option>
       <option value="Finales">Finales</option>`;
       return options;
     }
