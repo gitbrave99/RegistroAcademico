@@ -736,11 +736,9 @@
   <script>
 
     function GenrearPdfNotasMaterias() {
-     
-
-
- //landscape para que sea horizontal
- var pdf = new jsPDF('landscape')
+      materia = "";
+      //landscape para que sea horizontal
+      var pdf = new jsPDF('landscape')
       //obteniendo fecha actual
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
@@ -764,58 +762,70 @@
       pdf.text('Grado responsable: ' + gradoResp, 15, 70)
       //mostrar la tabla conforme al radio seleccionado
       if (document.getElementById('rsociales').checked) {
-        pdf.text('Resúmen de notas: Sociales', 15, 50);
+        materia = 'Sociales';
+        pdf.text('Resúmen de notas: ' + materia, 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasSociales', startX: 10, startY: 85 })
       }
       else if (document.getElementById('rlenguaje').checked) {
-        pdf.text('Resúmen de notas: Lenguaje', 15, 50);
+        materia = 'Lenguaje'
+        pdf.text('Resúmen de notas: ' + materia, 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasLenguaje', startX: 10, startY: 85 })
       }
       else if (document.getElementById('rmatematicas').checked) {
-        pdf.text('Resúmen de notas: Matemáticas', 15, 50);
+        materia = 'Matemáticas'
+        pdf.text('Resúmen de notas: ' + materia, 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasMatematica', startX: 10, startY: 85 })
       }
       else if (document.getElementById('rciencias').checked) {
-        pdf.text('Resúmen de notas: Ciencias', 15, 50);
+        materia = 'Ciencias'
+        pdf.text('Resúmen de notas: ' + materia, 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasCiencia', startX: 10, startY: 85 })
       }
       else if (document.getElementById('ringles').checked) {
-        pdf.text('Resúmen de notas: Inglés', 15, 50);
+        materia = 'Inglés'
+        pdf.text('Resúmen de notas: ' + materia, 15, 50);
         pdf.autoTable({ html: '#tbListEstNotasIngles', startX: 10, startY: 85 })
       }
-      else if (document.getElementById('rinformatica').checked) {
-        pdf.text('Resúmen de notas: Informática', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
+      else {
+        if (document.getElementById('rtodos').checked) {
+          pdf.text('Resúmen de notas', 15, 50);
+          pdf.autoTable({ html: '#tbListEstNotasSociales', startX: 10, startY: 85 })
+          pdf.autoTable({ html: '#tbListEstNotasLenguaje', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+          pdf.autoTable({ html: '#tbListEstNotasMatematica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+          pdf.autoTable({ html: '#tbListEstNotasCiencia', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+          pdf.autoTable({ html: '#tbListEstNotasIngles', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+          if (gradoResp == "Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato") {
+            pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+            pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+            pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+            pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+          }
+        }
+        else if (gradoResp == "Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato") {
+          if (document.getElementById('rinformatica').checked) {
+            materia = 'Informática'
+            pdf.text('Resúmen de notas: ' + materia, 15, 50);
+            pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
+          }
+          else if (document.getElementById('rseminario').checked) {
+            materia = 'Seminario'
+            pdf.text('Resúmen de notas: ' + materia, 15, 50);
+            pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: 85 })
+          }
+          else if (document.getElementById('ropv').checked) {
+            materia = 'Orientación Para la Vida'
+            pdf.text('Resúmen de notas: ' + materia, 15, 50);
+            pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: 85 })
+          }
+          else if (document.getElementById('roptativa').checked) {
+            materia = 'Optativa'
+            pdf.text('Resúmen de notas: ' + materia, 15, 50);
+            pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: 85 })
+          }
+        }
       }
-      else if (document.getElementById('rseminario').checked) {
-        pdf.text('Resúmen de notas: Seminario', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: 85 })
-      }
-      else if (document.getElementById('ropv').checked) {
-        pdf.text('Resúmen de notas: Orientación Para la Vida', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: 85 })
-      } 
-      else if (document.getElementById('roptativa').checked) {
-        pdf.text('Resúmen de notas: Optativa', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: 85 })
-      }
-      else if (document.getElementById('rinformatica').checked) {
-        pdf.text('Resúmen de notas: Informática', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
-      }
-      else if (document.getElementById('rtodos').checked) {
-        pdf.text('Resúmen de notas', 15, 50);
-        pdf.autoTable({ html: '#tbListEstNotasSociales', startX: 10, startY: 85 })
-        pdf.autoTable({ html: '#tbListEstNotasLenguaje', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasMatematica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasCiencia', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasIngles', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-      }
-      pdf.save('Resumen_Notas_  ' + gradoResp + '.pdf')
+
+      pdf.save('Resumen_Notas_' + materia + '_' + gradoResp + '.pdf')
     }
   </script>
 </body>
