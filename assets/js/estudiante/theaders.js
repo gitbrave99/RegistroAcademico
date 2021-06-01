@@ -149,7 +149,7 @@ class TableHeader {
       const theadForTebachelor = `
         <tr>
           <th scope="col" class="text-center">
-            Estudiante
+            Materia
           </th>
           <th scope="col" class="text-center">
             Nota 1 35%
@@ -162,6 +162,21 @@ class TableHeader {
           </th>
           <th scope="col" class="text-center">
             Total
+          </th>
+        </tr>`;
+  
+      return theadForTebachelor;
+    }
+
+    fTbHeaderForGradesDetailsFinalNotes() {
+  
+      const theadForTebachelor = `
+        <tr>
+          <th scope="col" class="text-center">
+            Materia
+          </th>
+          <th scope="col" class="text-center">
+            Nota Final
           </th>
         </tr>`;
   
