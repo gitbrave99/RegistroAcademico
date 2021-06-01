@@ -48,10 +48,12 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
     let tblistar = document.querySelector("#tbToPrintNtStudent");
     const cTheader = new TableHeader();
     const tbNotasDetalle = document.querySelector("#tbToPrintNtStudent thead#theadGrades");
+    const tbNotasDetalleCompleto = document.querySelector("#tbToPrintNtStudent tbody#theadGrades");
     db.collection("materia").where("estudiante", "==", nombreUser)
         .get()
         .then((querySnapshot) => {
             tbNotasDetalle.innerHTML = "";
+            tbNotasDetalleCompleto.innerHTML = "";
             tbNotasDetalle.innerHTML=cTheader.fTbHeaderForGradesDetails();
             querySnapshot.forEach((doc) => {
                 switch (pNperiodo) {
@@ -106,14 +108,18 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                     <td class="text-center">${GetColorNotaPasONo(not2)}</td>
                     <td class="text-center">${GetColorNotaPasONo(not3)}</td>
                     <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
-                } else {
+                } 
+                else if(pNperiodo == 'Finales'){
+                    
+                }else {
                     matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
                     <td class="text-center">${GetColorNotaPasONo(not2)}</td>
                     <td class="text-center">${GetColorNotaPasONo(not3)}</td>
                     <td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
                 }
 
-                tbNotasDetalle.innerHTML += matnota;
+                tbNotasDetalle.innerHTML;
+                tbNotasDetalleCompleto.innerHTML += matnota;
             });
         });
 }

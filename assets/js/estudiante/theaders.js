@@ -230,28 +230,6 @@ class TableHeader {
       </tr>`;
       return notes;
     }
-
-    GetNotasOnePeriod(doc) {
-      let totP1 = 0, totP2 = 0, totP3 = 0, totFinal = 0;
-      let not1 = 0, not2 = 0, not3 = 0;
-      //PERIODO I
-      totP1 = ((doc.data().p1nota1 * 0.35) + (doc.data().p1nota2 * 0.35) + (doc.data().p1nota3 * 0.30));
-      totP2 = ((doc.data().p2nota1 * 0.35) + (doc.data().p2nota2 * 0.35) + (doc.data().p2nota3 * 0.30));
-      totP3 = ((doc.data().p3nota1 * 0.35) + (doc.data().p3nota2 * 0.35) + (doc.data().p3nota3 * 0.30));
-      not1 = doc.data().p1nota1 * 0.35;
-      not2 = doc.data().p1nota2 * 0.35;
-      not3 = doc.data().p1nota3 * 0.30;
-  
-      totFinal = (totP1 + totP2 + totP3) / 3;
-      const notes = `  <tr>
-          <td class="text-center">${doc.data().materia}</td>
-          <td class="text-center">${doc.data().p1nota1}</td>
-          <td class="text-center">${doc.data().p1nota2}</td>
-          <td class="text-center">${doc.data().p1nota3}</td>
-          <td class="text-primary text-center">${this.truncNota(totP1, 2)}</td> 
-      </tr>`;
-      return notes;
-    }
   
     truncNota(x, posiciones = 0) {
       var s = x.toString()
