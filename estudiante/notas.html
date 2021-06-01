@@ -517,7 +517,7 @@
         obj.text( txtGrado, 500, 90)
         obj.text('Alumno: ' + txtEstudiante, 40, 132)
 
-        obj.autoTable({ head: [['Materia', 'Nota']], body: res.data,  startX: 10, startY: 155 })
+        obj.autoTable({html:'#tbToPrintNtStudent',  startX: 10, startY: 155 })
 
         // Obteniendo materias aprobadas y reprobadas        
         var tabla = document.getElementById('tbToPrintNtStudent');
@@ -544,17 +544,6 @@
         obj.text('' + materiasReprobadas, 40, 390)
 
         obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
-
-        /* var data = document.getElementById('notasAlumnno').innerHTML;
-         let janela = window.open('', '', 'width=800, height=600');
-         janela.document.write('<htm><head>');
-         janela.document.write('<title>PDF </title></head>');
-         janela.document.write('<body><br>');
-         janela.document.write(data + "<br>");
-         janela.document.write('</body></html>');
-         janela.document.close();
-         janela.print();
-         */
     }
     function generarpdfTODAS() {
         var pdf = new jsPDF('landscape')
@@ -565,7 +554,7 @@
         pdf.setFontSize(14);
         pdf.text('Colegio Santa Ana', 32, 33)
         pdf.setFontSize(12);
-        pdf.text('Resúmen de notas de Año Académico', 15, 50)
+        pdf.text('Resúmen de notas de Año Académico', 15, 48)
 
         // Obteniendo fecha actual
         var today = new Date();
@@ -580,11 +569,17 @@
         var txtEstudiante = document.getElementById('UserLog').innerHTML;
         //Obteniendo grado
         var txtGrado = document.getElementById('shwGradeStToPrint').innerHTML;
-        
+        //Según el grado cambiar algunos valores de variables para que se vea mejor el pdf
+        var posicionxgrado=263, posiciony1=10, posiciony2=17, posiciony3=24, posiciony4=31, notaparareprobar=5, countcell=13;
+        if(txtGrado=="Primer Año Bachillerato" || txtGrado=="Segundo Año Bachillerato")
+        {
+            posicionxgrado=235; posiciony1=6; posiciony2=12; posiciony3=18; posiciony4=24; notaparareprobar=6; countcell=17;
+        }
+        //imprimiendo grado, alumno y tabla de notas
         pdf.setFontSize(12);
-        pdf.text( txtGrado, 263, 50)
-        pdf.text('Alumno: ' + txtEstudiante, 15, 64)
-        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 74})
+        pdf.text( txtGrado, posicionxgrado, 40)
+        pdf.text('Alumno: ' + txtEstudiante, 15, 55)
+        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 60})
 
         // Obteniendo materias aprobadas y reprobadas        
         var tabla = document.getElementById('tbListEstNotasAlumnoUser');
@@ -592,19 +587,21 @@
         var materiasAprobadas = [];
 
         for (i = 2; i < tabla.rows.length; i++) {         
-            if (tabla.rows[i].cells[13].innerText >= 5) {
+            if (tabla.rows[i].cells[countcell].innerText >= notaparareprobar) {
                 materiasAprobadas.push(tabla.rows[i].cells[0].innerText);
             } 
-            else if (tabla.rows[i].cells[13].innerText < 5) {
+            else if (tabla.rows[i].cells[countcell].innerText < notaparareprobar) {
                 materiasReprobadas.push(tabla.rows[i].cells[0].innerText);
             } 
         }
 
         pdf.setFontSize(11);
-        pdf.text('Materias aprobadas: ' + materiasAprobadas.length, 15, 142)
-        pdf.text('' + materiasAprobadas, 15, 150)
-        pdf.text('Materias reprobadas: ' + materiasReprobadas.length, 15, 162)
-        pdf.text('' + materiasReprobadas, 15, 170)
+        //Imprimiendo materias aprobadas y reprobadas
+        let finalY = pdf.lastAutoTable.finalY;
+        pdf.text('Materias aprobadas: ' + materiasAprobadas.length, 15, finalY+ posiciony1)
+        pdf.text('' + materiasAprobadas, 15, finalY + posiciony2)
+        pdf.text('Materias reprobadas: ' + materiasReprobadas.length, 15, finalY+posiciony3)
+        pdf.text('' + materiasReprobadas, 15, finalY + posiciony4)
 
         pdf.save('Resumen_Notas_' + txtEstudiante + '.pdf')
     }
