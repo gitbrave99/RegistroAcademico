@@ -159,10 +159,21 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
 
 function GetColorNotaPasONo(trunCnot) {
     let valor = ``;
-    if (trunCnot >= 5) {
-        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
-    } else {
-        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato"){
+        console.log("es toda wey");
+        if (trunCnot >= 6) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
+    }
+    else {
+        console.log("no es toda wey")
+        if (trunCnot >= 5) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
     }
     return valor;
 }

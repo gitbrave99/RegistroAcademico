@@ -2,6 +2,7 @@ var mdImpresionPeriodosF = document.getElementById("mdPrevImpresion");
 var tblistar = document.querySelector("#tbToPrintNtStudent");
 var btnImprimirNotas = document.querySelector("#printBoletNotasEstudiantex");
 var nombreUser = GetNameUserLog();
+var txtGrado = document.getElementById('shwGradeStToPrint').value;
 
 
 window.addEventListener("DOMContentLoaded", async (e) => {
@@ -138,19 +139,41 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
 
 function GetColorNotaPasONo(trunCnot) {
     let valor = ``;
-    if (trunCnot >= 5) {
-        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
-    } else {
-        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato"){
+        console.log("es toda wey");
+        if (trunCnot >= 6) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
+    }
+    else {
+        console.log("no es toda wey")
+        if (trunCnot >= 5) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
     }
     return valor;
 }
 function GetColorNotaPasONoBachiller(trunCnot) {
     let valor = ``;
-    if (trunCnot >= 5) {
-        valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
-    } else {
-        valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato"){
+        console.log("es toda wey");
+        if (trunCnot >= 7) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
+    }
+    else {
+        console.log("no es toda wey")
+        if (trunCnot >= 5) {
+            valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+        } else {
+            valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+        }
     }
     return valor;
 }
