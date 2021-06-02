@@ -578,15 +578,26 @@
         //Obteniendo grado
         var txtGrado = document.getElementById('shwGradeStToPrint').innerHTML;
         //Según el grado cambiar algunos valores de variables para que se vea mejor el pdf
-        var posicionxgrado = 263, posiciony1 = 10, posiciony2 = 17, posiciony3 = 24, posiciony4 = 31, notaparareprobar = 5, countcell = 13;
+        var cellwidthvar, posicionxgrado = 263, posiciony1 = 10, posiciony2 = 17, posiciony3 = 24, posiciony4 = 31, notaparareprobar = 5, countcell = 13;
         if (txtGrado == "Primer Año Bachillerato" || txtGrado == "Segundo Año Bachillerato") {
             posicionxgrado = 235; posiciony1 = 6; posiciony2 = 12; posiciony3 = 18; posiciony4 = 24; notaparareprobar = 6; countcell = 17;
+            cellwidthvar=17;
         }
         //imprimiendo grado, alumno y tabla de notas
+        
         pdf.setFontSize(12);
         pdf.text(txtGrado, posicionxgrado, 40)
         pdf.text('Alumno: ' + txtEstudiante, 15, 55)
-        pdf.autoTable({ html: '#tbListEstNotasAlumnoUser', startX: 10, startY: 60 })
+        pdf.autoTable({
+            html: '#tbListEstNotasAlumnoUser', columnStyles: {
+                0: { cellWidth: 25 },
+                4: { cellWidth: cellwidthvar},
+                8: { cellWidth: cellwidthvar},
+                12: { cellWidth: cellwidthvar},
+                16: { cellWidth: cellwidthvar},
+                // etc
+            }, startX: 10, startY: 60
+        })
 
         // Obteniendo materias aprobadas y reprobadas        
         var tabla = document.getElementById('tbListEstNotasAlumnoUser');

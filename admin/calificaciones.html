@@ -810,46 +810,51 @@
             pdf.setFontSize(12);
             pdf.text(gradoResp, 15, 75)
             var materia = '';
+            //variable para que se vea más ordenado las columnas
+            var cellwidthvar;
+            if (gradoResp == "Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato") {
+                cellwidthvar = 17;
+            }
             //mostrar la tabla conforme al radio seleccionado
             if (document.getElementById('rsociales').checked) {
                 materia = "Sociales"
                 pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                pdf.autoTable({ html: '#tbLiEstuMatSociales', startX: 10, startY: 85 })
+                pdf.autoTable({ html: '#tbLiEstuMatSociales', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
             }
             else if (document.getElementById('rlenguaje').checked) {
                 materia = "Lenguaje"
                 pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                pdf.autoTable({ html: '#tbLiEstuMatLenguaje', startX: 10, startY: 85 })
+                pdf.autoTable({ html: '#tbLiEstuMatLenguaje', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
             }
             else if (document.getElementById('rmatematicas').checked) {
                 materia = "Matemáticas"
                 pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                pdf.autoTable({ html: '#tbLiEstuMatMatematica', startX: 10, startY: 85 })
+                pdf.autoTable({ html: '#tbLiEstuMatMatematica', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
             }
             else if (document.getElementById('rciencias').checked) {
                 materia = "Ciencias"
                 pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                pdf.autoTable({ html: '#tbLiEstuMatCiencias', startX: 10, startY: 85 })
+                pdf.autoTable({ html: '#tbLiEstuMatCiencias', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
             }
             else if (document.getElementById('ringles').checked) {
                 materia = "Inglés"
                 pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                pdf.autoTable({ html: '#tbLiEstuMatIngles', startX: 10, startY: 85 })
+                pdf.autoTable({ html: '#tbLiEstuMatIngles', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
             }
             else {
                 if (document.getElementById('rtodos').checked) {
                     pdf.text('Resúmen de notas', 15, 60);
-                    pdf.autoTable({ html: '#tbLiEstuMatSociales', startX: 10, startY: 85 })
-                    pdf.autoTable({ html: '#tbLiEstuMatLenguaje', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                    pdf.autoTable({ html: '#tbLiEstuMatMatematica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                    pdf.autoTable({ html: '#tbLiEstuMatCiencias', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                    pdf.autoTable({ html: '#tbLiEstuMatIngles', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                    pdf.autoTable({ html: '#tbLiEstuMatSociales', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
+                    pdf.autoTable({ html: '#tbLiEstuMatLenguaje', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                    pdf.autoTable({ html: '#tbLiEstuMatMatematica', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                    pdf.autoTable({ html: '#tbLiEstuMatCiencias', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                    pdf.autoTable({ html: '#tbLiEstuMatIngles', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
 
                     if (gradoResp == "Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato") {
-                        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
-                        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                        pdf.autoTable({ html: '#tbListEstNotasInformatica', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                        pdf.autoTable({ html: '#tbListEstNotasSeminario', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                        pdf.autoTable({ html: '#tbListEstNotasOpv', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
+                        pdf.autoTable({ html: '#tbListEstNotasOptativa', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
                     }
                 }
 
@@ -857,22 +862,22 @@
                     if (document.getElementById('rinformatica').checked) {
                         materia = "Informática"
                         pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                        pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: 85 })
+                        pdf.autoTable({ html: '#tbListEstNotasInformatica', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
                     }
                     else if (document.getElementById('rseminario').checked) {
                         materia = "Seminario"
                         pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                        pdf.autoTable({ html: '#tbListEstNotasSeminario', startX: 10, startY: 85 })
+                        pdf.autoTable({ html: '#tbListEstNotasSeminario', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
                     }
                     else if (document.getElementById('ropv').checked) {
                         materia = "Orientación Para la Vida"
                         pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                        pdf.autoTable({ html: '#tbListEstNotasOpv', startX: 10, startY: 85 })
+                        pdf.autoTable({ html: '#tbListEstNotasOpv', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
                     }
                     else if (document.getElementById('roptativa').checked) {
                         materia = "Optativa"
                         pdf.text('Resúmen de notas: ' + materia, 15, 60);
-                        pdf.autoTable({ html: '#tbListEstNotasOptativa', startX: 10, startY: 85 })
+                        pdf.autoTable({ html: '#tbListEstNotasOptativa', columnStyles: { 0: { cellWidth: 25 }, 4: { cellWidth: cellwidthvar }, 8: { cellWidth: cellwidthvar }, 12: { cellWidth: cellwidthvar }, 16: { cellWidth: cellwidthvar } }, startX: 10, startY: 85 })
                     }
                 }
                 //pdf.autoTable({ html: '#tbListEstNotasInformatica', startX: 10, startY: pdf.lastAutoTable.finalY + 10 })
