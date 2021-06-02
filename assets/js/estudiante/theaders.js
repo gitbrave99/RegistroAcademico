@@ -284,7 +284,7 @@ class TableHeader {
     }
     //select de periodos para IMPRIMIR #selectForPeriodos
     GetSelectForThreePeriodosToPrint() {
-      const options = `<option selected disabled value="Elegir">Elegir</option>
+      const options = `
       <option value="I Periodo">I Trimestre</option>
       <option value="II Periodo">II Trimestre</option>
       <option value="III Periodo">III Trimestre</option>

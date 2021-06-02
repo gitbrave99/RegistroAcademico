@@ -246,7 +246,7 @@
                         <div class="table-responsive">
                             <table class="table" id="tbToPrintNtStudent">
                                 <thead class="text-center text-white" id="tableContent">
-                            
+
                                 </thead>
                                 <tbody id="tableContent">
 
@@ -258,7 +258,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- <script>
     (function() {
   'use strict';
@@ -288,7 +288,7 @@
 })();
   </script> -->
 
-  <span id="graengrStte" ></span>
+    <span id="graengrStte"></span>
     <!-- modal imprimir notas individual o todas -->
     <div class="modal fade" id="mdPrintNotasMatInAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -639,39 +639,42 @@
             var txtEstudiante = document.getElementById('nmStudente').innerHTML;
             //obteniendo grado
             var gradoResp = document.getElementById('gradoResponsable').value;
-            
+
             //obteniendo docente
             var txtdocente = document.getElementById('UserLog').innerHTML;
             obj.setFontSize(12);
             //mostrando docente, grado y estudiante
-            var notaminima=5;
             obj.text('Docente encargado: ' + txtdocente, 42, 115)
             var xgrado = 500;
-            if(gradoResp=="Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato"){
-            xgrado  = 420;
-            notaminima = 6;
+            var notaminima = 5;
+
+            if (gradoResp == "Primer Año Bachillerato" || gradoResp == "Segundo Año Bachillerato") {
+                xgrado = 420;
+                notaminima = 6;
             }
             obj.text(gradoResp, xgrado, 90)
             obj.text('Estudiante: ' + txtEstudiante, 42, 140)
 
             //Tabla del periodo especifico de x estudiantes
-            obj.autoTable({ head: [['Materia', 'Nota']], body: res.data, startX: 10, startY: 155 })
-         
+
+            obj.autoTable({ html: '#tbToPrintNtStudent', startX: 10, startY: 155 })
+
             // Obteniendo materias aprobadas y reprobadas        
             var tabla = document.getElementById('tbToPrintNtStudent');
             var materiasReprobadas = [];
             var materiasAprobadas = [];
 
-            for (var i = 0, row; row = tabla.rows[i]; i++) {
-
-                for (var j = 0, col; col = row.cells[j]; j++) {
-
-                    if (row.cells[j].innerText >= notaminima) {
-                        materiasAprobadas.push(row.cells[j - 1].innerText);
-                    }
-                    else if (row.cells[j].innerText < notaminima) {
-                        materiasReprobadas.push(row.cells[j - 1].innerText);
-                    }
+            var selectvalue = document.getElementById('selPerFnNotas').value;
+            var countcells = 4;
+            if (selectvalue == "Finales") {
+                countcells = 1;
+            }
+            for (i = 1; i < tabla.rows.length; i++) {
+                if (tabla.rows[i].cells[countcells].innerText >= notaminima) {
+                    materiasAprobadas.push(tabla.rows[i].cells[0].innerText);
+                }
+                else if (tabla.rows[i].cells[countcells].innerText < notaminima) {
+                    materiasReprobadas.push(tabla.rows[i].cells[0].innerText);
                 }
             }
 
@@ -679,9 +682,9 @@
             obj.setFontSize(11);
             let finalY = obj.lastAutoTable.finalY;
             obj.text('Materias aprobadas: ' + materiasAprobadas.length, 42, finalY + 30)
-            obj.text('' + materiasAprobadas , 42, finalY + 55)
+            obj.text('' + materiasAprobadas, 42, finalY + 55)
             obj.text('Materias reprobadas: ' + materiasReprobadas.length, 42, finalY + 80)
-            obj.text('' + materiasReprobadas , 42, finalY + 100)
+            obj.text('' + materiasReprobadas, 42, finalY + 100)
             //guardando el pdf
             obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
 

@@ -527,35 +527,26 @@
         obj.autoTable({ html: '#tbToPrintNtStudent', startX: 10, startY: 155 })
 
         // Obteniendo materias aprobadas y reprobadas        
-        
-        /*
-       for (var i = 0, row; row = tabla.rows[i]; i++) {
 
-           for (var j = 0, col; col = row.cells[j]; j++) {
-
-               if (row.cells[j].innerText >= 5) {
-                   materiasAprobadas.push(row.cells[j-1].innerText);
-               } 
-               else if (row.cells[j].innerText < 5) {
-                   materiasReprobadas.push(row.cells[j-1].innerText);
-               } 
-           }
-       }
-       */
+        var selectvalue = document.getElementById('selPerFnNotas').value;
+        var countcells = 4;
+        if (selectvalue == "Finales") {
+            countcells = 1;
+        }
         for (i = 1; i < tabla.rows.length; i++) {
-            if (tabla.rows[i].cells[4].innerText >= notaminima) {
+            if (tabla.rows[i].cells[countcells].innerText >= notaminima) {
                 materiasAprobadas.push(tabla.rows[i].cells[0].innerText);
             }
-            else if (tabla.rows[i].cells[4].innerText < notaminima) {
+            else if (tabla.rows[i].cells[countcells].innerText < notaminima) {
                 materiasReprobadas.push(tabla.rows[i].cells[0].innerText);
             }
         }
-        obj.setFontSize(11); 
+        obj.setFontSize(11);
         let finalY = obj.lastAutoTable.finalY;
-        obj.text('Materias aprobadas: ' + materiasAprobadas.length, 40, finalY+30)
-        obj.text('' + materiasAprobadas, 40, finalY+55)
-        obj.text('Materias reprobadas: ' + materiasReprobadas.length, 40, finalY+80)
-        obj.text('' + materiasReprobadas, 40, finalY+100)
+        obj.text('Materias aprobadas: ' + materiasAprobadas.length, 40, finalY + 30)
+        obj.text('' + materiasAprobadas, 40, finalY + 55)
+        obj.text('Materias reprobadas: ' + materiasReprobadas.length, 40, finalY + 80)
+        obj.text('' + materiasReprobadas, 40, finalY + 100)
 
         obj.save('Notas_' + txtPeriodo + '_' + txtEstudiante + '.pdf')
     }
