@@ -111,7 +111,11 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatusAdmin) {
-            await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui, telefono, user, password);
+            if (sexo=="Elegir") {
+            }else{
+                await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui, telefono, user, password);
+            }
+            console.log("sex admin ",sexo);
         } else {
             await updateAdmin(idadmin, {
                 nombre: nombre,

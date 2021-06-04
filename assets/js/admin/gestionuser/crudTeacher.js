@@ -150,7 +150,10 @@ frmNewTeacher.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatusTeacher) {
+         if (sexo=="Elegir") {
+         }else{
             await ingresarTeacher(nombre, email, sexo, fechNacimiento, dui, telefono, user, password, gradoEncargado);
+         }
         } else {
             await updateTeacher(idTeacher, {
                 nombre: nombre,

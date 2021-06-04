@@ -10,28 +10,28 @@ const fingresarEstudiante = (nombre, fechNacimiento, sexo, user, password, grado
 
 const registrarMaterias = (estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
     p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, profesor) => {
-        db.collection('materia').doc().set({
-           estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
-           p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, profesor
-        });
-    };
+    db.collection('materia').doc().set({
+        estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
+        p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, profesor
+    });
+};
 
-const registrarMateriasBachillerato = (estudiante, grado, materia, 
+const registrarMateriasBachillerato = (estudiante, grado, materia,
     p1nota1, p1nota2, p1nota3,
-    p2nota1, p2nota2, p2nota3, 
+    p2nota1, p2nota2, p2nota3,
     p3nota1, p3nota2, p3nota3,
-    p4nota1, p4nota2, p4nota3, 
+    p4nota1, p4nota2, p4nota3,
     profesor) => {
-        db.collection('materia').doc().set({
-            estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
-            p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, p4nota1, 
-            p4nota2, p4nota3, profesor
-        });
-    };
-    
-    //al momento de regisra studen que tome el nombre completo del teacher del grade para crear las 5 materias 
+    db.collection('materia').doc().set({
+        estudiante, grado, materia, p1nota1, p1nota2, p1nota3,
+        p2nota1, p2nota2, p2nota3, p3nota1, p3nota2, p3nota3, p4nota1,
+        p4nota2, p4nota3, profesor
+    });
+};
+
+//al momento de regisra studen que tome el nombre completo del teacher del grade para crear las 5 materias 
 //del studiante
-    //SELECT FOR CARGAR GRADES REGISTRADOS PARA INGRESAR STUDIANTE
+//SELECT FOR CARGAR GRADES REGISTRADOS PARA INGRESAR STUDIANTE
 const sltListGradeRegForStudents = document.getElementById("selectGradoEstudiante");
 
 
@@ -133,7 +133,7 @@ function ShowGradesREgisterForStudent() {
                     }
                 }
             });
-            
+
         }).catch((error) => {
             console.log("eroro fordiponible grdteacher", error);
         });
@@ -164,7 +164,7 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
     const user = frmNewEstudiante['inUserEstudiante'].value;
     const password = frmNewEstudiante['inPassEstudiante'].value;
     const grado = frmNewEstudiante['selectGradoEstudiante'].value;
-    
+
     // Responsable
     const responsable = frmNewEstudiante['inNombreEstuRespon'].value;
     const telefono = frmNewEstudiante['inTelEstuRespon'].value;
@@ -174,38 +174,41 @@ frmNewEstudiante.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatus) {
-            
+
             // 1. Creando registro de estudiante.
             // db.collection("estudiante").where("user")
+            //if validacio q no ingres si esta en elegir
+            if (sexo == "Elegir") {
+            } else {
+                await fingresarEstudiante(nombre, fechNacimiento, sexo, user,
+                    password, grado, responsable, telefono, email, dui, direccion);
 
-            await fingresarEstudiante(nombre, fechNacimiento, sexo, user, 
-                password, grado, responsable, telefono, email, dui, direccion);
-   
+            }
             // 2. Creando registro default de notas por materia.
-            
+
             // a) Para bachillerato
             if (grado == "Primer Año Bachillerato" || grado == "Segundo Año Bachillerato") {
-                
+
                 const profesor = await GetProfesor(grado);
-                registrarMateriasBachillerato(nombre, grado, 'Sociales', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Matemáticas', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Ciencias', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Inglés', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Informática', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'OPV', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Seminario', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-                registrarMateriasBachillerato(nombre, grado, 'Optativa', 0, 0, 0, 0, 0, 0, 
-                0, 0, 0, 0, 0, 0, profesor[0]);
-            } 
+                registrarMateriasBachillerato(nombre, grado, 'Sociales', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Lenguaje', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Matemáticas', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Ciencias', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Inglés', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Informática', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'OPV', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Seminario', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+                registrarMateriasBachillerato(nombre, grado, 'Optativa', 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, profesor[0]);
+            }
 
             // b) Para otros grados
             else {
