@@ -65,14 +65,14 @@ document.querySelectorAll('.tuserc').forEach((el) => {
 
 
 // capturar datos de tabla y colocarlos en el form admin  #tableAdminRegs
-let tblistAdmins = document.getElementById('tableAdminRegs');
-let formAdminReg = document.querySelector('#formAdmin');
-let listBtnAdminstable = document.querySelectorAll('.btnEditAdmin');
-listBtnAdminstable.forEach((el, index) => {
-    el.addEventListener("click", (evt) => {
-        GetSetAdminDatainFormEdit(index + 1);
-    });
-});
+// let tblistAdmins = document.getElementById('tableAdminRegs');
+// let formAdminReg = document.querySelector('#formAdmin');
+// let listBtnAdminstable = document.querySelectorAll('.btnEditAdmin');
+// listBtnAdminstable.forEach((el, index) => {
+//     el.addEventListener("click", (evt) => {
+//         GetSetAdminDatainFormEdit(index + 1);
+//     });
+// });
 
 
 

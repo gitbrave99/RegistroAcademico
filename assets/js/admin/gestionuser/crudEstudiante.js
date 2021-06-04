@@ -1,5 +1,4 @@
 const db = firebase.firestore();
-
 let editStatus = false;
 let id = '';
 
@@ -85,9 +84,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
         const btsEditEstu = document.querySelectorAll('.btnEditStudent');
-        btsEditEstu.forEach((btn) => {
+        btsEditEstu.forEach((btn,index) => {
             btn.addEventListener("click", async (e) => {
                 selectForEditStudent();
+                 //parametro para apica etilo cuando se selcione pr editar
+                //index+1, tbUser, formUsr, pFormDInp
+                fEfc.GetSetAdminDatainFormEdit(index + 1,"tableStudentsReg","#frmIngresoEstudiante","#frmIngresoEstudiante div.inefstu");
                 try {
                     const doc = await getEstudiante(e.target.dataset.id);
                     const student = doc.data();

@@ -59,9 +59,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
         const btnsEditTeacher = document.querySelectorAll('.btnEditTeacher');
-        btnsEditTeacher.forEach((btn) => {
+        btnsEditTeacher.forEach((btn,index) => {
             btn.addEventListener("click", async (e) => {
                 selctforEditTeacher();
+                  //parametro para apica etilo cuando se selcione pr editar
+                //index+1, tbUser, formUsr, pFormDInp
+                fEfc.GetSetAdminDatainFormEdit(index + 1,"tableStudentsReg","#frmIngresoDocente","#frmIngresoDocente div.inefTech");
                 try {
                     const doc = await getTeacher(e.target.dataset.id);
                     const teach = doc.data();

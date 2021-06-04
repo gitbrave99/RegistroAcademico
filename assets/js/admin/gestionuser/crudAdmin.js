@@ -1,6 +1,7 @@
 // const db = firebase.firestore();
 let editStatusAdmin = false;
 let idadmin = '';
+const fEfc = new Formefects();
 const ingresarAdministrador = (nombre, email, sexo, fechNacimiento, dui, telefono, user, password) =>
     db.collection('administrador').doc().set({
         nombre, email, sexo, fechNacimiento, dui, telefono, user, password
@@ -55,9 +56,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
         const btnsEditAdmin = document.querySelectorAll('.btnEditAdmin');
-        btnsEditAdmin.forEach((btn) => {
+        btnsEditAdmin.forEach((btn,index) => {
             btn.addEventListener("click", async (e) => {
                 selectForEditAdmin();
+                //parametro para apica etilo cuando se selcione pr editar
+                //index+1, tbUser, formUsr, pFormDInp
+                fEfc.GetSetAdminDatainFormEdit(index + 1,"tableAdminRegs","#formIngresoAdmin","#formIngresoAdmin div.grlbin");
                 try {
                     const doc = await getAdmin(e.target.dataset.id);
                     const admin = doc.data();
@@ -80,6 +84,12 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 }
             });
         });
+        // document.querySelectorAll('#formIngresoAdmin div.grlbin').forEach((el, index) => {
+        //     console.log("adding class");
+        //     el.addEventListener("click", (evt) => {
+                
+        //     })
+        // });
 
         document.getElementById('btnModalDeleteUsuario').addEventListener('click', async (e) => {
             try {
@@ -111,11 +121,10 @@ frmNewAdmin.addEventListener('submit', async (e) => {
 
     try {
         if (!editStatusAdmin) {
-            if (sexo=="Elegir") {
-            }else{
+            if (sexo == "Elegir") {
+            } else {
                 await ingresarAdministrador(nombre, email, sexo, fechNacimiento, dui, telefono, user, password);
             }
-            console.log("sex admin ",sexo);
         } else {
             await updateAdmin(idadmin, {
                 nombre: nombre,
