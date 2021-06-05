@@ -232,18 +232,18 @@ class TableHeader {
   GetColorNotaPasONo(trunCnot) {
     let valor = ``;
     if (trunCnot >= 5) {
-      valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-success">${truncNota(trunCnot, 2).toFixed(1)}</span>`;
     } else {
-      valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-warning">${truncNota(trunCnot, 2).toFixed(1)}</span>`;
     }
     return valor;
   }
   GetColorNotaPasONoBachiller(trunCnot) {
     let valor = ``;
     if (trunCnot >= 6) {
-      valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-success">${truncNota(trunCnot, 2).toFixed(1)}</span>`;
     } else {
-      valor = `<span class="text-warning">${truncNota(trunCnot, 2)}</span>`;
+      valor = `<span class="text-warning">${truncNota(trunCnot, 2).toFixed(1)}</span>`;
     }
     return valor;
   }

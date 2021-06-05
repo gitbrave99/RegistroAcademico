@@ -108,7 +108,7 @@ function ShowSubjectForPeriPrint(pNperiodo, pnmStu) {
                 matnota += `<tr><td class="text-center">${doc.data().materia}</td>`;
 
                 if(pNperiodo == 'Finales'){
-                    matnota += `<td class="text-center">${GetColorNotaPasONo(totFinal)}</td></tr>`;
+                    matnota += `<td class="text-center">${GetColorNotaPasONo(truncNota(totFinal, 2).toFixed(1))}</td></tr>`;
                 }else if (totP4 == 0) {
                     matnota += `<td class="text-center">${GetColorNotaPasONo(not1)}</td>
                     <td class="text-center">${GetColorNotaPasONo(not2)}</td>
