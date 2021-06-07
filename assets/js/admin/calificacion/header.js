@@ -250,7 +250,7 @@ class TableHeader {
           <td class="text-center">${doc.data().p3nota2}</td>
           <td class="text-center">${doc.data().p3nota3}</td>
           <td class="text-primary text-center">${this.truncNota(totP3, 2)}</td>
-          <td class="text-primary text-success">${this.GetColorNotaPasONo(totFinal)}</td>
+          <td class="text-primary text-success">${this.GetColorNotaPasONoBachiller(totFinal)}</td>
           <td>
                   <button type="button" class="btn btn-info green accent-4 ${pBtnclassByMateria}" data-idmatselected="${doc.id}" data-nmstudent="${doc.data().estudiante}" data-nmteacher="${doc.data().profesor}" data-materia="${doc.data().materia}" data-toggle="modal" data-target="#mdlAddNotaCrudAdmin">
                       Agregar Nota
@@ -271,8 +271,8 @@ class TableHeader {
 
   GetColorNotaPasONoBachiller(trunCnot) {
     let valor = ``;
-    console.log(GetGradoResponsable())
-    if (GetGradoResponsable() === "Primer Año Bachillerato" || GetGradoResponsable() == "Segundo Año Bachillerato"){
+    console.log(document.getElementById('titleGradeSelected').innerHTML)
+    if (document.getElementById('titleGradeSelected').innerHTML == "Primer Año Bachillerato" ||document.getElementById('titleGradeSelected').innerHTML == "Segundo Año Bachillerato"){
       console.log("es toda wey");
       if (trunCnot >= 6) {
           valor = `<span class="text-success">${truncNota(trunCnot, 2)}</span>`;
@@ -289,7 +289,7 @@ class TableHeader {
       }
   }
   return valor;
-  }
+  } 
 
   //select for calificaion elegir 3
   GetSelectForThreePeriodosAddNota() {
