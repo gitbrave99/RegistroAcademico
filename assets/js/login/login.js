@@ -32,7 +32,7 @@ formLogin.addEventListener("submit", async (e) => {
                     mensajesToForm.innerHTML = "";
                 }
             } else {
-                mensajesToForm.classList.add("text-danger");
+                mensajesToForm.style.color="#FF060E";
                 mensajesToForm.innerHTML = UserNoExiste();
             }
 
@@ -59,7 +59,7 @@ formLogin.addEventListener("submit", async (e) => {
                     mensajesToForm.innerHTML = "";
                 }
             } else {
-                mensajesToForm.classList.add("text-danger");
+                mensajesToForm.style.color="#FF060E";
                 mensajesToForm.innerHTML = UserNoExiste();
             }
 
@@ -90,7 +90,8 @@ formLogin.addEventListener("submit", async (e) => {
                     mensajesToForm.innerHTML = "";
                 }
             } else {
-                mensajesToForm.classList.add("text-danger");
+                
+                mensajesToForm.style.color="#FF060E";
                 mensajesToForm.innerHTML = UserNoExiste();
             }
         }).catch((error) => {
