@@ -12,26 +12,30 @@ formLogin.addEventListener("submit", async (e) => {
     dbGetUserForLogin.collection("estudiante").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
             let userResponseStu, nmUserStud, passResponseStu, gradElegidoEst;
-            querySnapshot.forEach((doc) => {
-                userResponseStu = doc.data().user;
-                nmUserStud=doc.data().nombre;
-                passResponseStu = doc.data().password;
-                grdResponseTeac= doc.data().grado;
-            });
-            if (userResponseStu == undefined) {
-                // mensajesToForm.classList.add("text-warning");
-                // mensajesToForm.innerHTML = "Usuario no existe";
-                console.log("no existe estudiante");
-            } else {
-                mensajesToForm.classList.add("text-success");
-                mensajesToForm.innerHTML = "";
-                console.log("estudiante user loging");
-                // mensajesToForm.innerHTML = "Loging";
-                RutaDeAccesoPerfilUser("estudiante/perfil");
-                SetLSSesion(userResponseStu, "estudiante",nmUserStud);
-                //setea grado de estudiatne
-                SetGradoRespable(grdResponseTeac);
+            if (querySnapshot.size > 0) 
+            {
+                querySnapshot.forEach((doc) => {
+                    userResponseStu = doc.data().user;
+                    nmUserStud=doc.data().nombre;
+                    passResponseStu = doc.data().password;
+                    grdResponseTeac= doc.data().grado;
+                });
+                if (userResponseStu == undefined) {
+                    // mensajesToForm.classList.add("text-warning");
+                    // mensajesToForm.innerHTML = "Usuario no existe";
+                    console.log("no existe estudiante");
+                } else {
+                    mensajesToForm.classList.add("text-success");
+                    mensajesToForm.innerHTML = "";
+                    console.log("estudiante user loging");
+                    // mensajesToForm.innerHTML = "Loging";
+                    RutaDeAccesoPerfilUser("estudiante/perfil");
+                    SetLSSesion(userResponseStu, "estudiante",nmUserStud);
+                    //setea grado de estudiatne
+                    SetGradoRespable(grdResponseTeac);
+                }
             }
+            
         }).catch((error) => {
             console.log("sino exite student error=", error);
         });
@@ -39,22 +43,26 @@ formLogin.addEventListener("submit", async (e) => {
     dbGetUserForLogin.collection("administrador").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
             let userResponseAdmin, nmUserLogAdmin, passResponseAdmmin;
-            querySnapshot.forEach((doc) => {
-                userResponseAdmin = doc.data().user;
-                nmUserLogAdmin=doc.data().nombre;
-                passResponseAdmmin = doc.data().password;
-            });
-            if (userResponseAdmin == undefined) {
-                // mensajesToForm.classList.add("text-warning");
-                // mensajesToForm.innerHTML = "Usuario no existe";
-                console.log("no existe admin");
-            } else {
-                console.log("administrador user loging");
-                mensajesToForm.classList.add("text-success");
-                mensajesToForm.innerHTML = "";
-                RutaDeAccesoPerfilUser("admin/perfil");
-                SetLSSesion(userResponseAdmin, "administrador",nmUserLogAdmin);
+            if (querySnapshot.size > 0) 
+            {
+                querySnapshot.forEach((doc) => {
+                    userResponseAdmin = doc.data().user;
+                    nmUserLogAdmin=doc.data().nombre;
+                    passResponseAdmmin = doc.data().password;
+                });
+                if (userResponseAdmin == undefined) {
+                    // mensajesToForm.classList.add("text-warning");
+                    // mensajesToForm.innerHTML = "Usuario no existe";
+                    console.log("no existe admin");
+                } else {
+                    console.log("administrador user loging");
+                    mensajesToForm.classList.add("text-success");
+                    mensajesToForm.innerHTML = "";
+                    RutaDeAccesoPerfilUser("admin/perfil");
+                    SetLSSesion(userResponseAdmin, "administrador",nmUserLogAdmin);
+                }
             }
+            
         }).catch((error) => {
             console.log("sino exite admin error=", error);
         });
@@ -63,24 +71,27 @@ formLogin.addEventListener("submit", async (e) => {
     dbGetUserForLogin.collection("profesor").where("user", "==", user).where("password", "==", password)
         .get().then((querySnapshot) => {
             let userResponseAdminTeacher, nmUserlogteacher, passResponseTeacher, grdResponseTeac;
-            querySnapshot.forEach((doc) => {
-                userResponseAdminTeacher = doc.data().user;
-                nmUserlogteacher=doc.data().nombre;
-                passResponseTeacher = doc.data().password;
-                grdResponseTeac=doc.data().gradoEncargado;
-            });
-            if (userResponseAdminTeacher == undefined) {
-                // mensajesToForm.classList.add("text-warning");
-                // mensajesToForm.innerHTML = "Usuario no existe";
-                console.log("no existe profesor");
-            } else {
-                console.log("teacher user loging");
-                mensajesToForm.classList.add("text-success");
-                mensajesToForm.innerHTML = "";
-                RutaDeAccesoPerfilUser("docente/perfil");
-                //obtiene grado responsabel
-                SetGradoRespable(grdResponseTeac);
-                SetLSSesion(userResponseAdminTeacher, "docente",nmUserlogteacher);
+            if (querySnapshot.size > 0) 
+            {
+                querySnapshot.forEach((doc) => {
+                    userResponseAdminTeacher = doc.data().user;
+                    nmUserlogteacher=doc.data().nombre;
+                    passResponseTeacher = doc.data().password;
+                    grdResponseTeac=doc.data().gradoEncargado;
+                });
+                if (userResponseAdminTeacher == undefined) {
+                    // mensajesToForm.classList.add("text-warning");
+                    // mensajesToForm.innerHTML = "Usuario no existe";
+                    console.log("no existe profesor");
+                } else {
+                    console.log("teacher user loging");
+                    mensajesToForm.classList.add("text-success");
+                    mensajesToForm.innerHTML = "";
+                    RutaDeAccesoPerfilUser("docente/perfil");
+                    //obtiene grado responsabel
+                    SetGradoRespable(grdResponseTeac);
+                    SetLSSesion(userResponseAdminTeacher, "docente",nmUserlogteacher);
+                }
             }
         }).catch((error) => {
             console.log("sino exite techer error=", error);

@@ -1,3 +1,5 @@
+let actualGradeAdmin = null;
+
 function GetLSSesionUser() {
   let sesi = localStorage.getItem('sesionUser');
   return sesi;
@@ -11,11 +13,20 @@ function GetNameUserLog() {
   return nmUser;
 }
 function GetGradoResponsable(){
- let grdRespon= localStorage.getItem('seGradoResponsable'); 
- return grdRespon;
+    let grdRespon= localStorage.getItem('seGradoResponsable'); 
+
+    if(grdRespon === null)
+    {
+        return actualGradeAdmin;
+    }
+
+    return grdRespon;
 }
 
-
+function setActualGradeAdmin (actualGradeAdminR)
+{
+    actualGradeAdmin = actualGradeAdminR;
+}
 
 function LogOut() {
   localStorage.clear();
