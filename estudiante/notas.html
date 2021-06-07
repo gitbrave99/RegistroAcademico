@@ -103,7 +103,7 @@
                                         <li class="nav-item">
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#mdPrevImpresion">
-                                                <i class="material-icons">print</i> Trimestre
+                                                <i class="material-icons">print</i> Boletas
                                                 <div class="ripple-container"></div>
                                             </button>
                                         </li>
@@ -578,7 +578,7 @@
         //Obteniendo grado
         var txtGrado = document.getElementById('shwGradeStToPrint').innerHTML;
         //Según el grado cambiar algunos valores de variables para que se vea mejor el pdf
-        var cellwidthvar, posicionxgrado = 263, posiciony1 = 10, posiciony2 = 17, posiciony3 = 24, posiciony4 = 31, notaparareprobar = 5, countcell = 13;
+        var cellwidthvar =20, posicionxgrado = 263, posiciony1 = 10, posiciony2 = 17, posiciony3 = 24, posiciony4 = 31, notaparareprobar = 5, countcell = 13;
         if (txtGrado == "Primer Año Bachillerato" || txtGrado == "Segundo Año Bachillerato") {
             posicionxgrado = 235; posiciony1 = 6; posiciony2 = 12; posiciony3 = 18; posiciony4 = 24; notaparareprobar = 6; countcell = 17;
             cellwidthvar=17;

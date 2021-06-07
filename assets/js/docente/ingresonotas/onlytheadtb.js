@@ -25,49 +25,49 @@ class TableHeader {
         Estudiante
       </th>
       <th scope="col" class="text-center">
-        Nota 1 35%
+         35%
       </th>
       <th scope="col" class="text-center">
-        Nota 2 35%
+         35%
       </th>
       <th scope="col" class="text-center">
-        Nota 3 30%
-      </th>
-      <th scope="col" class="text-center">
-        Total Periodo
-      </th>
-      <th scope="col" class="text-center">
-        Nota 1 35%
-      </th>
-      <th scope="col" class="text-center">
-        Nota 2 35%
-      </th>
-      <th scope="col" class="text-center">
-        Nota 3 30%
+       30%
       </th>
       <th scope="col" class="text-center">
         Total Periodo
       </th>
       <th scope="col" class="text-center">
-        Nota 1 35%
+         35%
       </th>
       <th scope="col" class="text-center">
-        Nota 2 35%
+       35%
       </th>
       <th scope="col" class="text-center">
-        Nota 3 30%
+       30%
       </th>
       <th scope="col" class="text-center">
         Total Periodo
       </th>
       <th scope="col" class="text-center">
-        Nota 1 35%
+       35%
       </th>
       <th scope="col" class="text-center">
-        Nota 2 35%
+       35%
       </th>
       <th scope="col" class="text-center">
-        Nota 3 30%
+       30%
+      </th>
+      <th scope="col" class="text-center">
+        Total Periodo
+      </th>
+      <th scope="col" class="text-center">
+       35%
+      </th>
+      <th scope="col" class="text-center">
+       35%
+      </th>
+      <th scope="col" class="text-center">
+       30%
       </th>
       <th scope="col" class="text-center">
         Total Periodo
@@ -104,37 +104,37 @@ class TableHeader {
           Estudiante
         </th>
         <th scope="col" class="text-center">
-          Nota 1 35%
+         35%
         </th>
         <th scope="col" class="text-center">
-          Nota 2 35%
+         35%
         </th>
         <th scope="col" class="text-center">
-          Nota 3 30%
-        </th>
-        <th scope="col" class="text-center">
-          Total Trimestre
-        </th>
-        <th scope="col" class="text-center">
-          Nota 1 35%
-        </th>
-        <th scope="col" class="text-center">
-          Nota 2 35%
-        </th>
-        <th scope="col" class="text-center">
-          Nota 3 30%
+         30%
         </th>
         <th scope="col" class="text-center">
           Total Trimestre
         </th>
         <th scope="col" class="text-center">
-          Nota 1 35%
+         35%
         </th>
         <th scope="col" class="text-center">
-          Nota 2 35%
+         35%
         </th>
         <th scope="col" class="text-center">
-          Nota 3 30%
+         30%
+        </th>
+        <th scope="col" class="text-center">
+          Total Trimestre
+        </th>
+        <th scope="col" class="text-center">
+         35%
+        </th>
+        <th scope="col" class="text-center">
+         35%
+        </th>
+        <th scope="col" class="text-center">
+         30%
         </th>
         <th scope="col" class="text-center">
           Total Trimestre
@@ -431,13 +431,13 @@ class TableHeader {
           Materia
         </th>
         <th scope="col" class="text-center">
-          Nota 1 35%
+         35%
         </th>
         <th scope="col" class="text-center">
-          Nota 2 35%
+           35%
         </th>
         <th scope="col" class="text-center">
-          Nota 3 30%
+          30%
         </th>
         <th scope="col" class="text-center">
           Total

@@ -69,7 +69,7 @@ function ShowAllStudentsByGradeTeacher(pGrade) {
                     <td class="text-center">${doc.data().direccion}</td>
                     <td class="text-center">
                         <button type="button" class="btn btn-info green accent-4 btnUsetoPrintn" data-grdestu="${doc.data().grado}" data-nmestuden="${doc.data().nombre}" data-toggle="modal" data-target="#mdPrevImpresion">
-                        Imprimir
+                        Boleta
                         </button>
                     </td>
                 </tr>`;
