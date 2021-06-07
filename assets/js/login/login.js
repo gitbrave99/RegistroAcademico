@@ -32,7 +32,7 @@ formLogin.addEventListener("submit", async (e) => {
                     mensajesToForm.innerHTML = "";
                 }
             } else {
-                mensajesToForm.style.color="#FF060E";
+                mensajesToForm.classList.add("text-danger");
                 mensajesToForm.innerHTML = UserNoExiste();
             }
 
@@ -59,7 +59,7 @@ formLogin.addEventListener("submit", async (e) => {
                     mensajesToForm.innerHTML = "";
                 }
             } else {
-                mensajesToForm.style.color="#FF060E";
+                mensajesToForm.classList.add("text-danger");
                 mensajesToForm.innerHTML = UserNoExiste();
             }
 
@@ -86,12 +86,9 @@ formLogin.addEventListener("submit", async (e) => {
                     //obtiene grado responsabel
                     SetGradoRespable(grdResponseTeac);
                     SetLSSesion(userResponseAdminTeacher, "docente", nmUserlogteacher);
-                    mensajesToForm.classList.add("text-success");
-                    mensajesToForm.innerHTML = "";
                 }
             } else {
-                
-                mensajesToForm.style.color="#FF060E";
+                mensajesToForm.classList.add("text-danger");
                 mensajesToForm.innerHTML = UserNoExiste();
             }
         }).catch((error) => {
